@@ -1,0 +1,3 @@
+[submodule "XDG_CONFIG/.config/nvim"]
+	path = XDG_CONFIG/.config/nvim
+	url = https://github.com/nxvxl/nvim-config.git
