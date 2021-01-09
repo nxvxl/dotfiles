@@ -1,0 +1,142 @@
+!!! General Colorscheme
+!!!!!!!!!!!!!!!!!!
+!! Dark Pastels !!
+!!!!!!!!!!!!!!!!!!
+
+!*.foreground:	#dcdcdc
+!*.background:	#333333
+!#2c2c2c
+!*.cursorColor:	#dcdcdc
+!*.color0:		#3f3f3f
+!*.color1:		#705050
+!*.color2:		#60b48a
+!*.color3:		#dfaf8f
+!*.color4:		#9ab8d7
+!*.color5:		#dc8cc3
+!*.color6:		#8cd0d3
+!*.color7:		#dcdcdc
+!*.color8:		#709080
+!*.color9:		#dca3a3
+!*.color10:		#72d5a3
+!*.color11:		#f0dfaf
+!*.color12:		#94bff3
+!*.color13:		#ec93d3
+!*.color14:		#93e0e3
+!*.color15:		#ffffff
+
+
+! Gogh Flat
+*.background:	#000000
+*.foreground:	#94a3a5
+*.cursorColor:	#94a3a5
+
+*.color0:		#2c3e50
+*.color1:		#c0392b
+*.color2:		#27ae60
+*.color3:		#f39c12
+*.color4:		#2980b9
+*.color5:		#8e44ad
+*.color6:		#16a085
+*.color7:		#bdc3c7
+
+*.color8:		#34495e
+*.color9:		#e74c3c
+*.color10:		#2ecc71
+*.color11:		#f1c40f
+*.color12:		#3498db
+*.color13:		#9b59b6
+*.color14:		#2AA198
+*.color15:		#ecf0f1
+
+!*.color0:		#282a2e
+!*.color1:		#A54242
+!*.color2:		#8C9440
+!*.color3:		#de935f
+!*.color4:		#5F819D
+!*.color5:		#85678F
+!*.color6:		#5E8D87
+!*.color7:		#969896
+
+!*.color8:		#373b41
+!*.color9:		#cc6666
+!*.color10:		#b5bd68
+!*.color11:		#f0c674
+!*.color12:		#81a2be
+!*.color13:		#b294bb
+!*.color14:		#8abeb7
+!*.color15:		#c5c8c6
+
+
+
+! special
+!*.foreground:   #c5c8c6
+!*.background:   #1d1f21
+!*.cursorColor:  #c5c8c6
+
+! black
+!*.color0:       #282a2e
+!*.color8:       #373b41
+
+! red
+!*.color1:       #a54242
+!*.color9:       #cc6666
+
+! green
+!*.color2:       #8c9440
+!*.color10:      #b5bd68
+
+! yellow
+!*.color3:       #de935f
+!*.color11:      #f0c674
+
+! blue
+!*.color4:       #5f819d
+!*.color12:      #81a2be
+
+! magenta
+!*.color5:       #85678f
+!*.color13:      #b294bb
+
+! cyan
+!*.color6:       #5e8d87
+!*.color14:      #8abeb7
+
+! white
+!*.color7:       #707880
+!*.color15:      #c5c8c6
+
+!!!!!!!!!!!!!
+!!! URXVT !!!
+!!!!!!!!!!!!!
+
+!URxvt.depth:			32
+!URxvt*transparent:		false
+URxvt.font:             xft:Fantasque Sans Mono:pixelsize=14,\
+						-xos4-terminus-medium-r-normal-*-12-*-*-*-*-*-iso8859-1,\
+						xft:M+ 1m Regular:pixelsize=14
+URxvt.geometry:			90x24
+URxvt*scrollBar:		false
+URxvt*cursorBlink:		true
+!URxvt*internalBorder:	8
+!URxvt*externalBorder:	8
+URxvt*letterSpace:		-1
+
+!!!!!!!!!!!!!!!!!!!
+!!! Rofi Config !!!
+!!!!!!!!!!!!!!!!!!!
+
+rofi.modi:			window,run
+rofi.fullscreen:	true
+rofi.color-enabled:	true
+!rofi.width:		1024
+rofi.lines:			7
+rofi.opacity:		80
+rofi.font:			Fantasque Sans Mono 14
+rofi.color-window:	#333333,#ffffff
+! State				'bg',	'fg',	'bgalt',	'hlbg',	'hlfg'
+rofi.color-normal:	#333333,#ffffff,#333333,#008CFF,#ffffff
+rofi.color-urgent:	#333333,#ffffff,#333333,#f95f57,#ffffff	
+rofi.color-active:	#333333,#008CFF,#333333,#008CFF,#ffffff
+rofi.padding:		240
+rofi.bw:			0
+rofi.sidebar-mode:	true

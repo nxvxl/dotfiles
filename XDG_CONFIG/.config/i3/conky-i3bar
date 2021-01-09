@@ -60,6 +60,7 @@ conky.config = {
     show_graph_scale = false,
     show_graph_range = false,
 	short_units = true,
+	override_utf8_locale = true
 }
 
 conky.text = [[
