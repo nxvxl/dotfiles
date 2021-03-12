@@ -36,7 +36,7 @@ font pango:Monospace,FontAwesome 9
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-floating_maximum_size 800 x 480
+# floating_maximum_size 800 x 480
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
