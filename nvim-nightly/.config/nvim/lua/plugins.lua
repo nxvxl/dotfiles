@@ -55,6 +55,4 @@ return packer.startup(function()
   -- use 'nvim-lua/completion-nvim'
 
   use 'editorconfig/editorconfig-vim'
-
-  use 'mhinz/vim-startify'
 end)

@@ -44,6 +44,8 @@ local on_attach = function(client, bufnr)
       augroup END
     ]], false)
   end
+
+  print('LSP Attached')
 end
 
 -- Use a loop to conveniently both setup defined servers 
