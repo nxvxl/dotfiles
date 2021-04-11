@@ -37,7 +37,7 @@ vim.o.expandtab = true
 vim.o.autoindent = true
 vim.o.smartindent = true
 vim.o.pumheight = 15
--- vim.o.guicursor = ''
+vim.o.guicursor = 'i:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor'
 
 -- window options
 vim.wo.number = true
