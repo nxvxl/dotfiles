@@ -30,8 +30,8 @@ return packer.startup(function()
   use 'vim-airline/vim-airline-themes'
 
   -- syntax hightlighting
-  -- use 'sheerun/vim-polyglot'
-  use 'nvim-treesitter/nvim-treesitter'
+  use 'sheerun/vim-polyglot'
+  -- use 'nvim-treesitter/nvim-treesitter'
 
   -- Version Control
   use 'tpope/vim-fugitive'

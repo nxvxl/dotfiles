@@ -201,7 +201,7 @@ bindsym $mod+r mode "resize"
 bindsym $mod+t exec alacritty
 bindsym $mod+p exec pcmanfm
 #bindsym $alt+F12 exec lxterminal -e ncmpcpp
-bindsym Print exec flameshot gui
+bindsym $mod+Print exec flameshot gui
 
 #Power Control
 #bindsym $mod+Control+h exec gksudo systemctl hibernate
@@ -232,7 +232,7 @@ mode "(E)xit | (L)ock | (S)uspend" {
     bindsym Escape mode "default"
 }
 
-bindsym $mod+Delete mode "(E)xit | (L)ock | (S)uspend" 
+bindsym $mod+Delete mode "(E)xit | (L)ock | (S)uspend"
 #Window Colors
 # class                 border  backgr. text    indicator child_border
 client.focused          #215D9C #215D9C #ffffff #2e9ef4   #215D9C
@@ -246,20 +246,20 @@ client.background       #000000
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-# mode hide 
+# mode hide
 # hidden_state hide
 # modifier Mod4
   bindsym button1 nop
-  colors {
-    background #000000
-    statusline #ffffff
-    inactive_workspace #ffffff #000000 #ffffff
-    focused_workspace #ffffff #ffffff #000000
-  }
+    colors {
+      background #000000
+        statusline #ffffff
+        inactive_workspace #ffffff #000000 #ffffff
+        focused_workspace #ffffff #ffffff #000000
+    }
 
   status_command conky -c /home/noval/.config/i3/conky-i3bar
-  tray_output primary
-  position bottom
+    tray_output primary
+    position bottom
 }
 
 
