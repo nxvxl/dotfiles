@@ -17,7 +17,8 @@
 set $mod Mod4
 set $alt Mod1
 
-set $fgColor '#00FF00'
+set $black '#000000'
+set $white '#FFFFFF'
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -48,7 +49,7 @@ bindsym $mod+Shift+q kill
 bindsym $alt+F4 kill
 
 # start dmenu (a program launcher)
-bindsym $mod+a exec dmenu_run -p 'Run ⟫' -nb '#000000' -nf '#ffffff' -sb '#215D9C' -sf '#ffffff' -fn 'Fantasque Sans Mono'
+bindsym $mod+a exec dmenu_run -p '>>>' -nb $black -nf $white -sb $white -sf $black -fn 'JetBrains Mono'
 bindsym $mod+Tab exec rofi -show run
 bindsym $alt+Tab exec rofi -show window
 
@@ -120,7 +121,7 @@ bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 
+bindsym $mod+0 workspace 10
 bindsym $mod+F1 workspace 
 bindsym $mod+F2 workspace 
 bindsym $mod+F3 workspace 
@@ -136,7 +137,7 @@ bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 
+bindsym $mod+Shift+0 move container to workspace 10
 bindsym $mod+Shift+F1 move container to workspace 
 bindsym $mod+Shift+F2 move container to workspace 
 bindsym $mod+Shift+F3 move container to workspace 
@@ -235,7 +236,7 @@ mode "(E)xit | (L)ock | (S)uspend" {
 bindsym $mod+Delete mode "(E)xit | (L)ock | (S)uspend"
 #Window Colors
 # class                 border  backgr. text    indicator child_border
-client.focused          #215D9C #215D9C #ffffff #2e9ef4   #215D9C
+client.focused          #FFFFFF #FFFFFF #000000 #2e9ef4   #FFFFFF
 client.focused_inactive #000000 #000000 #888888 #484e50   #000000
 client.unfocused        #000000 #000000 #888888 #292d2e   #000000
 client.urgent           #ff0000 #ff0000 #000000 #900000   #900000
