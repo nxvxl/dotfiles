@@ -111,9 +111,7 @@
 
 !URxvt.depth:			32
 !URxvt*transparent:		false
-URxvt.font:             xft:Fantasque Sans Mono:pixelsize=14,\
-						-xos4-terminus-medium-r-normal-*-12-*-*-*-*-*-iso8859-1,\
-						xft:M+ 1m Regular:pixelsize=14
+URxvt.font:             xft:Fantasque Sans Mono:pixelsize=14,-xos4-terminus-medium-r-normal-*-12-*-*-*-*-*-iso8859-1,xft:M+ 1m Regular:pixelsize=14
 URxvt.geometry:			90x24
 URxvt*scrollBar:		false
 URxvt*cursorBlink:		true
@@ -130,13 +128,13 @@ rofi.fullscreen:	true
 rofi.color-enabled:	true
 !rofi.width:		1024
 rofi.lines:			7
-rofi.opacity:		80
-rofi.font:			Fantasque Sans Mono 14
-rofi.color-window:	#333333,#ffffff
+rofi.opacity:		60
+rofi.font:			JetBrains Mono 14
+rofi.color-window:	#000000,#ffffff
 ! State				'bg',	'fg',	'bgalt',	'hlbg',	'hlfg'
-rofi.color-normal:	#333333,#ffffff,#333333,#008CFF,#ffffff
-rofi.color-urgent:	#333333,#ffffff,#333333,#f95f57,#ffffff	
-rofi.color-active:	#333333,#008CFF,#333333,#008CFF,#ffffff
+rofi.color-normal:	#000000,#ffffff,#000000,#ffffff,#000000
+rofi.color-urgent:	#000000,#ffffff,#000000,#f95f57,#ffffff
+rofi.color-active:	#000000,#ffffff,#000000,#ffffff,#000000
 rofi.padding:		240
 rofi.bw:			0
 rofi.sidebar-mode:	true

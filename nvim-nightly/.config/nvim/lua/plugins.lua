@@ -55,4 +55,8 @@ return packer.startup(function()
   -- use 'nvim-lua/completion-nvim'
 
   use 'editorconfig/editorconfig-vim'
+
+  use 'vimwiki/vimwiki'
+
+  use 'norcalli/nvim-colorizer.lua'
 end)
