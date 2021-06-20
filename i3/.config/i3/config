@@ -265,7 +265,8 @@ bar {
 
 
 
-exec --no-startup-id ./.fehbg
+#exec --no-startup-id ./.fehbg
+exec --no-startup-id nitrogen --restore &
 exec --no-startup-id xfce4-volumed &
 exec --no-startup-id xfce4-power-manager &
 exec --no-startup-id compton -fFb &

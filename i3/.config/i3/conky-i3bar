@@ -68,9 +68,9 @@ ${if_up wlp3s0}   ${wireless_essid wlp3s0} ${wireless_link_qual_perc wlp3s0}%
 ${if_up enp0s20u2}   enp0s20u2  ▼ ${downspeed enp0s20u2} ▲ ${upspeed enp0s20u2} | ${endif}\
 ${if_up enp0s20u1}   enp0s20u1  ▼ ${downspeed enp0s20u1} ▲ ${upspeed enp0s20u1} | ${endif}\
   ${cpu cpu0}% | \
-  $mem/$memmax | \
+  $mem/$memmax | \
   $swap/$swapmax | \
   ${battery BAT0} | \
-  $acpitemp°C |   $uptime_short |   ${time %a %y.%m.%d %H:%M}
+  $acpitemp°C |   $uptime_short |   ${time %a %y.%m.%d %H:%M}
 
 ]]
