@@ -26,7 +26,7 @@ vim.o.updatetime = 300
 vim.o.mouse = "a"
 vim.o.clipboard = "unnamedplus"
 vim.o.termguicolors = true
-vim.o.t_Co = "256"
+-- vim.o.t_Co = "256"
 vim.o.incsearch = true
 vim.o.hlsearch = false
 

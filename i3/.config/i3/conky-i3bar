@@ -64,13 +64,13 @@ conky.config = {
 }
 
 conky.text = [[
-${if_up wlp3s0}   ${wireless_essid wlp3s0} ${wireless_link_qual_perc wlp3s0}%  ▼ ${downspeed wlp3s0} ▲ ${upspeed wlp3s0} | ${endif}\
+${if_up wlp3s0}  ${wireless_essid wlp3s0} ${wireless_link_qual_perc wlp3s0}%  ▼ ${downspeed wlp3s0} ▲ ${upspeed wlp3s0} | ${endif}\
 ${if_up enp0s20u2}   enp0s20u2  ▼ ${downspeed enp0s20u2} ▲ ${upspeed enp0s20u2} | ${endif}\
 ${if_up enp0s20u1}   enp0s20u1  ▼ ${downspeed enp0s20u1} ▲ ${upspeed enp0s20u1} | ${endif}\
-  ${cpu cpu0}% | \
-  $mem/$memmax | \
-  $swap/$swapmax | \
-  ${battery BAT0} | \
-  $acpitemp°C |   $uptime_short |   ${time %a %y.%m.%d %H:%M}
+ ${cpu cpu0}% | \
+ $memperc% | \
+ $swapperc% | \
+ ${battery BAT0} | \
+ $acpitemp°C |  $uptime_short |  ${time %a %y.%m.%d %H:%M}
 
 ]]
