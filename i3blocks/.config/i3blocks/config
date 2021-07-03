@@ -33,50 +33,50 @@ markup=none
 
 [ssid]
 label=
-interval=60
+interval=13
 separator=false
 
 [network]
 instance=wlp3s0
-interval=10
+interval=11
 separator=false
 
 [bandwidth]
 instance=wlp3s0;both
-interval=1
+interval=2
 
 [cpu]
 label=
 interval=2
 
-[memory]
+[memory2]
 label=
 instance=mem;used
 interval=5
 
 [memory]
-label=
+label=
 instance=swap;used
-interval=10
+interval=30
 
 [audio]
 interval=once
 signal=10
 
+[brightness]
+label=
+interval=once
+signal=11
+
 [battery]
 instance=0
-interval=5
+interval=30
 
 # Part 2
 
 #[bluetooth]
 #label=
 #interval=10
-
-[brightness]
-label=
-interval=once
-signal=11
 
 #[countdown]
 #instance=tomorrow 05:00:00
