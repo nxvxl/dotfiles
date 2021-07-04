@@ -37,12 +37,10 @@ font pango:JetBrains Mono,FontAwesome 9
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-# floating_maximum_size 800 x 480
+floating_maximum_size 1280 x 720
 
 # start a terminal
 bindsym $mod+Return exec x-terminal-emulator
-#bindsym $mod+Return exec start-tmux
-#bindsym $mod+t exec lxterminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -50,35 +48,15 @@ bindsym $alt+F4 kill
 
 # start dmenu (a program launcher)
 bindsym $mod+a exec dmenu_run -p '>>> ' -nb $black -nf $white -sb '#315bef' -sf $white -fn 'JetBrains Mono-10'
-#bindsym $mod+a exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -p '>>> ' -nb $black -nf $white -sb '#315bef' -sf $white -fn 'JetBrains Mono-10'"
 bindsym $mod+Tab exec --no-startup-id application-menu.sh
-#bindsym $mod+Tab exec rofi -show run
-#bindsym $alt+Tab exec rofi -show window
-
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-#bindsym $mod+j focus left
-#bindsym $mod+k focus down
-#bindsym $mod+l focus up
-#bindsym $mod+semicolon focus right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-#bindsym $mod+Shift+j move left
-#bindsym $mod+Shift+k move down
-#bindsym $mod+Shift+l move up
-#bindsym $mod+Shift+semicolon move right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -174,20 +152,20 @@ mode "resize" {
 # Pressing right will grow the window’s width.
 # Pressing up will shrink the window’s height.
 # Pressing down will grow the window’s height.
-  bindsym j resize shrink width 10 px or 10 ppt
-    bindsym k resize grow height 10 px or 10 ppt
-    bindsym l resize shrink height 10 px or 10 ppt
-    bindsym semicolon resize grow width 10 px or 10 ppt
+	bindsym j resize shrink width 10 px or 10 ppt
+	bindsym k resize grow height 10 px or 10 ppt
+	bindsym l resize shrink height 10 px or 10 ppt
+	bindsym semicolon resize grow width 10 px or 10 ppt
 
 # same bindings, but for the arrow keys
-    bindsym Left resize shrink width 10 px or 10 ppt
-    bindsym Down resize grow height 10 px or 10 ppt
-    bindsym Up resize shrink height 10 px or 10 ppt
-    bindsym Right resize grow width 10 px or 10 ppt
+	bindsym Left resize shrink width 10 px or 10 ppt
+	bindsym Down resize grow height 10 px or 10 ppt
+	bindsym Up resize shrink height 10 px or 10 ppt
+	bindsym Right resize grow width 10 px or 10 ppt
 
 # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -214,49 +192,41 @@ bindsym XF86ScreenSaver exec --no-startup-id xautolock -locknow && sleep 1s && x
 
 #Launch Apps
 bindsym $mod+t exec x-terminal-emulator
-bindsym $mod+p exec caja
-#bindsym $alt+F12 exec lxterminal -e ncmpcpp
+bindsym $mod+p exec thunar
 bindsym $mod+Print exec flameshot gui
 
-#Power Control
-#bindsym $mod+Control+h exec gksudo systemctl hibernate
-#bindsym $mod+Control+s exec gksudo shudtown -h now
-#bindsym $mod+Control+r exec gksudo shutdown -r now
+set $powerMenu "Power Control: (S)hutdown | (R)estart"
+set $sessionMenu "(E)xit | (L)ock | (S)uspend"
 
+mode $powerMenu {
+	bindsym s exec shutdown -h now ; mode "default"
+	bindsym r exec shutdown -r now ; mode "default"
 
-mode "Power Control: (S)hutdown | (R)estart | (H)ibernate" {
-  bindsym s exec shutdown -h now ; mode "default"
-    bindsym r exec shutdown -r now ; mode "default"
-    bindsym h exec sudo systemctl hibernate ;mode "default"
-
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
 }
 
-bindsym $mod+Escape mode "Power Control: (S)hutdown | (R)estart | (H)ibernate"
+bindsym $mod+Escape mode $powerMenu
 
+mode $sessionMenu {
+	bindsym e exit ; mode "default"
+	bindsym l exec xautolock -locknow ; mode "default"
+	bindsym s exec systemctl suspend ; mode "default"
 
-
-
-mode "(E)xit | (L)ock | (S)uspend" {
-  bindsym e exit ; mode "default"
-    bindsym l exec mate-screensaver-command -l ; mode "default"
-    #bindsym l exec light-locker-command -l ; mode "default"
-    bindsym s exec systemctl suspend ; mode "default"
-
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
 }
 
-bindsym $mod+Delete mode "(E)xit | (L)ock | (S)uspend"
+bindsym $mod+Delete mode $sessionMenu
+
 #Window Colors
-# class                 border  backgr. text    indicator child_border
-client.focused          #315bef #315bef #ffffff #315bef   #315bef
-client.focused_inactive #000000 #000000 #888888 #484e50   #000000
-client.unfocused        #000000 #000000 #888888 #292d2e   #000000
-client.urgent           #ff0000 #ff0000 #000000 #900000   #900000
-client.placeholder      #000000 #0c0c0c #000000 #000000   #0c0c0c
-client.background       #000000
+# class									border	backgr. text		indicator child_border
+client.focused					#315bef #315bef #ffffff #315bef #315bef
+client.focused_inactive #000000 #000000 #888888 #484e50 #000000
+client.unfocused				#000000 #000000 #888888 #292d2e #000000
+client.urgent						#ff0000 #ff0000 #000000 #900000 #900000
+client.placeholder			#000000 #0c0c0c #000000 #000000 #0c0c0c
+client.background				#000000
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -265,32 +235,20 @@ bar {
 # mode hide
 # hidden_state hide
 # modifier Mod4
-  bindsym button1 nop
-    colors {
-      background #000000
-        statusline #ffffff
-        inactive_workspace #ffffff #000000 #ffffff
-        focused_workspace #ffffff #ffffff #000000
-    }
+	bindsym button1 nop
+	colors {
+		background #000000
+		statusline #ffffff
+		inactive_workspace #ffffff #000000 #ffffff
+		focused_workspace #ffffff #ffffff #000000
+	}
 
-    #status_command conky -c /home/noval/.config/i3/conky-i3bar
-    status_command i3blocks -c ~/.config/i3blocks/config
-    tray_output primary
-    position bottom
+	status_command i3blocks
+	tray_output primary
+	position bottom
 }
 
-
-
+# autostart apps
 exec --no-startup-id ./.fehbg &
-#exec --no-startup-id nitrogen --restore &
-#exec --no-startup-id xfce4-volumed &
-#exec --no-startup-id xfce4-power-manager &
-#exec --no-startup-id light-locker &
-#exec --no-startup-id mate-settings-daemon &
-#exec --no-startup-id mate-power-manager &
-#exec --no-startup-id mate-screensaver &
-exec --no-startup-id xautolock -detectsleep -time 5 -locker "i3lock -n -c 242424" -killtime 10 -killer "systemctl suspend" &
+exec --no-startup-id xautolock -detectsleep -time 5 -locker "i3lock -n -c 315bef" -killtime 10 -killer "systemctl suspend" -corners 00--&
 exec --no-startup-id compton -fFb &
-#exec --no-startup-id syndaemon -i 0.5 -K -R -d &
-#exec xcompmgr -f
-#exec lxterminald
