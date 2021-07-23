@@ -10,9 +10,9 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # i3-gaps special config
-#for_window [class=".*"] border pixel 4
-#gaps inner 0
-#gaps outer 0
+for_window [class=".*"] border pixel 2
+gaps inner 10
+gaps outer 0
 
 set $mod Mod4
 set $alt Mod1
@@ -39,8 +39,10 @@ font pango:JetBrains Mono,FontAwesome 9
 floating_modifier $mod
 floating_maximum_size 1280 x 720
 
+focus_follows_mouse no
+
 # start a terminal
-bindsym $mod+Return exec x-terminal-emulator
+bindsym $mod+Return exec xfce4-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -176,7 +178,7 @@ hide_edge_borders both
 bindsym XF86AudioRaiseVolume exec --no-startup-id volume-ctrl.sh up
 bindsym XF86AudioLowerVolume exec --no-startup-id volume-ctrl.sh down
 bindsym XF86AudioMute exec --no-startup-id volume-ctrl.sh toggle
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 1 toggle
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 0 toggle
 
 # Brightness control
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 && pkill -SIGRTMIN+11 i3blocks
@@ -187,11 +189,8 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 
-# Lock and turn screen off
-bindsym XF86ScreenSaver exec --no-startup-id xautolock -locknow && sleep 1s && xset dpms force off
-
 #Launch Apps
-bindsym $mod+t exec x-terminal-emulator
+bindsym $mod+t exec xfce4-terminal
 bindsym $mod+p exec thunar
 bindsym $mod+Print exec flameshot gui
 
@@ -210,7 +209,7 @@ bindsym $mod+Escape mode $powerMenu
 
 mode $sessionMenu {
 	bindsym e exit ; mode "default"
-	bindsym l exec xautolock -locknow ; mode "default"
+	bindsym l exec i3lock -c 242424 -n ; mode "default"
 	bindsym s exec systemctl suspend ; mode "default"
 
 	bindsym Return mode "default"
@@ -220,13 +219,13 @@ mode $sessionMenu {
 bindsym $mod+Delete mode $sessionMenu
 
 #Window Colors
-# class									border	backgr. text		indicator child_border
-client.focused					#315bef #315bef #ffffff #315bef #315bef
-client.focused_inactive #000000 #000000 #888888 #484e50 #000000
-client.unfocused				#000000 #000000 #888888 #292d2e #000000
-client.urgent						#ff0000 #ff0000 #000000 #900000 #900000
-client.placeholder			#000000 #0c0c0c #000000 #000000 #0c0c0c
-client.background				#000000
+# class						border	backgr. text		indicator child_border
+client.focused			#315bef #315bef #ffffff #315bef #315bef
+client.focused_inactive		#000000 #000000 #888888 #484e50 #000000
+client.unfocused		#000000 #000000 #888888 #292d2e #000000
+client.urgent			#ff0000 #ff0000 #000000 #900000 #900000
+client.placeholder		#000000 #0c0c0c #000000 #000000 #0c0c0c
+client.background		#000000
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -236,11 +235,14 @@ bar {
 # hidden_state hide
 # modifier Mod4
 	bindsym button1 nop
+	bindsym button4 nop
+	bindsym button5 nop
+
 	colors {
-		background #000000
-		statusline #ffffff
-		inactive_workspace #ffffff #000000 #ffffff
-		focused_workspace #ffffff #ffffff #000000
+		background		#000000
+		statusline		#ffffff
+		inactive_workspace	#ffffff #000000 #ffffff
+		focused_workspace		#ffffff #ffffff #000000
 	}
 
 	status_command i3blocks
@@ -249,6 +251,7 @@ bar {
 }
 
 # autostart apps
+exec --no-startup-id /usr/lib64/xfce4/notifyd/xfce4-notifyd &
+exec --no-startup-id /usr/libexec/xfce-polkit &
 exec --no-startup-id ./.fehbg &
-exec --no-startup-id xautolock -detectsleep -time 5 -locker "i3lock -n -c 315bef" -killtime 10 -killer "systemctl suspend" -corners 00--&
-exec --no-startup-id compton -fFb &
+exec --no-startup-id compton &

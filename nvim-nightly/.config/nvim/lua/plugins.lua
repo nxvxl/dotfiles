@@ -15,23 +15,23 @@ return packer.startup(function()
   -- themes
   use 'bluz71/vim-moonfly-colors'
   use 'kaicataldo/material.vim'
-  use 'cocopon/iceberg.vim/'
   use { 'dracula/vim', as = 'dracula' }
   use 'lewis6991/moonlight.vim'
-  use 'joshdick/onedark.vim'
+  use 'navarasu/onedark.nvim'
   use 'sickill/vim-monokai'
   use 'novasenco/nokto'
   use 'lucasprag/simpleblack'
   use { 'challenger-deep-theme/vim', as = 'challenger-deep-theme' }
   use 'ayu-theme/ayu-vim'
+  use 'shaunsingh/nord.nvim'
 
   -- Status Line
   use 'vim-airline/vim-airline'
   use 'vim-airline/vim-airline-themes'
 
   -- syntax hightlighting
-  use 'sheerun/vim-polyglot'
-  -- use 'nvim-treesitter/nvim-treesitter'
+  -- use 'sheerun/vim-polyglot'
+  use 'nvim-treesitter/nvim-treesitter'
 
   -- Version Control
   use 'tpope/vim-fugitive'

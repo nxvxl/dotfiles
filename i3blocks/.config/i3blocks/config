@@ -32,13 +32,13 @@ markup=none
 # Part 1
 
 [ssid]
-label=
-interval=13
+label= 
+interval=5
 separator=false
 
 [network]
 instance=wlp3s0
-interval=11
+interval=5
 separator=false
 
 [bandwidth]
@@ -46,17 +46,17 @@ instance=wlp3s0;both
 interval=2
 
 [cpu]
-label=
+label= 
 interval=2
 
-[memory2]
-label=
-instance=mem;used
+[memory]
+label= 
+instance=mem;perc
 interval=5
 
 [memory]
-label=
-instance=swap;used
+label= 
+instance=swap;perc
 interval=30
 
 [audio]
@@ -64,7 +64,7 @@ interval=once
 signal=10
 
 [brightness]
-label=
+label= 
 interval=once
 signal=11
 
@@ -87,11 +87,11 @@ interval=30
 
 [temperature]
 instance=Core
-label=
+label= 
 interval=5
 
 [datetime]
-label=
+label= 
 instance=%a %d %b %Y %H:%M
 interval=30
 
@@ -218,7 +218,7 @@ interval=30
 # Part 12
 
 #[window]
-#command=~/.i3-blocks/blocks/scroll $BLOCK_NAME
+#command=~/.config/i3blocks/blocks/scroll $BLOCK_NAME
 #label=
 #markup=pango
 #interval=repeat
