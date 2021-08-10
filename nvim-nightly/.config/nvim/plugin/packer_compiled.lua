@@ -89,10 +89,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/mnm/.local/share/nvim/site/pack/packer/start/editorconfig-vim"
   },
-  ["lualine.nvim"] = {
-    loaded = true,
-    path = "/home/mnm/.local/share/nvim/site/pack/packer/start/lualine.nvim"
-  },
   ["material.vim"] = {
     loaded = true,
     path = "/home/mnm/.local/share/nvim/site/pack/packer/start/material.vim"
@@ -121,9 +117,17 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/mnm/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
   },
+  ["nvim-tree.lua"] = {
+    loaded = true,
+    path = "/home/mnm/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
+  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/home/mnm/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/home/mnm/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
   },
   ["onedark.nvim"] = {
     loaded = true,
@@ -154,6 +158,14 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/mnm/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
+  ["vim-airline"] = {
+    loaded = true,
+    path = "/home/mnm/.local/share/nvim/site/pack/packer/start/vim-airline"
+  },
+  ["vim-airline-themes"] = {
+    loaded = true,
+    path = "/home/mnm/.local/share/nvim/site/pack/packer/start/vim-airline-themes"
+  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/home/mnm/.local/share/nvim/site/pack/packer/start/vim-fugitive"
@@ -169,10 +181,6 @@ _G.packer_plugins = {
   ["vim-moonfly-colors"] = {
     loaded = true,
     path = "/home/mnm/.local/share/nvim/site/pack/packer/start/vim-moonfly-colors"
-  },
-  vimwiki = {
-    loaded = true,
-    path = "/home/mnm/.local/share/nvim/site/pack/packer/start/vimwiki"
   }
 }
 

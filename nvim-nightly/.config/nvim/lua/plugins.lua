@@ -29,6 +29,10 @@ return packer.startup(function()
   use 'vim-airline/vim-airline'
   use 'vim-airline/vim-airline-themes'
 
+  -- icons
+  use 'kyazdani42/nvim-web-devicons'
+  use 'kyazdani42/nvim-tree.lua'
+
   -- syntax hightlighting
   -- use 'sheerun/vim-polyglot'
   use 'nvim-treesitter/nvim-treesitter'
@@ -56,7 +60,7 @@ return packer.startup(function()
 
   use 'editorconfig/editorconfig-vim'
 
-  use 'vimwiki/vimwiki'
+  -- use 'vimwiki/vimwiki'
 
   use 'norcalli/nvim-colorizer.lua'
 end)
