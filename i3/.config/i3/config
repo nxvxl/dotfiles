@@ -41,6 +41,7 @@ floating_modifier $mod
 floating_maximum_size 1280 x 720
 
 focus_follows_mouse no
+title_align center
 
 # start a terminal
 bindsym $mod+Return exec xfce4-terminal
