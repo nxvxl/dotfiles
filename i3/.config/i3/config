@@ -211,7 +211,7 @@ bindsym $mod+Escape mode $powerMenu
 
 mode $sessionMenu {
 	bindsym e exit ; mode "default"
-	bindsym l exec i3lock -c 242424 -n ; mode "default"
+	bindsym l exec xfce4-screensaver-command -l ; mode "default"
 	bindsym s exec systemctl suspend ; mode "default"
 
 	bindsym Return mode "default"
@@ -256,6 +256,7 @@ bar {
 exec --no-startup-id /usr/lib64/xfce4/notifyd/xfce4-notifyd &
 exec --no-startup-id xfce4-power-manager &
 exec --no-startup-id xfce4-volumed &
+exec --no-startup-id xfce4-screensaver &
 exec --no-startup-id nm-applet &
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id ./.fehbg &
