@@ -26,16 +26,20 @@ return packer.startup(function()
   use 'shaunsingh/nord.nvim'
 
   -- Status Line
-  use 'vim-airline/vim-airline'
-  use 'vim-airline/vim-airline-themes'
+  -- use 'vim-airline/vim-airline'
+  -- use 'vim-airline/vim-airline-themes'
+
+  use 'hoob3rt/lualine.nvim'
+  -- use 'akinsho/bufferline.nvim'
+  use 'romgrk/barbar.nvim'
 
   -- icons
   use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-tree.lua'
 
   -- syntax hightlighting
-  -- use 'sheerun/vim-polyglot'
-  use 'nvim-treesitter/nvim-treesitter'
+  use 'sheerun/vim-polyglot'
+  -- use 'nvim-treesitter/nvim-treesitter'
 
   -- Version Control
   use 'tpope/vim-fugitive'
