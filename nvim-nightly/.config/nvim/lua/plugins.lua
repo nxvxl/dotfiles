@@ -35,7 +35,7 @@ return packer.startup(function()
 
   -- icons
   use 'kyazdani42/nvim-web-devicons'
-  use 'kyazdani42/nvim-tree.lua'
+  -- use 'kyazdani42/nvim-tree.lua'
 
   -- syntax hightlighting
   use 'sheerun/vim-polyglot'
