@@ -69,41 +69,29 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["ayu-vim"] = {
+  ["barbar.nvim"] = {
     loaded = true,
-    path = "/home/mnm/.local/share/nvim/site/pack/packer/start/ayu-vim"
-  },
-  ["blamer.nvim"] = {
-    loaded = true,
-    path = "/home/mnm/.local/share/nvim/site/pack/packer/start/blamer.nvim"
+    path = "/home/mnm/.local/share/nvim/site/pack/packer/start/barbar.nvim"
   },
   ["challenger-deep-theme"] = {
     loaded = true,
     path = "/home/mnm/.local/share/nvim/site/pack/packer/start/challenger-deep-theme"
   },
-  dracula = {
-    loaded = true,
-    path = "/home/mnm/.local/share/nvim/site/pack/packer/start/dracula"
-  },
   ["editorconfig-vim"] = {
     loaded = true,
     path = "/home/mnm/.local/share/nvim/site/pack/packer/start/editorconfig-vim"
   },
-  ["material.vim"] = {
+  ["gitsigns.nvim"] = {
     loaded = true,
-    path = "/home/mnm/.local/share/nvim/site/pack/packer/start/material.vim"
+    path = "/home/mnm/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
   },
-  ["moonlight.vim"] = {
+  gruvbox = {
     loaded = true,
-    path = "/home/mnm/.local/share/nvim/site/pack/packer/start/moonlight.vim"
+    path = "/home/mnm/.local/share/nvim/site/pack/packer/start/gruvbox"
   },
-  nokto = {
+  ["lualine.nvim"] = {
     loaded = true,
-    path = "/home/mnm/.local/share/nvim/site/pack/packer/start/nokto"
-  },
-  ["nord.nvim"] = {
-    loaded = true,
-    path = "/home/mnm/.local/share/nvim/site/pack/packer/start/nord.nvim"
+    path = "/home/mnm/.local/share/nvim/site/pack/packer/start/lualine.nvim"
   },
   ["nvim-colorizer.lua"] = {
     loaded = true,
@@ -116,14 +104,6 @@ _G.packer_plugins = {
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/mnm/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
-  },
-  ["nvim-tree.lua"] = {
-    loaded = true,
-    path = "/home/mnm/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
-  },
-  ["nvim-treesitter"] = {
-    loaded = true,
-    path = "/home/mnm/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -146,10 +126,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/mnm/.local/share/nvim/site/pack/packer/start/popup.nvim"
   },
-  simpleblack = {
-    loaded = true,
-    path = "/home/mnm/.local/share/nvim/site/pack/packer/start/simpleblack"
-  },
   ["telescope-fzy-native.nvim"] = {
     loaded = true,
     path = "/home/mnm/.local/share/nvim/site/pack/packer/start/telescope-fzy-native.nvim"
@@ -158,29 +134,9 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/mnm/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
-  ["vim-airline"] = {
+  ["vim-polyglot"] = {
     loaded = true,
-    path = "/home/mnm/.local/share/nvim/site/pack/packer/start/vim-airline"
-  },
-  ["vim-airline-themes"] = {
-    loaded = true,
-    path = "/home/mnm/.local/share/nvim/site/pack/packer/start/vim-airline-themes"
-  },
-  ["vim-fugitive"] = {
-    loaded = true,
-    path = "/home/mnm/.local/share/nvim/site/pack/packer/start/vim-fugitive"
-  },
-  ["vim-gitgutter"] = {
-    loaded = true,
-    path = "/home/mnm/.local/share/nvim/site/pack/packer/start/vim-gitgutter"
-  },
-  ["vim-monokai"] = {
-    loaded = true,
-    path = "/home/mnm/.local/share/nvim/site/pack/packer/start/vim-monokai"
-  },
-  ["vim-moonfly-colors"] = {
-    loaded = true,
-    path = "/home/mnm/.local/share/nvim/site/pack/packer/start/vim-moonfly-colors"
+    path = "/home/mnm/.local/share/nvim/site/pack/packer/start/vim-polyglot"
   }
 }
 

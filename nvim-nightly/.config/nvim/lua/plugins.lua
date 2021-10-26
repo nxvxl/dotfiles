@@ -13,40 +13,29 @@ return packer.startup(function()
   use {'wbthomason/packer.nvim', opt = true}
 
   -- themes
-  use 'bluz71/vim-moonfly-colors'
-  use 'kaicataldo/material.vim'
-  use { 'dracula/vim', as = 'dracula' }
-  use 'lewis6991/moonlight.vim'
   use 'navarasu/onedark.nvim'
-  use 'sickill/vim-monokai'
-  use 'novasenco/nokto'
-  use 'lucasprag/simpleblack'
   use { 'challenger-deep-theme/vim', as = 'challenger-deep-theme' }
-  use 'ayu-theme/ayu-vim'
-  use 'shaunsingh/nord.nvim'
+  use 'morhetz/gruvbox'
 
-  -- Status Line
-  use 'vim-airline/vim-airline'
-  use 'vim-airline/vim-airline-themes'
+  use 'hoob3rt/lualine.nvim'
+  -- use 'akinsho/bufferline.nvim'
+  use 'romgrk/barbar.nvim'
 
   -- icons
   use 'kyazdani42/nvim-web-devicons'
-  use 'kyazdani42/nvim-tree.lua'
+  -- use 'kyazdani42/nvim-tree.lua'
 
   -- syntax hightlighting
-  -- use 'sheerun/vim-polyglot'
-  use 'nvim-treesitter/nvim-treesitter'
+  use 'sheerun/vim-polyglot'
+  -- use 'nvim-treesitter/nvim-treesitter'
 
   -- Version Control
-  use 'tpope/vim-fugitive'
-  use 'airblade/vim-gitgutter'
-  use 'APZelos/blamer.nvim'
+  use 'lewis6991/gitsigns.nvim'
 
   -- Telescope
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
-  }
+  use 'nvim-lua/popup.nvim'
+  use 'nvim-lua/plenary.nvim'
+  use 'nvim-telescope/telescope.nvim'
 
   use 'nvim-telescope/telescope-fzy-native.nvim'
 
@@ -56,11 +45,7 @@ return packer.startup(function()
 
   -- Autocompletion
   use 'hrsh7th/nvim-compe'
-  -- use 'nvim-lua/completion-nvim'
 
   use 'editorconfig/editorconfig-vim'
-
-  -- use 'vimwiki/vimwiki'
-
   use 'norcalli/nvim-colorizer.lua'
 end)

@@ -51,8 +51,9 @@ bindsym $mod+Shift+q kill
 bindsym $alt+F4 kill
 
 # start dmenu (a program launcher)
-bindsym $mod+a exec dmenu_run -p '>>> ' -nb $black -nf $white -sb '#315bef' -sf $white -fn 'JetBrains Mono-10'
-bindsym $mod+Tab exec --no-startup-id application-menu.sh
+set $dmenu_font 'JetBrains Mono-10'
+bindsym $mod+a exec dmenu_run -p '>>> ' -nb $black -nf $white -sb '#315bef' -sf $white -fn $dmenu_font
+#bindsym $mod+Tab exec --no-startup-id application-menu.sh
 
 # change focus
 bindsym $mod+Left focus left
@@ -177,19 +178,19 @@ bindsym $mod+r mode "resize"
 hide_edge_borders both
 
 # Volume Control
-bindsym XF86AudioRaiseVolume exec --no-startup-id volume-ctrl.sh up
-bindsym XF86AudioLowerVolume exec --no-startup-id volume-ctrl.sh down
-bindsym XF86AudioMute exec --no-startup-id volume-ctrl.sh toggle
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 0 toggle
+#bindsym XF86AudioRaiseVolume exec --no-startup-id volume-ctrl.sh up
+#bindsym XF86AudioLowerVolume exec --no-startup-id volume-ctrl.sh down
+#bindsym XF86AudioMute exec --no-startup-id volume-ctrl.sh toggle
+#bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 0 toggle
 
 # Brightness control
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 && pkill -SIGRTMIN+11 i3blocks
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 && pkill -SIGRTMIN+11 i3blocks
+#bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 && pkill -SIGRTMIN+11 i3blocks
+#bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 && pkill -SIGRTMIN+11 i3blocks
 
 # Multimedia control
-bindsym XF86AudioPrev exec --no-startup-id playerctl previous
-bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
-bindsym XF86AudioNext exec --no-startup-id playerctl next
+#bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+#bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+#bindsym XF86AudioNext exec --no-startup-id playerctl next
 
 #Launch Apps
 bindsym $mod+t exec xfce4-terminal
@@ -211,7 +212,7 @@ bindsym $mod+Escape mode $powerMenu
 
 mode $sessionMenu {
 	bindsym e exit ; mode "default"
-	bindsym l exec i3lock -c 242424 -n ; mode "default"
+	bindsym l exec xfce4-screensaver-command -l ; mode "default"
 	bindsym s exec systemctl suspend ; mode "default"
 
 	bindsym Return mode "default"
@@ -221,7 +222,7 @@ mode $sessionMenu {
 bindsym $mod+Delete mode $sessionMenu
 
 #Window Colors
-# class						border	backgr. text		indicator child_border
+# class				border	backgr. text		indicator child_border
 client.focused			#315bef #315bef #ffffff #315bef #315bef
 client.focused_inactive		#000000 #000000 #888888 #484e50 #000000
 client.unfocused		#000000 #000000 #888888 #292d2e #000000
@@ -244,16 +245,20 @@ bar {
 		background		#000000
 		statusline		#ffffff
 		inactive_workspace	#ffffff #000000 #ffffff
-		focused_workspace		#ffffff #ffffff #000000
+		focused_workspace	#ffffff #ffffff #000000
 	}
 
-	status_command i3blocks
+	status_command conky -c ~/.config/i3/conky-i3bar
 	tray_output primary
 	position bottom
 }
 
 # autostart apps
 exec --no-startup-id /usr/lib64/xfce4/notifyd/xfce4-notifyd &
+exec --no-startup-id xfce4-power-manager &
+exec --no-startup-id xfce4-volumed-pulse &
+exec --no-startup-id xfce4-screensaver &
+exec --no-startup-id nm-applet &
 exec --no-startup-id /usr/libexec/xfce-polkit &
 exec --no-startup-id ./.fehbg &
 exec --no-startup-id compton &
