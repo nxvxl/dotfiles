@@ -13,4 +13,4 @@ export LC_TIME="en_US.UTF-8"
 
 
 # alias
-alias xsc="xclip -selection clipboard"
+alias xc="xclip -selection clipboard"

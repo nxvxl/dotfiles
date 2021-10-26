@@ -51,7 +51,8 @@ bindsym $mod+Shift+q kill
 bindsym $alt+F4 kill
 
 # start dmenu (a program launcher)
-bindsym $mod+a exec dmenu_run -p '>>> ' -nb $black -nf $white -sb '#315bef' -sf $white -fn 'JetBrains Mono-10'
+set $dmenu_font 'JetBrains Mono-10'
+bindsym $mod+a exec dmenu_run -p '>>> ' -nb $black -nf $white -sb '#315bef' -sf $white -fn $dmenu_font
 #bindsym $mod+Tab exec --no-startup-id application-menu.sh
 
 # change focus
