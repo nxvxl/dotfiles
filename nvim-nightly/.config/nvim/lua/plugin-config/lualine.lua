@@ -1,5 +1,7 @@
 require'lualine'.setup {
   options = {
-    theme = 'dracula'
+    theme = 'moonfly',
+    section_separators = '',
+    component_separators = ''
   }
 }

@@ -10,10 +10,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # i3-gaps special config
-for_window [class=".*"] border pixel 3
 for_window [floating] move absolute position center
-gaps inner 10
-gaps outer 0
 
 set $mod Mod4
 set $alt Mod1
@@ -223,12 +220,12 @@ bindsym $mod+Delete mode $sessionMenu
 
 #Window Colors
 # class				border	backgr. text		indicator child_border
-client.focused			#315bef #315bef #ffffff #315bef #315bef
-client.focused_inactive		#000000 #000000 #888888 #484e50 #000000
-client.unfocused		#000000 #000000 #888888 #292d2e #000000
-client.urgent			#ff0000 #ff0000 #000000 #900000 #900000
-client.placeholder		#000000 #0c0c0c #000000 #000000 #0c0c0c
-client.background		#000000
+#client.focused			#315bef #315bef #ffffff #315bef #315bef
+#client.focused_inactive		#000000 #000000 #888888 #484e50 #000000
+#client.unfocused		#000000 #000000 #888888 #292d2e #000000
+#client.urgent			#ff0000 #ff0000 #000000 #900000 #900000
+#client.placeholder		#000000 #0c0c0c #000000 #000000 #0c0c0c
+#client.background		#000000
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -241,16 +238,9 @@ bar {
 	bindsym button4 nop
 	bindsym button5 nop
 
-	colors {
-		background		#000000
-		statusline		#ffffff
-		inactive_workspace	#ffffff #000000 #ffffff
-		focused_workspace	#ffffff #ffffff #000000
-	}
-
-	status_command conky -c ~/.config/i3/conky-i3bar
+	status_command i3status
 	tray_output primary
-	position bottom
+	position top
 }
 
 # autostart apps

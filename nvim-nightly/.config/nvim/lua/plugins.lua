@@ -16,6 +16,7 @@ return packer.startup(function()
   use 'navarasu/onedark.nvim'
   use { 'challenger-deep-theme/vim', as = 'challenger-deep-theme' }
   use 'morhetz/gruvbox'
+  use 'bluz71/vim-moonfly-colors'
 
   use 'hoob3rt/lualine.nvim'
   -- use 'akinsho/bufferline.nvim'
@@ -36,8 +37,6 @@ return packer.startup(function()
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
-
-  use 'nvim-telescope/telescope-fzy-native.nvim'
 
   -- LSP
   use 'neovim/nvim-lspconfig'
