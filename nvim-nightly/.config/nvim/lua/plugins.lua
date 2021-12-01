@@ -32,6 +32,8 @@ return packer.startup(function()
 
   -- Version Control
   use 'lewis6991/gitsigns.nvim'
+  use 'tpope/vim-fugitive'
+  use 'APZelos/blamer.nvim'
 
   -- Telescope
   use 'nvim-lua/popup.nvim'
