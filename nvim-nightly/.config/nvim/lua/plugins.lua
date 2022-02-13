@@ -17,6 +17,7 @@ return packer.startup(function()
   use { 'challenger-deep-theme/vim', as = 'challenger-deep-theme' }
   use 'morhetz/gruvbox'
   use 'bluz71/vim-moonfly-colors'
+  use 'folke/tokyonight.nvim'
 
   use 'hoob3rt/lualine.nvim'
   -- use 'akinsho/bufferline.nvim'
