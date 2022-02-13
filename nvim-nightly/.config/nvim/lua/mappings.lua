@@ -2,6 +2,7 @@ local utils = require'utils'
 local map = require('utils').map
 local nmap = utils.nmap
 local imap = utils.imap
+local tmap = utils.tmap
 
 map('n', '<leader><Tab>', ':bnext<CR>')
 map('n', '<leader><S-Tab>', ':bprev<CR>')
@@ -35,3 +36,20 @@ imap('!', '!<C-g>u')
 imap('?', '?<C-g>u')
 imap(':', ':<C-g>u')
 imap(';', ';<C-g>u')
+
+
+-- Window navigation
+nmap('<C-h>', ':wincmd h<CR>')
+nmap('<C-j>', ':wincmd j<CR>')
+nmap('<C-k>', ':wincmd k<CR>')
+nmap('<C-l>', ':wincmd l<CR>')
+
+
+-- Terminal Mode window navigation
+tmap('<C-h>', '<C-\\><C-n>:wincmd h<CR>')
+tmap('<C-j>', '<C-\\><C-n>:wincmd j<CR>')
+tmap('<C-k>', '<C-\\><C-n>:wincmd k<CR>')
+tmap('<C-l>', '<C-\\><C-n>:wincmd l<CR>')
+
+
+tmap('<ESC><ESC>', '<C-\\><C-n>')

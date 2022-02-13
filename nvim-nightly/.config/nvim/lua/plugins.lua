@@ -28,10 +28,12 @@ return packer.startup(function()
 
   -- syntax hightlighting
   use 'sheerun/vim-polyglot'
-  -- use 'nvim-treesitter/nvim-treesitter'
+  use 'nvim-treesitter/nvim-treesitter'
 
   -- Version Control
   use 'lewis6991/gitsigns.nvim'
+  use 'tpope/vim-fugitive'
+  use 'APZelos/blamer.nvim'
 
   -- Telescope
   use 'nvim-lua/popup.nvim'

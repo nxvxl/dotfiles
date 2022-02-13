@@ -18,4 +18,8 @@ function M.vmap(lhs, rhs, opts)
   M.map('v', lhs, rhs, opts)
 end
 
+function M.tmap(lhs, rhs, opts)
+  M.map('t', lhs, rhs, opts)
+end
+
 return M
