@@ -1,0 +1,13 @@
+require('plugins')
+require('settings')
+require('themes')
+require('mappings')
+
+-- require('plugin-config/airline')
+-- require('plugin-config/lspconfig')
+-- require('plugin-config/telescope')
+-- require('plugin-config/compe')
+-- require('plugin-config/treesitter')
+-- require('plugin-config/blamer')
+-- require('plugin-config/lualine')
+-- require('plugin-config/lspsaEnglish Grammar: Understanding the Basicsga')

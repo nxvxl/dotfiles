@@ -41,7 +41,7 @@ vim.o.pumheight = 15
 
 -- window options
 vim.wo.number = true
-vim.wo.relativenumber = false
+vim.wo.relativenumber = true
 vim.wo.cursorline = true
 vim.wo.wrap = false
 vim.wo.scrolloff = 10
