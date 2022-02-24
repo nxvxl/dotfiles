@@ -49,7 +49,7 @@ return packer.startup({
     use { 'nvim-treesitter/nvim-treesitter', config = config_path('treesitter') }
 
     -- Version Control
-    use 'lewis6991/gitsigns.nvim'
+    use { 'lewis6991/gitsigns.nvim', config = config_path('gitsigns') }
     use 'tpope/vim-fugitive'
     use { 'APZelos/blamer.nvim', config = config_path('blamer') }
 

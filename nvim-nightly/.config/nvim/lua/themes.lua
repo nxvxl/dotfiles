@@ -3,12 +3,3 @@
 -- require('onedark').setup()
 vim.g.tokyonight_style='night'
 vim.cmd 'colorscheme  tokyonight'
-require'gitsigns'.setup{
-  signs = {
-      add = {hl = 'GitGutterAdd', text = '▋'},
-      change = {hl = 'GitGutterChange',text= '▋'},
-      delete = {hl= 'GitGutterDelete', text = '▋'},
-      topdelete = {hl ='GitGutterDeleteChange',text = '▔'},
-      changedelete = {hl = 'GitGutterChange', text = '▎'},
-    }
-}
