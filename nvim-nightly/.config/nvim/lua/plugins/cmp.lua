@@ -13,8 +13,8 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
     { name = "vsnip" },
-    { name = "buffer" },
     { name = "path" },
+    { name = "buffer" },
   }),
   experimental = {
     native_menu = false,
