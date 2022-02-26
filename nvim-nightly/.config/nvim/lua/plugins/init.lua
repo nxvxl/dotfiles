@@ -2,7 +2,7 @@ vim.cmd [[packadd packer.nvim]]
 vim.cmd([[
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+    autocmd BufWritePost init.lua source <afile> | PackerCompile
   augroup end
 ]])
 
@@ -32,7 +32,7 @@ return packer.startup({
     -- themes
     use 'navarasu/onedark.nvim'
     use { 'challenger-deep-theme/vim', as = 'challenger-deep-theme' }
-    use 'morhetz/gruvbox'
+    use 'gruvbox-community/gruvbox'
     use 'bluz71/vim-moonfly-colors'
     use 'folke/tokyonight.nvim'
 
