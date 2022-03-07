@@ -49,3 +49,5 @@ vim.wo.sidescrolloff = 10
 vim.wo.signcolumn = "yes"
 vim.wo.foldmethod = "indent"
 vim.wo.list = true
+vim.wo.breakindent = true
+vim.wo.showbreak = "   \\"
