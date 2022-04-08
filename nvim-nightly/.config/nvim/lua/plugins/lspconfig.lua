@@ -51,6 +51,13 @@ end
 -- and map buffer local keybindings when the language server attaches
 local servers = { "tsserver", "pyright", "clangd", "vuels", "cssls" }
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+  vim.lsp.handlers.hover, {
+    width = 80
+  }
+)
+
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
