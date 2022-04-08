@@ -51,3 +51,4 @@ vim.wo.foldmethod = "indent"
 vim.wo.list = true
 vim.wo.breakindent = true
 vim.wo.showbreak = "   \\"
+vim.wo.linebreak = true

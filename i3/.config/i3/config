@@ -234,7 +234,6 @@ bar {
 # mode hide
 # hidden_state hide
 # modifier Mod4
-	bindsym button1 nop
 	bindsym button4 nop
 	bindsym button5 nop
 
@@ -248,7 +247,7 @@ exec --no-startup-id /usr/lib64/xfce4/notifyd/xfce4-notifyd &
 exec --no-startup-id xfce4-power-manager &
 exec --no-startup-id volumeicon &
 exec --no-startup-id indicator-sound-switcher &
-exec --no-startup-id safeeyes &
+#exec --no-startup-id safeeyes &
 exec --no-startup-id flameshot &
 exec --no-startup-id xfce4-screensaver &
 exec --no-startup-id nm-applet &

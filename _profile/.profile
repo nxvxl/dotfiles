@@ -1,9 +1,9 @@
-if [[ -d /home/mnm/.local/bin ]]; then
-  PATH="/home/mnm/.local/bin:$PATH"
+if [[ -d $HOME/.local/bin ]]; then
+  PATH="$HOME/.local/bin:$PATH"
 fi
 
-if [[ -d /home/mnm/.dotfiles/bin ]]; then
-	PATH="/home/mnm/.dotfiles/bin:$PATH"
+if [[ -d $HOME/.dotfiles/bin ]]; then
+	PATH="$HOME/.dotfiles/bin:$PATH"
 fi
 
 export XDG_CONFIG_HOME="$HOME/.config"
