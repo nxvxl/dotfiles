@@ -11,6 +11,7 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 export EDITOR=nvim
 export LC_TIME="en_US.UTF-8"
 
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 
 # alias
 alias xc="xclip -selection clipboard"
