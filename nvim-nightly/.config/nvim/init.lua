@@ -8,5 +8,6 @@ vim.diagnostic.config({
   float = {
     width = 80,
     border = "single",
+    wrap_at = " "
   }
 })
