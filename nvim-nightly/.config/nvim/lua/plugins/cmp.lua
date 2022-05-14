@@ -6,12 +6,12 @@ cmp.setup({
       vim.fn["vsnip#anonymous"](args.body)
     end
   },
-  mapping = {
-    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-    ['<C-n>'] = cmp.mapping.select_next_item(),
-    ['<C-p>'] = cmp.mapping.select_prev_item(),
-  },
+  mapping = cmp.mapping.preset.insert({
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+  }),
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
     { name = "vsnip" },
