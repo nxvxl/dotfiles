@@ -36,6 +36,7 @@ return packer.startup({
     use 'bluz71/vim-moonfly-colors'
     use 'folke/tokyonight.nvim'
 
+    -- layout
     use { 'hoob3rt/lualine.nvim', config = config_path('lualine') }
     -- use 'akinsho/bufferline.nvim'
     use 'romgrk/barbar.nvim'
@@ -60,7 +61,6 @@ return packer.startup({
 
     -- LSP
     use { 'neovim/nvim-lspconfig', config = config_path('lspconfig') }
-    -- use 'glepnir/lspsaga.nvim'
 
     -- Autocompletion
     use {
