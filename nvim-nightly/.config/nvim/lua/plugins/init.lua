@@ -53,6 +53,7 @@ return packer.startup({
     use { 'lewis6991/gitsigns.nvim', config = config_path('gitsigns') }
     use 'tpope/vim-fugitive'
     use { 'APZelos/blamer.nvim', config = config_path('blamer') }
+    use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
 
     -- Telescope
     use 'nvim-lua/popup.nvim'

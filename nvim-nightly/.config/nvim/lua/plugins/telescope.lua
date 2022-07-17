@@ -1,11 +1,8 @@
 local actions = require('telescope.actions')
+
 require('telescope').setup{
   defaults = {
     file_ignore_patterns = { 'node_modules/*', '.git/*' },
-    layout_config = {
-      prompt_position = "top"
-    },
-    sorting_strategy = "ascending",
     mappings = {
       i = {
         ["<esc>"] = actions.close
@@ -35,15 +32,18 @@ require('telescope').setup{
 
 require('telescope').load_extension('fzf')
 
-local map = require('utils').map
+local nmap = require('utils').nmap
 
-map('n', '<leader>ff', ':lua require"telescope.builtin".find_files({ hidden = true })<CR>')
-map('n', '<leader>fg', ':lua require"telescope.builtin".live_grep() <CR>')
-map('n', '<leader>fb', ':Telescope buffers<CR>')
-map('n', '<leader>fh', ':Telescope help_tags<CR>')
-map('n', '<leader>fd', ':Telescope diagnostics<CR>')
-map('n', '<leader>\\', ':Telescope<CR>')
-map('n', 'gr', ':Telescope lsp_references<CR>')
-map('n', '<leader>fG', ':Telescope grep_string search=<C-R><C-W><CR>')
-map('n', '<C-_>', ':Telescope current_buffer_fuzzy_find<CR>')
-map('n', '<C- >', ':Telescope lsp_code_actions<CR>')
+nmap('<leader>ff', ':lua require"telescope.builtin".find_files({ hidden = true })<CR>')
+nmap('<leader>fg', ':lua require"telescope.builtin".live_grep() <CR>')
+nmap('<leader>fb', ':Telescope buffers<CR>')
+nmap('<leader>fh', ':Telescope help_tags<CR>')
+nmap('<leader>fd', ':Telescope diagnostics<CR>')
+nmap('<leader>fd', ':Telescope diagnostics<CR>')
+nmap('<leader>\\', ':Telescope<CR>')
+nmap('gr', ':Telescope lsp_references<CR>')
+nmap('<leader>fG', ':Telescope grep_string search=<C-R><C-W><CR>')
+nmap('<C-_>', ':Telescope current_buffer_fuzzy_find<CR>')
+nmap('<C- >', ':Telescope lsp_code_actions<CR>')
+
+vim.cmd('autocmd User TelescopePreviewerLoaded setlocal wrap | setlocal number')
