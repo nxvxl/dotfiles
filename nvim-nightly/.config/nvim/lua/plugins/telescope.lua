@@ -5,7 +5,8 @@ require('telescope').setup{
     file_ignore_patterns = { 'node_modules/*', '.git/*' },
     mappings = {
       i = {
-        ["<esc>"] = actions.close
+        ["<esc>"] = actions.close,
+        ["<C-x>"] = actions.delete_buffer
       },
     },
     vimgrep_arguments = {
@@ -45,5 +46,7 @@ nmap('gr', ':Telescope lsp_references<CR>')
 nmap('<leader>fG', ':Telescope grep_string search=<C-R><C-W><CR>')
 nmap('<C-_>', ':Telescope current_buffer_fuzzy_find<CR>')
 nmap('<C- >', ':Telescope lsp_code_actions<CR>')
+nmap('<C-?>', ':Telescope help_tags<CR>')
+
 
 vim.cmd('autocmd User TelescopePreviewerLoaded setlocal wrap | setlocal number')

@@ -55,3 +55,20 @@ tmap('<C-l>', '<C-\\><C-n>:wincmd l<CR>')
 
 -- exit terminal mode
 tmap('<ESC><ESC>', '<C-\\><C-n>')
+
+nmap('bdo', function()
+  local bufs = vim.api.nvim_list_bufs()
+
+  for _, buf in ipairs(bufs) do
+    if buf == vim.api.nvim_get_current_buf() then
+      return
+    end
+
+    if not vim.api.nvim_buf_is_loaded(buf) then
+      return
+    end
+
+    print("delete buffer " .. buf)
+    vim.api.nvim_buf_delete(buf, {})
+  end
+end)
