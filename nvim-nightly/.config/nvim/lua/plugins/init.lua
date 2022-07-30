@@ -46,19 +46,21 @@ return packer.startup({
     -- use 'kyazdani42/nvim-tree.lua'
 
     -- syntax hightlighting
-    use 'sheerun/vim-polyglot'
+    -- use 'sheerun/vim-polyglot'
     use { 'nvim-treesitter/nvim-treesitter', config = config_path('treesitter') }
 
     -- Version Control
     use { 'lewis6991/gitsigns.nvim', config = config_path('gitsigns') }
     use 'tpope/vim-fugitive'
-    use { 'APZelos/blamer.nvim', config = config_path('blamer') }
-    use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
 
     -- Telescope
-    use 'nvim-lua/popup.nvim'
-    use 'nvim-lua/plenary.nvim'
-    use { 'nvim-telescope/telescope.nvim', config = config_path('telescope') }
+    use {
+      'nvim-telescope/telescope.nvim',
+      requires = {
+        {'nvim-lua/plenary.nvim'}
+      },
+      config = config_path('telescope')
+    }
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
     -- LSP

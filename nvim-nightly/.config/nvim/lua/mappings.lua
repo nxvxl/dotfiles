@@ -58,17 +58,15 @@ tmap('<ESC><ESC>', '<C-\\><C-n>')
 
 nmap('bdo', function()
   local bufs = vim.api.nvim_list_bufs()
+  local current_buf = vim.api.nvim_get_current_buf()
 
   for _, buf in ipairs(bufs) do
-    if buf == vim.api.nvim_get_current_buf() then
-      return
+    local is_loaded = vim.api.nvim_buf_is_loaded(buf)
+    local is_valid = vim.api.nvim_buf_is_valid(buf)
+    print('buf ' .. buf, vim.inspect({ is_loaded = is_loaded, is_valid = is_valid }))
+    if buf ~= current_buf and is_valid then
+      print("delete buffer " .. buf)
+      vim.api.nvim_buf_delete(buf, {})
     end
-
-    if not vim.api.nvim_buf_is_loaded(buf) then
-      return
-    end
-
-    print("delete buffer " .. buf)
-    vim.api.nvim_buf_delete(buf, {})
   end
 end)
