@@ -3,52 +3,50 @@ local home = vim.fn.getenv('HOME')
 local nvim_dir = home .. '/.local/share/nvim'
 
 -- global options
-vim.o.title = true
-vim.o.laststatus = 2
-vim.o.showmode = false
-vim.o.background = "dark"
-vim.o.foldlevelstart = 20
-vim.o.completeopt = "menu,menuone,noselect"
-vim.o.listchars = 'tab:│ ,trail:·,eol:↲'
--- vim.o.list = true
--- vim.o.listchars = 'tab:│ ,trail:·,eol:↲'
-vim.o.shortmess = vim.o.shortmess .. "c"
-vim.o.hidden = true
-vim.o.backup = false
-vim.o.swapfile = false
-vim.o.undofile = true
-vim.o.undodir = nvim_dir .. '/undodir'
+vim.opt.title = true
+vim.opt.laststatus = 2
+vim.opt.showmode = false
+vim.opt.background = "dark"
+vim.opt.foldlevelstart = 20
+vim.opt.completeopt = { "menu" , "menuone" , "noselect" }
+vim.opt.listchars = { tab = "│ ", trail = "·", eol = "↲" }
+vim.opt.shortmess:append("c")
+vim.opt.hidden = true
+vim.opt.backup = false
+vim.opt.swapfile = false
+vim.opt.undofile = true
+vim.opt.undodir = nvim_dir .. '/undodir'
 
-vim.o.splitbelow = true
-vim.o.splitright = true
-vim.o.updatetime = 300
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.updatetime = 300
 
-vim.o.mouse = "a"
-vim.o.clipboard = "unnamedplus"
-vim.o.termguicolors = true
--- vim.o.t_Co = "256"
-vim.o.incsearch = true
-vim.o.hlsearch = false
+vim.opt.mouse = "a"
+vim.opt.clipboard = "unnamedplus"
+vim.opt.termguicolors = true
+-- vim.opt.t_Co = "256"
+vim.opt.incsearch = true
+vim.opt.hlsearch = false
 
-vim.o.shiftwidth = indent
-vim.o.tabstop = indent
-vim.o.softtabstop = indent
-vim.o.expandtab = true
-vim.o.autoindent = true
-vim.o.smartindent = true
-vim.o.pumheight = 15
--- vim.o.guicursor = 'i:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor'
+vim.opt.shiftwidth = indent
+vim.opt.tabstop = indent
+vim.opt.softtabstop = indent
+vim.opt.expandtab = true
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+vim.opt.pumheight = 15
+-- vim.opt.guicursor = 'i:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor'
 
 -- window options
-vim.wo.number = true
-vim.wo.relativenumber = true
-vim.wo.cursorline = true
-vim.wo.wrap = true
-vim.wo.scrolloff = 10
-vim.wo.sidescrolloff = 10
-vim.wo.signcolumn = "yes"
-vim.wo.foldmethod = "indent"
-vim.wo.list = true
-vim.wo.breakindent = true
-vim.wo.showbreak = "   ↳"
-vim.wo.linebreak = true
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.cursorline = true
+vim.opt.wrap = true
+vim.opt.scrolloff = 10
+vim.opt.sidescrolloff = 10
+vim.opt.signcolumn = "yes"
+vim.opt.foldmethod = "indent"
+vim.opt.list = true
+vim.opt.breakindent = true
+vim.opt.showbreak = "   ↳"
+vim.opt.linebreak = true
