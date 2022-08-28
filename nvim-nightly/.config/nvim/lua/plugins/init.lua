@@ -1,3 +1,13 @@
+local fn = vim.fn
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+
+if fn.empty(fn.glob(install_path)) > 0 then
+  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+  if packer_bootstrap then
+    require('packer').sync()
+  end
+end
+
 vim.cmd [[packadd packer.nvim]]
 vim.cmd([[
   augroup packer_user_config
@@ -8,12 +18,6 @@ vim.cmd([[
 
 function config_path(name)
   return string.format('require("plugins/%s")', name)
-end
-
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
 local packer = require('packer')
@@ -82,10 +86,6 @@ return packer.startup({
 
     use 'editorconfig/editorconfig-vim'
     use 'norcalli/nvim-colorizer.lua'
-
-    if packer_bootstrap then
-      require('packer').sync()
-    end
   end,
   config = {
     display = {

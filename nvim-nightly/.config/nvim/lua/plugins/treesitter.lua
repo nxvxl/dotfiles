@@ -1,9 +1,17 @@
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "javascript", "lua", "typescript", "python", "bash" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+require'nvim-treesitter.configs'.setup({
+  ensure_installed = {
+    "bash",
+    "css",
+    "html",
+    "javascript",
+    "lua",
+    "python",
+    "typescript",
+  },
   highlight = {
-    enable = true,              -- false will disable the whole extension
+    enable = true,
   },
   indent = {
     enable = true,
   },
-}
+})
