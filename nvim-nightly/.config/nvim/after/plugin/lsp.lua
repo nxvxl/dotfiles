@@ -32,11 +32,6 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   ["<C-Space>"] = cmp.mapping.complete(),
 })
 
--- disable completion with tab
--- this helps with copilot setup
-cmp_mappings['<Tab>'] = nil
-cmp_mappings['<S-Tab>'] = nil
-
 lsp.setup_nvim_cmp({
   mapping = cmp_mappings
 })
@@ -50,19 +45,27 @@ lsp.on_attach(function(client, bufnr)
   local opts = {buffer = bufnr, remap = false}
 
   if client.name == "eslint" then
-    vim.cmd.LspStop('eslint')
     return
   end
 
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+  nmap("gd", vim.lsp.buf.definition, opts)
   nmap('gr', builtin.lsp_references, opts)
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-  vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, opts)
-  vim.keymap.set("n", "<leader>vca", vim.lsp.buf.code_action, opts)
-  vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, opts)
-  vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
-  vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+  nmap("K", vim.lsp.buf.hover, opts)
+  nmap("<leader>vws", vim.lsp.buf.workspace_symbol, opts)
+  nmap("<leader>vca", vim.lsp.buf.code_action, opts)
+  nmap("<leader>vrr", vim.lsp.buf.references, opts)
+  nmap("<leader>vrn", vim.lsp.buf.rename, opts)
+  nmap("<C-h>", vim.lsp.buf.signature_help, opts)
 end)
 
+-- NULL LS setup
+local null_ls = require("null-ls")
+
+null_ls.setup({
+  sources = {
+    null_ls.builtins.diagnostics.eslint,
+    null_ls.builtins.formatting.prettier
+  },
+})
 
 lsp.setup()
