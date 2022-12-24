@@ -31,20 +31,23 @@ require('telescope').setup{
 }
 
 require('telescope').load_extension('fzf')
+require('telescope').load_extension('live_grep_args')
 
 local nmap = require('utils').nmap
 
-nmap('<leader>ff', ':lua require"telescope.builtin".find_files({ hidden = true })<CR>')
-nmap('<leader>fg', ':lua require"telescope.builtin".live_grep() <CR>')
-nmap('<leader>fb', ':Telescope buffers<CR>')
-nmap('<leader>fh', ':Telescope help_tags<CR>')
-nmap('<leader>fd', ':Telescope diagnostics<CR>')
-nmap('<leader>fo', ':Telescope oldfiles<CR>')
-nmap('<leader>\\', ':Telescope<CR>')
-nmap('gr', ':Telescope lsp_references<CR>')
-nmap('<leader>fG', ':Telescope grep_string search=<C-R><C-W><CR>')
-nmap('<C-_>', ':Telescope current_buffer_fuzzy_find<CR>')
-nmap('<C-?>', ':Telescope help_tags<CR>')
+local builtin = require("telescope.builtin")
+
+nmap('<leader>ff', function() builtin.find_files({ hidden = true }) end)
+nmap('<leader>fg', require("telescope").extensions.live_grep_args.live_grep_args)
+nmap('<leader>fG', builtin.grep_string)
+nmap('<leader>fb', builtin.buffers)
+nmap('<leader>fh', builtin.help_tags)
+nmap('<leader>fd', builtin.diagnostics)
+nmap('<leader>fo', builtin.oldfiles)
+nmap('<leader>\\', builtin.builtin)
+nmap('<C-_>', builtin.current_buffer_fuzzy_find)
+nmap('<C-?>', builtin.help_tags)
 
 
-vim.cmd('autocmd User TelescopePreviewerLoaded setlocal wrap | setlocal number')
+
+-- vim.cmd('autocmd User TelescopePreviewerLoaded setlocal wrap | setlocal number')
