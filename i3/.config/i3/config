@@ -10,8 +10,8 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # i3-gaps special config
-gaps inner 12px
-smart_gaps on
+#gaps inner 12px
+#smart_gaps on
 for_window [floating] move absolute position center
 
 set $mod Mod4
@@ -53,7 +53,7 @@ bindsym $alt+F4 kill
 
 # start dmenu (a program launcher)
 set $dmenu_font 'JetBrains Mono-12'
-bindsym $mod+a exec i3-dmenu-desktop --dmenu="dmenu -i -p '>>> ' -nb $black -nf $white -sb '#315bef' -sf $white -fn $dmenu_font"
+bindsym $mod+a exec dmenu_run -i -p '>>> ' -nb $black -nf $white -sb '#315bef' -sf $white -fn $dmenu_font
 #bindsym $alt+Tab exec switch
 #bindsym $mod+Tab exec --no-startup-id application-menu.sh
 
@@ -245,20 +245,21 @@ bar {
 	bindsym button5 nop
 
 	status_command i3status
-#	tray_output primary
+	tray_output none
 	position bottom
 }
 
 # autostart apps
 exec --no-startup-id /usr/lib64/xfce4/notifyd/xfce4-notifyd &
 exec --no-startup-id xfce4-power-manager &
-exec --no-startup-id volumeicon &
-exec --no-startup-id indicator-sound-switcher &
+#exec --no-startup-id volumeicon &
+#exec --no-startup-id indicator-sound-switcher &
 #exec --no-startup-id safeeyes &
-exec --no-startup-id flameshot &
+#exec --no-startup-id flameshot &
 exec --no-startup-id xfce4-screensaver &
 exec --no-startup-id nm-applet &
 exec --no-startup-id /usr/libexec/xfce-polkit &
 exec --no-startup-id ./.fehbg &
 exec --no-startup-id picom &
 exec --no-startup-id xfsettingsd &
+exec --no-startup-id xfce4-panel &

@@ -11,6 +11,8 @@ nmap('j', "v:count == 0 ? 'gj' : 'j'", { expr = true })
 -- cycle through buffers
 nmap('<leader><Tab>', ':bnext<CR>')
 nmap('<leader><S-Tab>', ':bprev<CR>')
+nmap('<C-Tab>', ':bnext<CR>')
+nmap('<C-S-Tab>', ':bprev<CR>')
 
 -- better indenting
 vmap('<', '<gv')
