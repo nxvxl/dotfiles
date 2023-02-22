@@ -11,5 +11,6 @@ require('gitsigns').setup({
   on_attach = function()
     nmap('[c', ':Gitsigns prev_hunk<CR>')
     nmap(']c', ':Gitsigns next_hunk<CR>')
+    nmap('<leader>gbl', ':Gitsigns blame_line')
   end
 })
