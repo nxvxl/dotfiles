@@ -1,3 +1,4 @@
+vim.cmd('syntax off')
 require("plugins")
 require("options")
 require("keymaps")

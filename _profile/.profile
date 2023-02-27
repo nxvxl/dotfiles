@@ -13,8 +13,11 @@ export LC_TIME="en_US.UTF-8"
 
 export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 
-export GTK_CSD=0
-export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libgtk3-nocsd.so.0
+#export GTK_CSD=0
+#export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libgtk3-nocsd.so.0
 
 # alias
 alias xc="xclip -selection clipboard"
+
+
+. "$HOME/.cargo/env"
