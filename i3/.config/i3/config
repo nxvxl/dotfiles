@@ -220,7 +220,7 @@ mode $session_menu {
 	bindsym r exec shutdown -r now ; mode "default"
 	bindsym e exit ; mode "default"
 	bindsym l exec xfce4-screensaver-command -l ; mode "default"
-	bindsym s exec systemctl suspend ; mode "default"
+	bindsym s exec systemctl suspend && xautolock -locknow ; mode "default"
 
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
