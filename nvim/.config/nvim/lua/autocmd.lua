@@ -8,3 +8,22 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
+
+local highlight_active_window = vim.api.nvim_create_augroup("HighlightActiveWindow", { clear = true })
+vim.api.nvim_create_autocmd("WinEnter", {
+  callback = function ()
+    vim.wo.cursorline = true
+  end,
+  group = highlight_active_window,
+  pattern = '*'
+})
+
+vim.api.nvim_create_autocmd("WinLeave", {
+  callback = function ()
+    vim.wo.cursorline = false
+  end,
+  group = highlight_active_window,
+  pattern = '*'
+})
+
+

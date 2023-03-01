@@ -14,11 +14,16 @@
 #smart_gaps on
 for_window [floating] move absolute position center
 
+# disable title bar
+default_border pixel 3
+default_floating_border normal 3
+
 set $mod Mod4
 set $alt Mod1
 
-set $black '#000000'
-set $white '#FFFFFF'
+set $black  '#000000'
+set $white  '#FFFFFF'
+set $blue   '#15539E'
 
 set $terminal 'kitty'
 
@@ -41,6 +46,8 @@ font pango:JetBrains Mono,FontAwesome 11
 floating_modifier $mod
 floating_maximum_size 1280 x 720
 
+tiling_drag modifier titlebar
+
 focus_follows_mouse no
 title_align center
 
@@ -53,7 +60,8 @@ bindsym $alt+F4 kill
 
 # start dmenu (a program launcher)
 set $dmenu_font 'JetBrains Mono-12'
-bindsym $mod+a exec dmenu_run -i -p '>>> ' -nb $black -nf $white -sb '#315bef' -sf $white -fn $dmenu_font
+bindsym $mod+a exec i3-dmenu-desktop --dmenu="dmenu -i -p '>>> ' -nb $black -nf $white -sb $blue -sf $white -fn $dmenu_font"
+bindsym $mod+Shift+a exec dmenu_run -i -p '>>> ' -nb $black -nf $white -sb $blue -sf $white -fn $dmenu_font
 #bindsym $alt+Tab exec switch
 #bindsym $mod+Tab exec --no-startup-id application-menu.sh
 
@@ -124,9 +132,9 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
-bindsym $mod+F1 workspace $wsTerminal
-bindsym $mod+F2 workspace $wsBrowser
-bindsym $mod+F3 workspace $wsEditor
+# bindsym $mod+F1 workspace $wsTerminal
+# bindsym $mod+F2 workspace $wsBrowser
+# bindsym $mod+F3 workspace $wsEditor
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -139,9 +147,9 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
-bindsym $mod+Shift+F1 move container to workspace $wsTerminal
-bindsym $mod+Shift+F2 move container to workspace $wsBrowser
-bindsym $mod+Shift+F3 move container to workspace $wsEditor
+# bindsym $mod+Shift+F1 move container to workspace $wsTerminal
+# bindsym $mod+Shift+F2 move container to workspace $wsBrowser
+# bindsym $mod+Shift+F3 move container to workspace $wsEditor
 
 bindsym $mod+Tab workspace back_and_forth
 
@@ -179,7 +187,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-hide_edge_borders both
+hide_edge_borders smart
 
 # Volume Control
 #bindsym XF86AudioRaiseVolume exec --no-startup-id volume-ctrl.sh up
@@ -201,20 +209,15 @@ bindsym $mod+t exec $terminal
 bindsym $mod+p exec thunar
 bindsym $mod+Print exec flameshot gui
 
-set $powerMenu "Power Control: (S)hutdown | (R)estart"
-set $sessionMenu "(E)xit | (L)ock | (S)uspend"
+#Speaker and Microphone
 
-mode $powerMenu {
-	bindsym s exec shutdown -h now ; mode "default"
+bindsym $mod+F1 exec $HOME/.dotfiles/bin/speaker-selector.sh
+bindsym $mod+F2 exec $HOME/.dotfiles/bin/mic-selector.sh
+
+set $session_menu "(P)ower off | (R)estart | (E)xit | (L)ock | (S)uspend"
+mode $session_menu {
+	bindsym p exec shutdown -h now ; mode "default"
 	bindsym r exec shutdown -r now ; mode "default"
-
-	bindsym Return mode "default"
-	bindsym Escape mode "default"
-}
-
-bindsym $mod+Escape mode $powerMenu
-
-mode $sessionMenu {
 	bindsym e exit ; mode "default"
 	bindsym l exec xfce4-screensaver-command -l ; mode "default"
 	bindsym s exec systemctl suspend ; mode "default"
@@ -223,43 +226,61 @@ mode $sessionMenu {
 	bindsym Escape mode "default"
 }
 
-bindsym $mod+Delete mode $sessionMenu
+bindsym $mod+Escape mode $session_menu
 
-#Window Colors
-# class				border	backgr. text		indicator child_border
-#client.focused			#315bef #315bef #ffffff #315bef #315bef
-#client.focused_inactive		#000000 #000000 #888888 #484e50 #000000
-#client.unfocused		#000000 #000000 #888888 #292d2e #000000
-#client.urgent			#ff0000 #ff0000 #000000 #900000 #900000
-#client.placeholder		#000000 #0c0c0c #000000 #000000 #0c0c0c
-#client.background		#000000
+# class                 border  backgr. text    indicator child_border
+client.focused          #15539E #15539E #ffffff #2e9ef4   #15539E
+client.focused_inactive #15539E #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #15539E #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
+client.background       #ffffff
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+  font pango:JetBrains Mono,FontAwesome 12
 # mode hide
 # hidden_state hide
 # modifier Mod4
 	bindsym button4 nop
 	bindsym button5 nop
 
-	status_command i3status
-	tray_output none
+	status_command ~/.dotfiles/bin/status.sh
+#	tray_output primary
 	position bottom
+
+  colors {
+    background #000000
+    statusline #ffffff
+    separator #666666
+
+    focused_workspace  #15539E #15539E #ffffff
+    active_workspace   #333333 #5f676a #ffffff
+    inactive_workspace #333333 #222222 #888888
+    urgent_workspace   #2f343a #900000 #ffffff
+    binding_mode       #2f343a #900000 #ffffff
+  }
 }
 
 # autostart apps
-exec --no-startup-id /usr/lib64/xfce4/notifyd/xfce4-notifyd &
-exec --no-startup-id xfce4-power-manager &
-#exec --no-startup-id volumeicon &
+#exec --no-startup-id /usr/lib64/xfce4/notifyd/xfce4-notifyd &
+#exec --no-startup-id xfce4-power-manager &
+#exec --no-startup-id xfce4-screensaver &
+#exec --no-startup-id xfsettingsd &
+#exec --no-startup-id /usr/libexec/xfce-polkit &
+#exec --no-startup-id xfce4-panel &
+exec --no-startup-id volumeicon &
 #exec --no-startup-id indicator-sound-switcher &
 #exec --no-startup-id safeeyes &
 #exec --no-startup-id flameshot &
-exec --no-startup-id xfce4-screensaver &
 exec --no-startup-id nm-applet &
-exec --no-startup-id /usr/libexec/xfce-polkit &
 exec --no-startup-id ./.fehbg &
 exec --no-startup-id picom &
-exec --no-startup-id xfsettingsd &
-exec --no-startup-id xfce4-panel &
+exec --no-startup-id xset s 630 &
+exec --no-startup-id xset dpms 630 630 630 &
+exec --no-startup-id xautolock -time 10 \
+  -locker "i3lock -n -i ~/Pictures/lock.png" \
+  -notify 30 -notifier "notify-send -i /usr/share/icons/Papirus-Dark/16x16/actions/lock.svg 'Autolock' 'LOCKING in 30 seconds'" \
+  -corners 0-0- -cornersize 10 -detectsleep &
