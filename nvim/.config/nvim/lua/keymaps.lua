@@ -63,6 +63,7 @@ tmap('<C-l>', '<C-\\><C-n>:wincmd l<CR>')
 -- exit terminal mode
 tmap('<ESC><ESC>', '<C-\\><C-n>')
 
+--[[
 nmap('bdo', function()
   local bufs = vim.api.nvim_list_bufs()
   local current_buf = vim.api.nvim_get_current_buf()
@@ -81,3 +82,4 @@ nmap('bdo', function()
       print("deleted buffers: " .. deleted)
   end
 end)
+--]]

@@ -219,8 +219,8 @@ mode $session_menu {
 	bindsym p exec shutdown -h now ; mode "default"
 	bindsym r exec shutdown -r now ; mode "default"
 	bindsym e exit ; mode "default"
-	bindsym l exec xfce4-screensaver-command -l ; mode "default"
-	bindsym s exec systemctl suspend && xautolock -locknow ; mode "default"
+	bindsym l exec loginctl lock-session ; mode "default"
+	bindsym s exec systemctl suspend ; mode "default"
 
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
@@ -275,12 +275,14 @@ exec --no-startup-id volumeicon &
 #exec --no-startup-id indicator-sound-switcher &
 #exec --no-startup-id safeeyes &
 #exec --no-startup-id flameshot &
+exec --no-startup-id lxpolkit &
 exec --no-startup-id nm-applet &
 exec --no-startup-id ./.fehbg &
 exec --no-startup-id picom &
-exec --no-startup-id xset s 630 &
-exec --no-startup-id xset dpms 630 630 630 &
-exec --no-startup-id xautolock -time 10 \
-  -locker "i3lock -n -i ~/Pictures/lock.png" \
-  -notify 30 -notifier "notify-send -i /usr/share/icons/Papirus-Dark/16x16/actions/lock.svg 'Autolock' 'LOCKING in 30 seconds'" \
-  -corners 0-0- -cornersize 10 -detectsleep &
+exec --no-startup-id xset s 600 30 &
+exec --no-startup-id xset dpms 720 720 720 &
+#exec --no-startup-id xautolock -time 10 \
+#  -locker "i3lock -n -i ~/Pictures/lock.png" \
+#  -notify 30 -notifier "notify-send -i /usr/share/icons/Papirus-Dark/16x16/actions/lock.svg 'Autolock' 'LOCKING in 30 seconds'" \
+#  -corners 0-0- -cornersize 10 -detectsleep &
+exec --no-startup-id xss-lock -n "/home/noval/.dotfiles/bin/notify-lock.sh" -- i3lock -n -e -i ~/Pictures/lock.png &
