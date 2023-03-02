@@ -110,6 +110,12 @@ return {
       end,
     }
 
+    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+      vim.lsp.handlers.hover, {
+      border = 'single',
+      width = 80
+    })
+
     -- Turn on lsp status information
     require('fidget').setup()
   end
