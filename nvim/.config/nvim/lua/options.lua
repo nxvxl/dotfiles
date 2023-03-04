@@ -2,6 +2,8 @@ local indent = 2
 local home = vim.fn.getenv('HOME')
 local nvim_dir = home .. '/.local/share/nvim'
 
+vim.g.editorconfig = true
+
 -- global options
 vim.opt.title = true
 vim.opt.laststatus = 2
