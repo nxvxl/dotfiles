@@ -17,6 +17,7 @@ general {
 order += "cpu_usage"
 order += "memory"
 order += "cpu_temperature 0"
+order += "volume master"
 order += "tztime local"
 
 cpu_usage {
@@ -32,6 +33,12 @@ memory {
 cpu_temperature 0 {
         format = "TEMP: %degrees°C"
         path = "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input"
+}
+
+volume master {
+        format = "VOL: %volume"
+        format_muted = "VOL: muted (%volume)"
+        device = "default"
 }
 
 tztime local {

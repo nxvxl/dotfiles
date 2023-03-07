@@ -7,7 +7,7 @@ if [[ -d $HOME/.dotfiles/bin ]]; then
 fi
 
 export XDG_CONFIG_HOME="$HOME/.config"
-export QT_QPA_PLATFORMTHEME="gtk2"
+export QT_QPA_PLATFORMTHEME="qt5ct"
 export EDITOR=nvim
 export LC_TIME="en_US.UTF-8"
 

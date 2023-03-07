@@ -190,9 +190,9 @@ bindsym $mod+r mode "resize"
 hide_edge_borders smart
 
 # Volume Control
-#bindsym XF86AudioRaiseVolume exec --no-startup-id volume-ctrl.sh up
-#bindsym XF86AudioLowerVolume exec --no-startup-id volume-ctrl.sh down
-#bindsym XF86AudioMute exec --no-startup-id volume-ctrl.sh toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id volume.sh up
+bindsym XF86AudioLowerVolume exec --no-startup-id volume.sh down
+bindsym XF86AudioMute exec --no-startup-id volume.sh mute
 #bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 0 toggle
 
 # Brightness control
@@ -230,10 +230,11 @@ bindsym $mod+Escape mode $session_menu
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #15539E #15539E #ffffff #2e9ef4   #15539E
-client.focused_inactive #15539E #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #15539E #222222 #888888 #292d2e   #222222
+client.focused_inactive #5f676a #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #222222 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+client.focused_tab_title #15539E #15539E #ffffff #2e9ef4   #15539E
 
 client.background       #ffffff
 
@@ -271,7 +272,7 @@ bar {
 #exec --no-startup-id xfsettingsd &
 #exec --no-startup-id /usr/libexec/xfce-polkit &
 #exec --no-startup-id xfce4-panel &
-exec --no-startup-id volumeicon &
+#exec --no-startup-id volumeicon &
 #exec --no-startup-id indicator-sound-switcher &
 #exec --no-startup-id safeeyes &
 #exec --no-startup-id flameshot &
