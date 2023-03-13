@@ -24,7 +24,7 @@ vim.opt.splitright = true
 vim.opt.updatetime = 300
 
 vim.opt.mouse = "a"
-vim.opt.clipboard = "unnamedplus"
+-- vim.opt.clipboard = "unnamedplus"
 vim.opt.termguicolors = true
 -- vim.opt.t_Co = "256"
 vim.opt.incsearch = true

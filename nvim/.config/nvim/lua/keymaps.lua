@@ -24,6 +24,8 @@ vmap('K', ":m '<-2<CR>gv=gv")
 
 -- greatest remap ever
 vmap('<leader>p', '"_dP')
+nmap('<leader>p', '"+p')
+nmap('<leader>p', '"+P')
 
 -- yank into system clipboard
 vmap('<leader>y', '"+y')
