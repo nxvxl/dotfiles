@@ -29,6 +29,9 @@ return {
             "--column",
             "--smart-case",
             "--hidden"
+          },
+          preview = {
+            filesize_limit = 1
           }
         },
       }
