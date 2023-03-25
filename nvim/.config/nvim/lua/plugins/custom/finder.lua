@@ -31,7 +31,8 @@ return {
             "--hidden"
           },
           preview = {
-            filesize_limit = 1
+            filesize_limit = 1,
+            treesitter = false
           }
         },
       }
