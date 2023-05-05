@@ -151,7 +151,10 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 # bindsym $mod+Shift+F2 move container to workspace $wsBrowser
 # bindsym $mod+Shift+F3 move container to workspace $wsEditor
 
-bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+
+bindsym $mod+grave workspace back_and_forth
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -286,4 +289,5 @@ exec --no-startup-id xset dpms 720 720 720 &
 #  -locker "i3lock -n -i ~/Pictures/lock.png" \
 #  -notify 30 -notifier "notify-send -i /usr/share/icons/Papirus-Dark/16x16/actions/lock.svg 'Autolock' 'LOCKING in 30 seconds'" \
 #  -corners 0-0- -cornersize 10 -detectsleep &
+# exec --no-startup-id light-locker &
 exec --no-startup-id xss-lock -n "/home/noval/.dotfiles/bin/notify-lock.sh" -- i3lock -n -e -i ~/Pictures/lock.png &
