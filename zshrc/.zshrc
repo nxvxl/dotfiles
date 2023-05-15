@@ -104,7 +104,7 @@ alias nd="cd ~/.dotfiles && nvim && cd -"
 
 unalias gcmsg
 gcmsg() {
-  git commit --message "[$(git_current_brach)] $1"
+  git commit --message "[$(git branch --show-current)] $1"
 }
 
 export NVM_DIR="$HOME/.nvm"
