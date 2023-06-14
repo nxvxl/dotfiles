@@ -1,0 +1,10 @@
+font:
+  normal:
+    family: JetBrains Mono
+  size: 12.0
+cursor:
+  style:
+    shape: Block
+    blinking: On
+import:
+  - ~/.config/alacritty/themes/themes/blood_moon.yaml
