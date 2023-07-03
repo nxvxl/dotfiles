@@ -48,3 +48,6 @@ case $1 in
     usage
     ;;
 esac
+
+sleep 0.1s
+pkill -SIGRTMIN+10 i3blocks

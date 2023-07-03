@@ -17,3 +17,4 @@ fi
 pactl set-default-sink $SELECTED
 notify-send -i /usr/share/icons/Papirus-Dark/16x16/actions/speaker.svg "Speaker Changed" $(echo $SELECTED | cut -d . -f2) -h string:synchronous:speaker
 canberra-gtk-play -i message -d "Speaker Changed"
+pkill -SIGRTMIN+10 i3blocks

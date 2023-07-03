@@ -26,24 +26,24 @@
 # Each block command defaults to the script name to avoid boilerplate.
 #command=/usr/lib/i3blocks/$BLOCK_NAME
 command=~/.config/i3blocks/blocks/$BLOCK_NAME
-separator_block_width=15
+separator_block_width=30
 markup=none
 
 # Part 1
 
-[ssid]
-label= 
-interval=5
-separator=false
-
-[network]
-instance=wlp3s0
-interval=5
-separator=false
-
-[bandwidth]
-instance=wlp3s0;both
-interval=2
+# [ssid]
+# label= 
+# interval=5
+# separator=false
+#
+# [network]
+# instance=wlp3s0
+# interval=5
+# separator=false
+#
+# [bandwidth]
+# instance=wlp3s0;both
+# interval=2
 
 [cpu]
 label= 
@@ -54,23 +54,23 @@ label=
 instance=mem;perc
 interval=5
 
-[memory]
-label= 
-instance=swap;perc
-interval=30
+# [memory]
+# label= 
+# instance=swap;perc
+# interval=30
 
 [audio]
-interval=once
 signal=10
-
-[brightness]
-label= 
 interval=once
-signal=11
 
-[battery]
-instance=0
-interval=30
+# [brightness]
+# label= 
+# interval=once
+# signal=11
+
+# [battery]
+# instance=0
+# interval=30
 
 # Part 2
 

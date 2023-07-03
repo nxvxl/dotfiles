@@ -251,7 +251,8 @@ bar {
 	bindsym button4 nop
 	bindsym button5 nop
 
-	status_command ~/.dotfiles/bin/status.sh
+	# status_command ~/.dotfiles/bin/status.sh
+  status_command i3blocks
 #	tray_output primary
 	position bottom
 
