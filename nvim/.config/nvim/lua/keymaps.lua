@@ -50,6 +50,10 @@ imap('?', '?<C-g>u')
 imap(':', ':<C-g>u')
 imap(';', ';<C-g>u')
 
+-- quickfix list navigation
+nmap('<C-S-j>', ':cnext<CR>')
+nmap('<C-S-k>', ':cprevious<CR>')
+
 -- window navigations
 nmap('<C-h>', ':wincmd h<CR>')
 nmap('<C-j>', ':wincmd j<CR>')

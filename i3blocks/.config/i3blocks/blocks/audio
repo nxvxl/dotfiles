@@ -12,6 +12,8 @@ elif [[ "${BLOCK_BUTTON}" -eq 1 ]]; then
 elif [[ "${BLOCK_BUTTON}" -eq 4 ]]; then
   # amixer -q sset Master 5%-
   volume.sh up
+elif [[ "${BLOCK_BUTTON}" -eq 3 ]]; then
+  speaker-selector.sh
 fi
 
 statusLine=$(amixer get Master | tail -n 1)
