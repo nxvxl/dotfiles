@@ -33,13 +33,11 @@ case $1 in
     # Up the volume (+ 5%)
     amixer sset Master 5%+ > /dev/null
     send_notification
-    play_sound
     ;;
   down)
     amixer set Master on > /dev/null
     amixer sset Master 5%- > /dev/null
     send_notification
-    play_sound
     ;;
   mute)
     # Toggle mute
@@ -48,7 +46,6 @@ case $1 in
       notify-send -i "${ICON}audio-volume-muted.svg" "Volume" "Muted" -h string:synchronous:volume
     else
       send_notification
-      play_sound
     fi
     ;;
   *)
