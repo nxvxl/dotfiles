@@ -14,7 +14,7 @@ sudo dnf install i3 istatus i3lock dmenu picom feh xss-lock dunst rofi i3blocks 
 fontawesome-fonts jetbrains-mono-fonts papirus-icon-theme 
 
 # install main program
-sudo dnf install neovim flameshot
+sudo dnf install neovim flameshot ripgrep
 
 # install omz
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
