@@ -60,6 +60,12 @@ nmap('<C-j>', ':wincmd j<CR>')
 nmap('<C-k>', ':wincmd k<CR>')
 nmap('<C-l>', ':wincmd l<CR>')
 
+-- window navigations from insert mode
+imap('<C-h>', '<ESC>:wincmd h<CR>')
+imap('<C-j>', '<ESC>:wincmd j<CR>')
+imap('<C-k>', '<ESC>:wincmd k<CR>')
+imap('<C-l>', '<ESC>:wincmd l<CR>')
+
 -- terminal mode window navigations
 tmap('<C-h>', '<C-\\><C-n>:wincmd h<CR>')
 tmap('<C-j>', '<C-\\><C-n>:wincmd j<CR>')

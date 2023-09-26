@@ -74,6 +74,9 @@ return {
       vim.keymap.set('n', '<leader>fa', require('telescope.builtin').builtin, { desc = '[F]ind [A]ll' })
       vim.keymap.set('n', '<leader>fr', function() require('telescope.builtin').oldfiles({ only_cwd = true }) end,
         { desc = '[F]ind [R]ecent Files in CWD' })
+
+
+      vim.cmd('autocmd User TelescopePreviewerLoaded setlocal wrap | setlocal number')
     end
   },
   {
