@@ -9,7 +9,7 @@ sudo dnf upgrade
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 # install essential
-sudo dnf install git zsh stow kitty curl
+sudo dnf install git zsh stow kitty curl sqlite3
 
 # install window manager
 sudo dnf install i3 i3status i3lock dmenu picom feh xss-lock dunst rofi i3blocks xset \
@@ -30,5 +30,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # clone dotfiles
 git clone https://github.com/nxvxl/dotfiles.git ~/.dotfiles
 
+cd .dotfiles
+
 # copy configurations
-stow i3 i3blocks dunst gtk-3.0 gtk-4.0 picom kitty
+stow i3 i3blocks dunst gtk-3.0 gtk-4.0 picom kitty nvim
