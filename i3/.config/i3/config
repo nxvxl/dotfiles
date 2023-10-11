@@ -61,7 +61,7 @@ bindsym $alt+F4 kill
 # start dmenu (a program launcher)
 #set $dmenu_font 'JetBrains Mono-12'
 #bindsym $mod+a exec i3-dmenu-desktop --dmenu="dmenu -i -p '>>> ' -nb $black -nf $white -sb $blue -sf $white -fn $dmenu_font"
-bindsym $mod+a exec rofi -modes "drun#run#window" -show drun -matching fuzzy -show-icons
+bindsym $mod+a exec rofi -modes "drun#run#window" -show drun -show-icons
 bindsym $mod+Shift+a exec dmenu_run -i -p '>>> ' -nb $black -nf $white -sb $blue -sf $white -fn $dmenu_font
 #bindsym $alt+Tab exec switch
 #bindsym $mod+Tab exec --no-startup-id application-menu.sh
