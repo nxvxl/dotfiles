@@ -20,4 +20,6 @@ export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 alias xc="xclip -selection clipboard"
 
 
-. "$HOME/.cargo/env"
+if [[ -d $HOME/.cargo/env ]]; then
+  . "$HOME/.cargo/env"
+fi
