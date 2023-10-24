@@ -19,7 +19,7 @@ function is_mute {
 
 function send_notification {
   volume=`get_volume`
-  notify-send -i "${ICON}audio-volume-high.svg" -u normal "Volume" -h int:value:$volume -h string:synchronous:volume
+  notify-send -i "${ICON}audio-volume-high.svg" -u normal "Volume ($volume%)" -h int:value:$volume -h string:synchronous:volume
 }
 
 function play_sound {
