@@ -5,19 +5,24 @@ BATTERY_INFO=$(acpi -b | grep "Battery ${BATTERY}")
 BATTERY_STATE=$(echo "${BATTERY_INFO}" | grep -wo "Full\|Charging\|Discharging")
 BATTERY_POWER=$(echo "${BATTERY_INFO}" | grep -o '[0-9]\+%' | tr -d '%')
 
-URGENT_VALUE=15
+URGENT_VALUE=20
 
-if [[ "${BATTERY_STATE}" = "Charging" ]]; then
-  echo " ${BATTERY_POWER}%"
-  echo " ${BATTERY_POWER}%"
+BATTERY2=1
+BATTERY_INFO2=$(acpi -b | grep "Battery ${BATTERY2}")
+BATTERY_STATE2=$(echo "${BATTERY_INFO2}" | grep -wo "Full\|Charging\|Discharging")
+BATTERY_POWER2=$(echo "${BATTERY_INFO2}" | grep -o '[0-9]\+%' | tr -d '%')
+
+if [[ "${BATTERY_STATE}" = "Charging" || "${BATTERY_STATE2}" = "Charging" ]]; then
+  echo " ${BATTERY_POWER}% ${BATTERY_POWER2}%"
+  echo " ${BATTERY_POWER}% ${BATTERY_POWER2}%"
   echo ""
 elif [[ "${BATTERY_STATE}" = "Discharging" ]]; then
-  echo " ${BATTERY_POWER}%"
-  echo " ${BATTERY_POWER}%"
+  echo " ${BATTERY_POWER}% ${BATTERY_POWER2}%"
+  echo " ${BATTERY_POWER}% ${BATTERY_POWER2}%"
   echo ""
 else
-  echo " ${BATTERY_POWER}%"
-  echo " ${BATTERY_POWER}%"
+  echo " ${BATTERY_POWER}% ${BATTERY_POWER2}%"
+  echo " ${BATTERY_POWER}% ${BATTERY_POWER2}%"
   echo ""
 fi
 

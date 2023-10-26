@@ -68,9 +68,9 @@ interval=once
 # interval=once
 # signal=11
 
-# [battery]
-# instance=0
-# interval=30
+[battery]
+instance=0
+interval=30
 
 # Part 2
 
