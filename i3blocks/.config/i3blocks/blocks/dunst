@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [[ "${BLOCK_BUTTON}" -eq 1 ]]; then
+  dunstctl set-paused toggle
+fi
+
+IS_PAUSED=$(dunstctl is-paused)
+if [[ $IS_PAUSED = "true" ]]; then
+  echo 
+  echo 
+else
+  echo 
+  echo 
+fi
