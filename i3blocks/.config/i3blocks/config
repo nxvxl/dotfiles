@@ -95,6 +95,9 @@ label=
 instance=%a %d %b %Y %H:%M
 interval=30
 
+[dunst]
+interval=once
+
 #[display]
 #label=
 #interval=5
