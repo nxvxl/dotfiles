@@ -219,7 +219,7 @@ bindsym $mod+Print exec flameshot gui
 bindsym $mod+F1 exec $HOME/.dotfiles/bin/speaker-selector.sh
 bindsym $mod+F2 exec $HOME/.dotfiles/bin/mic-selector.sh
 
-bindsym $mod+F12 exec dusntctl set-paused toggle
+bindsym $mod+F12 exec dunstctl set-paused toggle && pkill -SIGRTMIN+12 i3blocks
 
 set $session_menu "(P)ower off | (R)estart | (E)xit | (L)ock | (S)uspend"
 mode $session_menu {
