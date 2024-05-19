@@ -70,7 +70,7 @@ ZSH_THEME="robbyrussell" # set by `omz`
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker)
+plugins=(git docker asdf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -101,6 +101,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 alias nd="cd ~/.dotfiles && nvim && cd -"
+alias kvim="NVIM_APPNAME=kickstart.nvim nvim"
 
 unalias gcmsg
 gcmsg() {
@@ -126,3 +127,4 @@ if [[ "${terminfo[kcud1]}" != "" ]]; then
     bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
 fi
 
+. "$HOME/.asdf/asdf.sh"
