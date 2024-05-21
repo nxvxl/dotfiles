@@ -275,8 +275,8 @@ bar {
 
 # autostart apps
 #exec --no-startup-id /usr/lib64/xfce4/notifyd/xfce4-notifyd &
-#exec --no-startup-id xfce4-power-manager &
-#exec --no-startup-id xfce4-screensaver &
+exec --no-startup-id xfce4-power-manager &
+exec --no-startup-id xfce4-screensaver &
 #exec --no-startup-id xfsettingsd &
 #exec --no-startup-id /usr/libexec/xfce-polkit &
 #exec --no-startup-id xfce4-panel &
@@ -288,11 +288,11 @@ exec --no-startup-id lxpolkit &
 exec --no-startup-id nm-applet &
 exec --no-startup-id ./.fehbg &
 exec --no-startup-id picom &
-exec --no-startup-id xset s 600 30 &
-exec --no-startup-id xset dpms 720 720 720 &
-#exec --no-startup-id xautolock -time 10 \
+# exec --no-startup-id xset s 600 30 &
+# exec --no-startup-id xset dpms 720 720 720 &
+# exec --no-startup-id xautolock -time 10 \
 #  -locker "i3lock -n -i ~/Pictures/lock.png" \
 #  -notify 30 -notifier "notify-send -i /usr/share/icons/Papirus-Dark/16x16/actions/lock.svg 'Autolock' 'LOCKING in 30 seconds'" \
 #  -corners 0-0- -cornersize 10 -detectsleep &
 # exec --no-startup-id light-locker &
-exec --no-startup-id xss-lock -n "/home/noval/.dotfiles/bin/notify-lock.sh" -- i3lock -n -e -i ~/Pictures/lock.png &
+# exec --no-startup-id xss-lock -n "/home/noval/.dotfiles/bin/notify-lock.sh" -- i3lock -n -e -i ~/Pictures/lock.png &
