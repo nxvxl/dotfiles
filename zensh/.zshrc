@@ -51,6 +51,7 @@ bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
+bindkey -s '^ ' '. ~/.dotfiles/bin/workspace.sh ~/Works/Vouch/Repository/^M'
 
 # History
 HISTSIZE=5000
