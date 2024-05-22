@@ -25,7 +25,7 @@ set $black  '#000000'
 set $white  '#FFFFFF'
 set $blue   '#15539E'
 
-set $terminal 'kitty'
+set $terminal xfce4-terminal -e tmux
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -61,7 +61,7 @@ bindsym $alt+F4 kill
 # start dmenu (a program launcher)
 #set $dmenu_font 'JetBrains Mono-12'
 #bindsym $mod+a exec i3-dmenu-desktop --dmenu="dmenu -i -p '>>> ' -nb $black -nf $white -sb $blue -sf $white -fn $dmenu_font"
-bindsym $mod+a exec rofi -modes "drun#run#window" -show drun -show-icons
+bindsym $mod+a exec --no-startup-id rofi -modes "drun#run#window" -show drun -show-icons
 bindsym $mod+Shift+a exec dmenu_run -i -p '>>> ' -nb $black -nf $white -sb $blue -sf $white -fn $dmenu_font
 #bindsym $alt+Tab exec switch
 #bindsym $mod+Tab exec --no-startup-id application-menu.sh

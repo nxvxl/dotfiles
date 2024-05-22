@@ -81,6 +81,7 @@ ZSH_HIGHLIGHT_STYLES[path_prefix]=none
 alias ls='ls --color'
 alias vim='nvim'
 alias c='clear'
+alias t='tmux'
 
 # Shell integrations
 # eval "$(fzf --zsh)"
