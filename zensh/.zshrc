@@ -51,6 +51,11 @@ bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+bindkey '^[[1~'  beginning-of-line
+bindkey '^[[4~'  end-of-line
+bindkey '^[[3~'  delete-char
 bindkey -s '^ ' '. ~/.dotfiles/bin/workspace.sh ~/Works/Vouch/Repository/^M'
 
 # History
