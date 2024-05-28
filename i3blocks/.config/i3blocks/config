@@ -44,6 +44,8 @@ markup=none
 # [bandwidth]
 # instance=wlp3s0;both
 # interval=2
+[playerctl]
+interval=3
 
 [cpu]
 label= 

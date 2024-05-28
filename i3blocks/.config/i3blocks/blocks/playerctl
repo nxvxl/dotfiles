@@ -11,11 +11,6 @@ if [ $? == 1 ]; then
     exit 0
 fi
 
-ICON_PLAY="➤"
-ICON_PAUSE="Ⅱ"
-ICON_STOP="≠"
-CUR_ICON=""
-
 if [[ "${BLOCK_BUTTON}" -eq 1 ]]; then
     $(playerctl ${ARGUMENTS} previous)
 elif [[ "${BLOCK_BUTTON}" -eq 2 ]]; then
@@ -29,15 +24,10 @@ INFO_TITLE=$(playerctl ${ARGUMENTS} metadata title)
 INFO_ALBUM=$(playerctl ${ARGUMENTS} metadata album)
 INFO_ARTIST=$(playerctl ${ARGUMENTS} metadata artist)
 
-if [[ "${PLAYER_STATUS}" = "Paused" ]]; then
-  CUR_ICON="${ICON_PAUSE}"
-elif [[ "${PLAYER_STATUS}" = "Playing" ]]; then
-  CUR_ICON="${ICON_PLAY}"
-else
-  CUR_ICON="${ICON_STOP}"
+if [[ "${INFO_TITLE}" != "" ]] && [[ "${INFO_ARTIST}" != "" ]] && [[ "${PLAYER_STATUS}" = "Playing" ]]; then
+  ICON=""
+  echo "${ICON} ${INFO_ARTIST} - ${INFO_TITLE}"
+  echo "${ICON} ${INFO_ARTIST} - ${INFO_TITLE}"
 fi
 
-if [[ "${INFO_TITLE}" != "" ]] && [[ "${INFO_ARTIST}" != "" ]]; then
-  echo "${INFO_ARTIST} - ${INFO_TITLE} ${CUR_ICON}"
-  echo "${INFO_ARTIST} - ${INFO_TITLE} ${CUR_ICON}"
-fi
+echo ""
