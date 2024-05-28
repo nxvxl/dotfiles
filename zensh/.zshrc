@@ -56,7 +56,7 @@ bindkey '^[[1;5C' forward-word
 bindkey '^[[1~'  beginning-of-line
 bindkey '^[[4~'  end-of-line
 bindkey '^[[3~'  delete-char
-bindkey -s '^ ' '. ~/.dotfiles/bin/workspace.sh ~/Works/Vouch/Repository/^M'
+bindkey -s '^ ' ' . ~/.dotfiles/bin/workspace.sh ~/Works/Vouch/Repository/^M'
 
 # History
 HISTSIZE=5000
