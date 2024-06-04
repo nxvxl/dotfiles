@@ -88,6 +88,16 @@ alias vim='nvim'
 alias c='clear'
 alias t='tmux'
 
+
+# Git
+unalias gcmsg
+gcmsg() {
+  git commit -m "[$(git branch --show-current)] $1"
+}
+
+alias ggpull="git pull"
+alias ggpush="git push"
+
 # Shell integrations
 # eval "$(fzf --zsh)"
 # eval "$(zoxide init --cmd cd zsh)"
