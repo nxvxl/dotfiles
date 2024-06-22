@@ -25,7 +25,7 @@ set $black  '#000000'
 set $white  '#FFFFFF'
 set $blue   '#15539E'
 
-set $terminal xfce4-terminal -e tmux
+set $terminal kitty
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -59,10 +59,11 @@ bindsym $mod+Shift+q kill
 bindsym $alt+F4 kill
 
 # start dmenu (a program launcher)
-#set $dmenu_font 'JetBrains Mono-12'
+set $dmenu_font 'JetBrains Mono-12'
 #bindsym $mod+a exec i3-dmenu-desktop --dmenu="dmenu -i -p '>>> ' -nb $black -nf $white -sb $blue -sf $white -fn $dmenu_font"
 bindsym $mod+a exec --no-startup-id rofi -modes "drun#run#window" -show drun -show-icons
 bindsym $mod+Shift+a exec dmenu_run -i -p '>>> ' -nb $black -nf $white -sb $blue -sf $white -fn $dmenu_font
+bindsym $mod+q exec --no-startup-id action-control.py
 #bindsym $alt+Tab exec switch
 #bindsym $mod+Tab exec --no-startup-id application-menu.sh
 
@@ -121,6 +122,16 @@ set $ws10 10
 set $wsTerminal 
 set $wsBrowser 
 set $wsEditor 
+set $wsf1 一
+set $wsf2 二
+set $wsf3 三
+set $wsf4 四
+set $wsf5 五
+set $wsf6 六
+set $wsf7 七
+set $wsf8 八
+set $wsf9 九
+set $wsf10 十
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -133,9 +144,16 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
-# bindsym $mod+F1 workspace $wsTerminal
-# bindsym $mod+F2 workspace $wsBrowser
-# bindsym $mod+F3 workspace $wsEditor
+bindsym $mod+F1 workspace $wsf1
+bindsym $mod+F2 workspace $wsf2
+bindsym $mod+F3 workspace $wsf3
+bindsym $mod+F4 workspace $wsf4
+bindsym $mod+F5 workspace $wsf5
+bindsym $mod+F6 workspace $wsf6
+bindsym $mod+F7 workspace $wsf7
+bindsym $mod+F8 workspace $wsf8
+bindsym $mod+F9 workspace $wsf9
+bindsym $mod+F10 workspace $wsf10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -148,9 +166,16 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
-# bindsym $mod+Shift+F1 move container to workspace $wsTerminal
-# bindsym $mod+Shift+F2 move container to workspace $wsBrowser
-# bindsym $mod+Shift+F3 move container to workspace $wsEditor
+bindsym $mod+Shift+F1 move container to workspace $wsf1
+bindsym $mod+Shift+F2 move container to workspace $wsf2
+bindsym $mod+Shift+F3 move container to workspace $wsf3
+bindsym $mod+Shift+F4 move container to workspace $wsf4
+bindsym $mod+Shift+F5 move container to workspace $wsf5
+bindsym $mod+Shift+F6 move container to workspace $wsf6
+bindsym $mod+Shift+F7 move container to workspace $wsf7
+bindsym $mod+Shift+F8 move container to workspace $wsf8
+bindsym $mod+Shift+F9 move container to workspace $wsf9
+bindsym $mod+Shift+F10 move container to workspace $wsf10
 
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
@@ -216,10 +241,10 @@ bindsym $mod+Print exec flameshot gui
 
 #Speaker and Microphone
 
-bindsym $mod+F1 exec $HOME/.dotfiles/bin/speaker-selector.sh
-bindsym $mod+F2 exec $HOME/.dotfiles/bin/mic-selector.sh
+# bindsym $mod+F1 exec $HOME/.dotfiles/bin/speaker-selector.sh
+# bindsym $mod+F2 exec $HOME/.dotfiles/bin/mic-selector.sh
 
-bindsym $mod+F12 exec dunstctl set-paused toggle && pkill -SIGRTMIN+12 i3blocks
+# bindsym $mod+F12 exec dunstctl set-paused toggle && pkill -SIGRTMIN+12 i3blocks
 
 set $session_menu "(P)ower off | (R)estart | (E)xit | (L)ock | (S)uspend"
 mode $session_menu {

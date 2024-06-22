@@ -3,7 +3,7 @@
 CURRENT=$(pactl get-default-source | cut -d . -f2)
 OPTIONS=$(pactl list short sources | grep input | cut -f2 | grep -v $CURRENT)
 
-SELECTED=$(echo "$OPTIONS" | rofi -dmenu -i -p "Microphone Input ($CURRENT)" -matching fuzzy -sort)
+SELECTED=$(echo "$OPTIONS" | rofi -dmenu -i -p "$CURRENT" -matching fuzzy -sort)
 
 if [ -z "$SELECTED" ]; then
   exit 0

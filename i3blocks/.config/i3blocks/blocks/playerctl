@@ -24,10 +24,16 @@ INFO_TITLE=$(playerctl ${ARGUMENTS} metadata title)
 INFO_ALBUM=$(playerctl ${ARGUMENTS} metadata album)
 INFO_ARTIST=$(playerctl ${ARGUMENTS} metadata artist)
 
+TEXT=" ${INFO_ARTIST} - ${INFO_TITLE}"
+MAX_LENGTH=52
+
 if [[ "${INFO_TITLE}" != "" ]] && [[ "${INFO_ARTIST}" != "" ]] && [[ "${PLAYER_STATUS}" = "Playing" ]]; then
-  ICON=""
-  echo "${ICON} ${INFO_ARTIST} - ${INFO_TITLE}"
-  echo "${ICON} ${INFO_ARTIST} - ${INFO_TITLE}"
+  if [[ "${#TEXT}" > "$MAX_LENGTH" ]]; then
+    TEXT="${TEXT:0:${MAX_LENGTH}}..."
+  fi
+
+  echo "$TEXT"
+  echo "$TEXT"
+  echo ""
 fi
 
-echo ""
