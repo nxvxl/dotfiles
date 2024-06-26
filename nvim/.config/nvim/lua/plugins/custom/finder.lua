@@ -1,7 +1,7 @@
 return {
   {
     'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
+    -- branch = '0.1.x',
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
       local actions = require('telescope.actions')
@@ -15,8 +15,6 @@ return {
           },
           mappings = {
             i = {
-              ['<C-u>'] = false,
-              ['<C-d>'] = false,
               ["<C-x>"] = actions.delete_buffer
             },
           },
@@ -41,7 +39,7 @@ return {
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'live_grep_args')
 
-      -- S?e `:help telescope.builtin`
+      -- See `:help telescope.builtin`
       vim.keymap.set('n', '<leader>fo', require('telescope.builtin').oldfiles,
         { desc = '[O] Find recently opened files' })
       vim.keymap.set('n', '<leader>\\', function()
