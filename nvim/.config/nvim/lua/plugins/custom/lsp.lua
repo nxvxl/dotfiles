@@ -80,16 +80,28 @@ return {
     --
     --  Add any additional override configuration in the following tables. They will be passed to
     --  the `settings` field of the server config. You must look up that documentation yourself.
+    local vue_language_server_path = vim.fn.stdpath("data") .. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
     local servers = {
       -- clangd = {},
       gopls = {},
       -- pyright = {},
       -- rust_analyzer = {},
-      tsserver = {},
+      tsserver = {
+        init_options = {
+          plugins = {
+            {
+              name = '@vue/typescript-plugin',
+              location = vue_language_server_path,
+              languages = { 'vue' },
+            },
+          },
+        },
+        filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+      },
       html = {},
       cssls = {},
-      -- volar = {},
-      vuels = {},
+      volar = {},
+      -- vuels = {},
       lua_ls = {
         settings = {
           Lua = {
@@ -98,6 +110,18 @@ return {
           },
         },
       },
+      tailwindcss = {
+        settings = {
+          tailwindCSS = {
+            experimental = {
+              classRegex = {
+                "class:\\s*`([\\s\\S]*?)`",
+                "class:\\s*\\{\\s*([^}]*\\s*:\\s*true,?\\s*)+\\}"
+              }
+            }
+          }
+        }
+      }
     }
 
     -- Setup neovim lua configuration
