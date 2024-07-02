@@ -28,7 +28,7 @@ TEXT=" ${INFO_ARTIST} - ${INFO_TITLE}"
 MAX_LENGTH=52
 
 if [[ "${INFO_TITLE}" != "" ]] && [[ "${INFO_ARTIST}" != "" ]] && [[ "${PLAYER_STATUS}" = "Playing" ]]; then
-  if [[ "${#TEXT}" > "$MAX_LENGTH" ]]; then
+  if [[ "${#TEXT}" -gt "$MAX_LENGTH" ]]; then
     TEXT="${TEXT:0:${MAX_LENGTH}}..."
   fi
 
