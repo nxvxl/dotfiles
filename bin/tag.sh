@@ -2,7 +2,7 @@
 #
 TAG="prd-$(date +%Y%m%d)"
 LAST_TAG=$(git describe --tags --abbrev=0)
-MESSAGE=$(git log $(git describe --tags --abbrev=0)..HEAD --merges | grep "Merge branch" | cut -d " " -f7 | uniq | grep -v "master" | sort | sed "s/'//g" | sed "s/\r//g")
+MESSAGE=$(git log $(git describe --tags --abbrev=0)..HEAD --merges | grep "Merge branch" | cut -d " " -f7 | grep -v "master" | sort | uniq | sed "s/'//g" | sed "s/\r//g")
 
 if [[ "$TAG" == "$LAST_TAG" ]]; then
   if [[ "$1" == "-f" ]]; then
