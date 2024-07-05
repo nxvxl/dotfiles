@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 CURRENT=$(pactl get-default-sink | cut -d . -f2)
-OPTIONS=$(pactl list short sinks | cut -f2 | grep -v $CURRENT )
+OPTIONS=$(pactl list short sinks | cut -f2)
 LENGTH=$(echo "$OPTIONS" | wc -l)
 
 if [[ "$LENGTH" == 1 ]]; then
   SELECTED=$OPTIONS
 else
-  SELECTED=$(echo "$OPTIONS" | rofi -dmenu -i -p "Speaker Output ($CURRENT)" -matching fuzzy -sort)
+  SELECTED=$(echo "$OPTIONS" | rofi -dmenu -i -p "🔉" -matching fuzzy -sort)
 fi
 
 if [ -z "$SELECTED" ]; then

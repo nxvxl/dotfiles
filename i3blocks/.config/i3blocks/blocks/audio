@@ -22,7 +22,7 @@ volume=$(echo "${statusLine}" | awk -F ' ' '{print $5}' | tr -d '[]%')
 
 if [[ "${status}" == "on" ]]; then
   CURRENT=$(pactl get-default-sink | cut -d . -f2)
-  if [[ "${CURRENT}" == "usb-GeneralPlus_USB_Audio_Device-00" ]]; then
+  if [[ "${CURRENT}" != "alsa_output.pci-0000_00_1f.3.analog-stereo" ]]; then
     echo " ${volume}%"
     echo " ${volume}%"
     echo ""
