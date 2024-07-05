@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
 CURRENT=$(pactl get-default-sink | cut -d . -f2)
-OPTIONS=$(pactl list short sinks | cut -f2)
+OPTIONS=$(pactl list short sinks | cut -f2 | grep -v "$CURRENT")
 LENGTH=$(echo "$OPTIONS" | wc -l)
 
 if [[ "$LENGTH" == 1 ]]; then
   SELECTED=$OPTIONS
 else
-  SELECTED=$(echo "$OPTIONS" | rofi -dmenu -i -p "🔉" -matching fuzzy -sort)
+  echo "$OPTIONS"
+  SELECTED=$(echo -e "$CURRENT\n$OPTIONS" | rofi -dmenu -i -p "🔉" -matching fuzzy -sort -select $CURRENT)
 fi
 
 if [ -z "$SELECTED" ]; then
