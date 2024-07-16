@@ -47,6 +47,9 @@ markup=none
 [playerctl]
 interval=3
 
+[vpn]
+interval=5
+
 [cpu]
 label= 
 interval=2

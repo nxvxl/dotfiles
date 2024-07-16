@@ -1,9 +1,8 @@
 #!/bin/bash
+ACTIVE_VPN=$(nmcli connection show --active | grep vpn | head -n 1 | cut -d " " -f1)
 
-VPNC_FILE='/var/run/vpnc.pid'
-
-if [[ -e "${VPNC_FILE}" ]]; then
-  echo "on"
-  echo "on"
-  echo ""
+if [[ "$ACTIVE_VPN" != "" ]]; then
+  echo " $ACTIVE_VPN"
+  echo " $ACTIVE_VPN"
+  echo "#FFFF00"
 fi
