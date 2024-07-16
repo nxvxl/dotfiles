@@ -11,7 +11,8 @@ return {
           file_ignore_patterns = {
             'node_modules/*',
             '^.git/*',
-            '[.]min[.](js|css)$'
+            '[.]min[.](js|css)$',
+            'venv/*'
           },
           mappings = {
             i = {
