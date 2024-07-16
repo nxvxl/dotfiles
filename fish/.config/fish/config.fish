@@ -12,4 +12,8 @@ set __fish_git_prompt_showuntrackedfiles 1
 bind \ch h
 bind -k nul workspace
 
+if test -f ~/.asdf/asdf.fish
+  source ~/.asdf/asdf.fish
+end
+
 starship init fish | source
