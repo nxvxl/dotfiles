@@ -5,6 +5,7 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
       local actions = require('telescope.actions')
+      local lga_actions = require("telescope-live-grep-args.actions")
 
       require('telescope').setup {
         defaults = {
@@ -16,7 +17,9 @@ return {
           },
           mappings = {
             i = {
-              ["<C-x>"] = actions.delete_buffer
+              ["<C-x>"] = actions.delete_buffer,
+              ["<C-k>"] = lga_actions.quote_prompt(),
+              ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
             },
           },
           vimgrep_arguments = {
@@ -66,7 +69,10 @@ return {
         function() require('telescope.builtin').grep_string({ grep_open_files = true }) end,
         { desc = '[F]ind current [W]ord in opened files' })
       vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = '[F]ind [H]elp' })
-      vim.keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = '[F]ind [D]iagnostics' })
+      vim.keymap.set('n', '<leader>fD', require('telescope.builtin').diagnostics, { desc = '[F]ind [D]iagnostics in workspace' })
+      vim.keymap.set('n', '<leader>fd', function ()
+        require('telescope.builtin').diagnostics({ bufnr = 0 })
+      end, { desc = '[F]ind [D]iagnostics in current buffer' })
       vim.keymap.set('n', '<leader>fk', require('telescope.builtin').keymaps, { desc = '[F]ind [K]eymaps' })
       vim.keymap.set('n', '<leader>fq', require('telescope.builtin').quickfix, { desc = '[F]ind [Q]uickfix' })
       vim.keymap.set('n', '<leader>fc', require('telescope.builtin').commands, { desc = '[F]ind [C]ommands' })
