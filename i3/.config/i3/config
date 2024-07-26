@@ -62,7 +62,8 @@ bindsym $alt+F4 kill
 set $dmenu_font 'JetBrains Mono-12'
 #bindsym $mod+a exec i3-dmenu-desktop --dmenu="dmenu -i -p '>>> ' -nb $black -nf $white -sb $blue -sf $white -fn $dmenu_font"
 bindsym $mod+a exec --no-startup-id rofi -modes "drun#run#window" -show drun -show-icons
-bindsym $mod+Shift+a exec dmenu_run -i -p '>>> ' -nb $black -nf $white -sb $blue -sf $white -fn $dmenu_font
+# bindsym $mod+Shift+a exec dmenu_run -i -p '>>> ' -nb $black -nf $white -sb $blue -sf $white -fn $dmenu_font
+bindsym $mod+Shift+a exec --no-startup-id rofi -show run
 bindsym $mod+q exec --no-startup-id action-control.py
 #bindsym $alt+Tab exec switch
 #bindsym $mod+Tab exec --no-startup-id application-menu.sh
@@ -248,8 +249,8 @@ bindsym $mod+Print exec flameshot gui
 
 set $session_menu "(P)ower off | (R)estart | (E)xit | (L)ock | (S)uspend"
 mode $session_menu {
-	bindsym p exec shutdown -h now ; mode "default"
-	bindsym r exec shutdown -r now ; mode "default"
+	bindsym p exec systemctl poweroff ; mode "default"
+	bindsym r exec systemctl reboot ; mode "default"
 	bindsym e exit ; mode "default"
 	bindsym l exec loginctl lock-session ; mode "default"
 	bindsym s exec systemctl suspend ; mode "default"
