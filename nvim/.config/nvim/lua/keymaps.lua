@@ -97,3 +97,9 @@ nmap('bdo', function()
   end
 end)
 --]]
+--
+
+-- go to tab N
+for i=1,5 do
+  nmap('<C-' .. i .. '>', '<CMD>tabn ' .. i .. '<CR>')
+end

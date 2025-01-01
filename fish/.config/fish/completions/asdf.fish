@@ -1,0 +1,1 @@
+/home/noval/.asdf/completions/asdf.fish

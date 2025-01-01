@@ -48,16 +48,11 @@ return {
         { desc = '[O] Find recently opened files' })
       vim.keymap.set('n', '<leader>\\', function()
         require('telescope.builtin').buffers(require('telescope.themes').get_dropdown({
-          winblend = 10,
           previewer = false
         }))
       end, { desc = '[\\] Find existing buffers' })
       vim.keymap.set('n', '<leader>/', function()
-        require('telescope.builtin').current_buffer_fuzzy_find(
-          require('telescope.themes').get_dropdown({
-            winblend = 10,
-            previewer = false,
-          }))
+        require('telescope.builtin').current_buffer_fuzzy_find()
       end, { desc = '[/] Fuzzily search in current buffer]' })
 
       vim.keymap.set('n', '<leader>ff', function() require('telescope.builtin').find_files({ hidden = true }) end,

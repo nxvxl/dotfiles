@@ -22,8 +22,8 @@ return {
             -- null_ls.builtins.formatting.prettierd,
             -- null_ls.builtins.formatting.prettier,
             -- null_ls.builtins.formatting.eslint,
-            -- null_ls.builtins.diagnostics.eslint_d,
-            -- null_ls.builtins.code_actions.eslint_d,
+            null_ls.builtins.diagnostics.eslint_d,
+            null_ls.builtins.code_actions.eslint_d,
             null_ls.builtins.code_actions.gitsigns,
           },
         })
@@ -33,7 +33,7 @@ return {
   config = function()
     -- LSP settings.
     --  This function gets run when an LSP connects to a particular buffer.
-    local on_attach = function(_, bufnr)
+    local on_attach = function(client, bufnr)
       -- NOTE: Remember that lua is a real programming language, and as such it is possible
       -- to define small helper and utility functions so you don't have to repeat yourself
       -- many times.
@@ -72,7 +72,7 @@ return {
 
       vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
         vim.lsp.buf.format()
-      end, { desc = 'Format current buffer with LSP' })
+      end, { desc = 'Format current buffer with ' .. client.name })
     end
 
     -- Enable the following language servers
@@ -98,7 +98,13 @@ return {
         },
         filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
       },
-      html = {},
+      html = {
+        settings = {
+          html = {
+            wrapAttributes = 'aligned-multiple'
+          }
+        },
+      },
       cssls = {},
       volar = {},
       -- vuels = {},
