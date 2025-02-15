@@ -5,5 +5,5 @@
 -- else
 --   vim.cmd([[colorscheme  gruvbox]])
 -- end
---
-vim.cmd.colorscheme("moonfly")
+
+vim.cmd.colorscheme("catppuccin-mocha")

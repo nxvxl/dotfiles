@@ -3,7 +3,22 @@ return {
   { 'navarasu/onedark.nvim',     lazy = true },
   { 'gruvbox-community/gruvbox', lazy = true },
   { 'shaunsingh/nord.nvim',      lazy = true },
-  { 'bluz71/vim-moonfly-colors', laszy = true },
+  { 'bluz71/vim-moonfly-colors', lazy = true },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    opts = {
+      flavour = "mocha",
+      color_overrides = {
+        mocha = {
+          base = "#000000",
+          -- mantle = "#000000",
+          crust = "#181826",
+        },
+      },
+    },
+  },
 
   -- Fancier statusline
   {
