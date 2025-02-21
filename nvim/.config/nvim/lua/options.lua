@@ -54,3 +54,4 @@ vim.opt.showbreak = "   ↳"
 vim.opt.linebreak = true
 
 vim.opt.exrc = true
+vim.opt.formatexpr = "v:lua.require'conform'.formatexpr()"

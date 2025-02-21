@@ -17,6 +17,10 @@ return {
         on_attach = function()
           nmap('[c', ':Gitsigns prev_hunk<CR>')
           nmap(']c', ':Gitsigns next_hunk<CR>')
+          nmap('<leader>gp', ':Gitsigns preview_hunk<CR>')
+          nmap('<leader>gr', ':Gitsigns reset_hunk<CR>')
+          nmap('<leader>gs', ':Gitsigns stage_hunk<CR>')
+          nmap('<leader>gu', ':Gitsigns undo_stage_hunk<CR>')
           nmap('<leader>gbl', ':Gitsigns blame_line<CR>')
         end
       })

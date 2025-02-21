@@ -10,25 +10,6 @@ return {
 
     -- Additional lua configuration, makes nvim stuff amazing
     'folke/neodev.nvim',
-
-    -- null-ls
-    {
-      'jose-elias-alvarez/null-ls.nvim',
-      config = function()
-        local null_ls = require('null-ls')
-
-        null_ls.setup({
-          sources = {
-            -- null_ls.builtins.formatting.prettierd,
-            -- null_ls.builtins.formatting.prettier,
-            -- null_ls.builtins.formatting.eslint,
-            null_ls.builtins.diagnostics.eslint_d,
-            null_ls.builtins.code_actions.eslint_d,
-            null_ls.builtins.code_actions.gitsigns,
-          },
-        })
-      end
-    }
   },
   config = function()
     -- LSP settings.
@@ -69,10 +50,6 @@ return {
       nmap('<leader>wl', function()
         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
       end, '[W]orkspace [L]ist Folders')
-
-      vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-        vim.lsp.buf.format()
-      end, { desc = 'Format current buffer with ' .. client.name })
     end
 
     -- Enable the following language servers
@@ -83,7 +60,7 @@ return {
     local vue_language_server_path = vim.fn.stdpath("data") .. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
     local servers = {
       -- clangd = {},
-      gopls = {},
+      -- gopls = {},
       -- pyright = {},
       -- rust_analyzer = {},
       ts_ls = {
@@ -117,6 +94,7 @@ return {
         },
       },
       tailwindcss = {
+        filetypes = { 'html', 'css' },
         settings = {
           tailwindCSS = {
             experimental = {

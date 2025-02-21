@@ -1,5 +1,5 @@
--- local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-local signs = { Error = "❌", Warn = "⚠️", Hint = "💡", Info = "ℹ️" }
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+-- local signs = { Error = "❌", Warn = "⚠️", Hint = "💡", Info = "ℹ️" }
 for name, icon in pairs(signs) do
   name = "DiagnosticSign" .. name
   vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
@@ -9,7 +9,8 @@ vim.diagnostic.config({
   virtual_text = false,
   float = {
     width = 80,
-    border = "single"
+    border = "single",
+    source = true,
   }
 })
 
