@@ -94,7 +94,7 @@ return {
         },
       },
       tailwindcss = {
-        filetypes = { 'html', 'css' },
+        -- filetypes = { 'html', 'css' },
         settings = {
           tailwindCSS = {
             experimental = {

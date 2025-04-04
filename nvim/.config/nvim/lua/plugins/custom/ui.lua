@@ -10,12 +10,21 @@ return {
 			flavour = "mocha",
 			color_overrides = {
 				mocha = {
-					base = "#000000",
+					-- base = "#000000",
 					-- mantle = "#000000",
 					-- crust = "#181826",
 					crust = "#313245",
 				},
 			},
+			custom_highlights = function(colors)
+				return {
+					-- Set active window background to black
+					-- NormalFloat = { bg = "#000000" },
+					Normal = { bg = "#000000" },
+					-- Keep inactive windows with default catppuccin background
+					NormalNC = { bg = colors.base },
+				}
+			end,
 			integrations = {
 				native_lsp = {
 					enabled = true,
@@ -57,7 +66,7 @@ return {
 					},
 					ignore_focus = {},
 					always_divide_middle = true,
-					globalstatus = false,
+					globalstatus = true,
 					refresh = {
 						statusline = 1000,
 						tabline = 1000,
@@ -75,7 +84,7 @@ return {
 							-- symbols = { error = "❌", warn = "⚠️", hint = "💡", info = "ℹ️" },
 						},
 					},
-					lualine_c = { "filename" },
+					lualine_c = { { "filename", path = 1 } },
 					lualine_x = { "encoding", "fileformat", "filetype" },
 					lualine_y = { "progress" },
 					lualine_z = { "location" },

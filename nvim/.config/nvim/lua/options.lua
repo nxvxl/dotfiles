@@ -6,7 +6,7 @@ vim.g.editorconfig = true
 
 -- global options
 vim.opt.title = true
-vim.opt.laststatus = 2
+vim.opt.laststatus = 3
 vim.opt.showmode = false
 vim.opt.background = "dark"
 vim.opt.foldlevelstart = 20
