@@ -7,5 +7,11 @@ if [ -z "${SELECTION-}" ]; then
 fi
 
 EMOJI=$(echo $SELECTION | cut -d " " -f1)
-echo -n $EMOJI | xclip -selection clipboard
-notify-send  "Emoji copied: $EMOJI"
+
+if [ -x "$(command -v xclip)" ]; then
+  echo -n $EMOJI | xclip -selection clipboard
+  notify-send  "Emoji copied via xclip: $EMOJI"
+elif [ -x "$(command -v xsel)" ]; then
+  echo -n $EMOJI | xsel -b
+  notify-send  "Emoji copied via xsel: $EMOJI"
+fi

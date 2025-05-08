@@ -13,7 +13,7 @@ if [[ ! -z "$TEMP" ]]; then
     TEMP_VALUE=$(echo "$TEMP" | tr -d '°C')
     
     # Check if temperature is above 70°C (you can adjust this threshold)
-    if (( $(echo "$TEMP_VALUE >= 70" | bc -l) )); then
+    if (( $(echo "$TEMP_VALUE >= 85" | bc -l) )); then
         exit 33
     fi
 else

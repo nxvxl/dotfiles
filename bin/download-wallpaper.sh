@@ -3,5 +3,6 @@
 
 # wget "https://source.unsplash.com/1920x1080/?nature" -O ~/Pictures/wallpaper.jpg
 wget https://picsum.photos/1920/1080 -O ~/Pictures/wallpaper.jpg
+cp ~/Pictures/wallpaper.jpg ~/Pictures/"$(date +%s).jpg"
 
 feh --bg-fill ~/Pictures/wallpaper.jpg
