@@ -14,6 +14,9 @@
 #smart_gaps on
 for_window [floating] move absolute position center
 
+for_window [class="simplescreenrecorder"] floating enable, border normal
+for_window [class="SimpleScreenRecorder"] floating enable, border normal
+
 # disable title bar
 default_border pixel 3
 default_floating_border normal 3
@@ -61,7 +64,8 @@ bindsym $alt+F4 kill
 # start dmenu (a program launcher)
 set $dmenu_font 'JetBrains Mono-12'
 #bindsym $mod+a exec i3-dmenu-desktop --dmenu="dmenu -i -p '>>> ' -nb $black -nf $white -sb $blue -sf $white -fn $dmenu_font"
-bindsym $mod+a exec --no-startup-id rofi -modes "drun#run#window" -show drun -show-icons
+bindsym $mod+a exec --no-startup-id rofi -modes "drun#run#windowcd#window" -show drun -show-icons
+bindsym $alt+Tab exec --no-startup-id rofi -modes "windowcd#window" -show windowcd -show-icons
 # bindsym $mod+Shift+a exec dmenu_run -i -p '>>> ' -nb $black -nf $white -sb $blue -sf $white -fn $dmenu_font
 bindsym $mod+Shift+a exec --no-startup-id rofi -show run
 bindsym $mod+q exec --no-startup-id action-control.py
