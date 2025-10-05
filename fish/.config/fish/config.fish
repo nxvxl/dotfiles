@@ -14,4 +14,7 @@ if test -f ~/.asdf/asdf.fish
   source ~/.asdf/asdf.fish
 end
 
-starship init fish | source
+# starship init fish | source
+if test -f ~/.local/bin/mise
+  ~/.local/bin/mise activate fish | source
+end
