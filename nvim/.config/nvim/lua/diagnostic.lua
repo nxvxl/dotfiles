@@ -1,4 +1,4 @@
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 -- local signs = { Error = "❌", Warn = "⚠️", Hint = "💡", Info = "ℹ️" }
 for name, icon in pairs(signs) do
   name = "DiagnosticSign" .. name
