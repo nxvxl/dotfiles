@@ -1,0 +1,16 @@
+[General]
+count=2
+rules=f82eb4f0-8afb-4829-b175-027a2d1e9eb4,dc938467-d25f-41b4-8b66-0135f814cbbb
+
+[dc938467-d25f-41b4-8b66-0135f814cbbb]
+Description=No Title Bar
+Enabled=false
+noborderrule=2
+types=1
+wmclass=.*
+wmclassmatch=3
+
+[f82eb4f0-8afb-4829-b175-027a2d1e9eb4]
+Description=Minimum Geometry Size
+minsizerule=2
+types=1

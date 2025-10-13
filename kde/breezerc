@@ -1,0 +1,10 @@
+[Style]
+MenuItemDrawStrongFocus=false
+
+[Windeco Exception 0]
+BorderSize=3
+Enabled=false
+ExceptionPattern=.*
+ExceptionType=0
+HideTitleBar=true
+Mask=16
