@@ -52,18 +52,6 @@ plugin=org.kde.plasma.pager
 DialogHeight=540
 DialogWidth=720
 
-[Containments][28][Applets][31]
-immutability=1
-plugin=org.kde.plasma.icontasks
-
-[Containments][28][Applets][31][Configuration][ConfigDialog]
-DialogHeight=540
-DialogWidth=720
-
-[Containments][28][Applets][31][Configuration][General]
-groupingStrategy=0
-launchers=
-
 [Containments][28][Applets][32]
 immutability=1
 plugin=org.kde.plasma.marginsseparator
@@ -144,7 +132,7 @@ immutability=1
 plugin=org.kde.plasma.volume
 
 [Containments][28][Applets][33][Applets][47][Configuration]
-PreloadWeight=55
+PreloadWeight=65
 
 [Containments][28][Applets][33][Applets][47][Configuration][General]
 migrated=true
@@ -154,7 +142,7 @@ immutability=1
 plugin=org.kde.plasma.bluetooth
 
 [Containments][28][Applets][33][Applets][49][Configuration]
-PreloadWeight=42
+PreloadWeight=47
 
 [Containments][28][Applets][33][Applets][50]
 immutability=1
@@ -168,7 +156,7 @@ immutability=1
 plugin=org.kde.plasma.battery
 
 [Containments][28][Applets][33][Applets][51][Configuration]
-PreloadWeight=41
+PreloadWeight=44
 
 [Containments][28][Applets][33][Applets][52]
 immutability=1
@@ -182,7 +170,7 @@ immutability=1
 plugin=org.kde.plasma.mediacontroller
 
 [Containments][28][Applets][33][Applets][55][Configuration]
-PreloadWeight=12
+PreloadWeight=4
 
 [Containments][28][Applets][33][ConfigDialog]
 DialogHeight=540
@@ -216,8 +204,23 @@ DialogWidth=720
 [Containments][28][Applets][54][Configuration][General]
 pagerLayout=Vertical
 
+[Containments][28][Applets][86]
+immutability=1
+plugin=org.kde.plasma.icontasks
+
+[Containments][28][Applets][86][Configuration][General]
+launchers=
+
+[Containments][28][Applets][87]
+immutability=1
+plugin=org.kde.plasma.windowlist
+
+[Containments][28][Applets][87][Configuration]
+popupHeight=400
+popupWidth=560
+
 [Containments][28][General]
-AppletOrder=29;54;30;31;32;33;47;48
+AppletOrder=29;54;30;87;32;86;33;47;48
 
 [Containments][53]
 ItemGeometries-1920x1080=
@@ -240,6 +243,18 @@ positions={"0x0":[]}
 [Containments][53][Wallpaper][org.kde.image][General]
 Image=/usr/share/wallpapers/Altai/
 SlidePaths=/usr/share/wallpapers/
+
+[Containments][85]
+activityId=46edec9c-99b4-4968-9874-d37eb4d26ddb
+formfactor=0
+immutability=1
+lastScreen=1
+location=0
+plugin=org.kde.plasma.folder
+wallpaperplugin=org.kde.image
+
+[Containments][85][General]
+positions={"1366x768":[]}
 
 [ScreenMapping]
 itemsOnDisabledScreens=

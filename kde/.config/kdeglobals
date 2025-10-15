@@ -133,10 +133,12 @@ ForegroundPositive=39,174,96
 ForegroundVisited=155,89,182
 
 [General]
+BrowserApplication=google-chrome.desktop
 ColorScheme=BreezeLight
 ColorSchemeHash=9f63c7711a13123582e720791ea0f8c0172977d2
 
 [KDE]
+AnimationDurationFactor=1.414213562373095
 LookAndFeelPackage=org.kde.breeze.desktop
 
 [KFileDialog Settings]
