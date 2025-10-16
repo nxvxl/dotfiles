@@ -117,21 +117,16 @@ install_kwin_scripts() {
 # Install Plasma Splash Screen
 install_splash_screen() {
   heading "Installing Kuro splash screen"
-  local splash_url="https://github.com/KartikSindura/kuro/archive/refs/heads/main.zip"
-  local splash_zip="kuro.zip"
-  local extract_dir_name="kuro-main"
-  local install_dir="$HOME/.local/share/plasma/look-and-feel/a2n.kuro"
+  local splash_url="https://github.com/bouteillerAlan/kuro/releases/download/v2.0.0/a2n.kuro.2.0.0.tar.gz"
+  local splash_archive="a2n.kuro.2.0.0.tar.gz"
+  local install_dir="$HOME/.local/share/plasma/look-and-feel/"
 
   echo "Downloading Kuro splash screen..."
-  curl --progress-bar -L "$splash_url" -o "$TMP_DIR/$splash_zip"
-
-  echo "Extracting splash screen..."
-  unzip -q "$TMP_DIR/$splash_zip" -d "$TMP_DIR"
+  curl --progress-bar -L "$splash_url" -o "$TMP_DIR/$splash_archive"
 
   echo "Installing to $install_dir..."
   mkdir -p "$install_dir"
-  # Move the contents of the extracted folder to the install directory
-  mv "$TMP_DIR/$extract_dir_name"/* "$install_dir/"
+  tar -xvzf "$TMP_DIR/$splash_archive" -C "$install_dir"
 }
 
 # Setup dotfiles and user environment
