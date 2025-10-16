@@ -114,6 +114,26 @@ install_kwin_scripts() {
   tar -xvzf "$TMP_DIR/$geo_change_archive" -C "$effects_dir"
 }
 
+# Install Plasma Splash Screen
+install_splash_screen() {
+  heading "Installing Kuro splash screen"
+  local splash_url="https://github.com/KartikSindura/kuro/archive/refs/heads/main.zip"
+  local splash_zip="kuro.zip"
+  local extract_dir_name="kuro-main"
+  local install_dir="$HOME/.local/share/plasma/look-and-feel/a2n.kuro"
+
+  echo "Downloading Kuro splash screen..."
+  curl --progress-bar -L "$splash_url" -o "$TMP_DIR/$splash_zip"
+
+  echo "Extracting splash screen..."
+  unzip -q "$TMP_DIR/$splash_zip" -d "$TMP_DIR"
+
+  echo "Installing to $install_dir..."
+  mkdir -p "$install_dir"
+  # Move the contents of the extracted folder to the install directory
+  mv "$TMP_DIR/$extract_dir_name"/* "$install_dir/"
+}
+
 # Setup dotfiles and user environment
 setup_environment() {
   heading "Setting up dotfiles"
@@ -169,6 +189,7 @@ install_lazygit
 setup_flatpak
 install_fonts
 install_kwin_scripts
+install_splash_screen
 setup_environment
 
 heading "Setup Complete!"
