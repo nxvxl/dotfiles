@@ -22,13 +22,15 @@ install_packages() {
     "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm" \
     fedora-workstation-repositories \
     dnf-plugins-core
+  sudo dnf config-manager setopt google-chrome.enabled=1 rpmfusion-nonfree-steam.enabled=1
 
   heading "Enabling external repositories (Copr, Docker)"
   sudo dnf copr enable -y jdxcode/mise
   sudo dnf-3 config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
 
+
   heading "Installing packages"
-  sudo dnf install -y \
+  sudo dnf install -y --skip-unavailable \
     containerd.io \
     docker-buildx-plugin \
     docker-ce \
@@ -81,7 +83,7 @@ install_kwin_scripts() {
   local krohnkite_url="https://github.com/anametologin/krohnkite/releases/download/0.9.9.2/krohnkite.kwinscript"
   echo "Downloading Krohnkite..."
   curl --progress-bar -L "$krohnkite_url" -o "$TMP_DIR/$krohnkite_script"
-  kpackagetool6 -t KWin/Script -i "$TMP_DIR/$krohnkite_script" --upgrade
+  kpackagetool6 -t KWin/Script -i "$TMP_DIR/$krohnkite_script"
 
   # Geometry Change Effect
   local geo_change_archive="kwin4_effect_geometry_change_1_5.tar.gz"
@@ -125,7 +127,7 @@ setup_environment() {
   echo "Replacing any existing configs with symlinks from the repository..."
   cd "$HOME/.dotfiles"
   # Use --adopt to handle pre-existing configs, then restore the repo to its original state.
-  stow --adopt -t "$HOME" kde kitty neovim fish
+  stow --adopt -t "$HOME" kde kitty nvim fish
   git restore .
 
   heading "Configuring user environment"
