@@ -25,7 +25,7 @@ install_packages() {
 
   heading "Enabling external repositories (Copr, Docker)"
   sudo dnf copr enable -y jdxcode/mise
-  sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+  sudo dnf-3 config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
 
   heading "Installing packages"
   sudo dnf install -y \
