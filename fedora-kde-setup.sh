@@ -110,17 +110,22 @@ setup_environment() {
       2)
         echo "Using SSH to clone."
         git_url="git@github.com:nxvxl/dotfiles.git"
-        ;; 
+        ;;
       *)
         echo "Using HTTPS to clone."
         git_url="https://github.com/nxvxl/dotfiles.git"
-        ;; 
+        ;;
     esac
 
     git clone "$git_url" "$HOME/.dotfiles"
   fi
   
-  cd "$HOME/.dotfiles" && stow kde kitty neovim fish
+  heading "Stowing configuration files"
+  echo "Replacing any existing configs with symlinks from the repository..."
+  cd "$HOME/.dotfiles"
+  # Use --adopt to handle pre-existing configs, then restore the repo to its original state.
+  stow --adopt -t "$HOME" kde kitty neovim fish
+  git restore .
 
   heading "Configuring user environment"
   echo "Adding user to the 'docker' group..."
