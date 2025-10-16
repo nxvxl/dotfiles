@@ -16,10 +16,11 @@ install_packages() {
   heading "Updating system and enabling repositories"
   sudo dnf upgrade -y
 
-  heading "Enabling RPM Fusion (free and non-free)"
+  heading "Enabling RPM Fusion and third-party repositories"
   sudo dnf install -y \
     "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm" \
-    "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm"
+    "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm" \
+    fedora-workstation-repositories
 
   heading "Enabling external repositories (Copr, Docker)"
   sudo dnf copr enable -y jdxcode/mise
@@ -32,8 +33,8 @@ install_packages() {
     docker-ce \
     docker-ce-cli \
     docker-compose-plugin \
-    fedora-workstation-repositories \
     fish \
+    flatpak \
     fzf \
     git \
     google-chrome-stable \
@@ -44,6 +45,13 @@ install_packages() {
     ripgrep \
     stow \
     unzip
+}
+
+# Setup Flatpak and Flathub
+setup_flatpak() {
+  heading "Setting up Flathub"
+  echo "Adding the Flathub remote repository (unfiltered)..."
+  sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 }
 
 # Install JetBrains Mono Nerd Font
@@ -102,11 +110,11 @@ setup_environment() {
       2)
         echo "Using SSH to clone."
         git_url="git@github.com:nxvxl/dotfiles.git"
-        ;;
+        ;; 
       *)
         echo "Using HTTPS to clone."
         git_url="https://github.com/nxvxl/dotfiles.git"
-        ;;
+        ;; 
     esac
 
     git clone "$git_url" "$HOME/.dotfiles"
@@ -130,6 +138,7 @@ TMP_DIR=$(mktemp -d)
 trap 'rm -rf -- "$TMP_DIR"' EXIT
 
 install_packages
+setup_flatpak
 install_fonts
 install_kwin_scripts
 setup_environment
