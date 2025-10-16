@@ -26,8 +26,7 @@ install_packages() {
 
   heading "Enabling external repositories (Copr, Docker)"
   sudo dnf copr enable -y jdxcode/mise
-  sudo dnf-3 config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
-
+  sudo dnf config-manager addrepo --from-repofile=https://download.docker.com/linux/fedora/docker-ce.repo
 
   heading "Installing packages"
   sudo dnf install -y --skip-unavailable \
@@ -48,6 +47,26 @@ install_packages() {
     ripgrep \
     stow \
     unzip
+}
+
+# Install lazygit from pre-compiled binary
+install_lazygit() {
+  heading "Installing lazygit"
+  local lazygit_url="https://github.com/jesseduffield/lazygit/releases/download/v0.55.1/lazygit_0.55.1_linux_x86_64.tar.gz"
+  local lazygit_archive="lazygit.tar.gz"
+  local install_dir="$HOME/.local/bin"
+
+  echo "Downloading lazygit..."
+  curl --progress-bar -L "$lazygit_url" -o "$TMP_DIR/$lazygit_archive"
+
+  mkdir -p "$install_dir"
+
+  echo "Extracting lazygit to $install_dir..."
+  # Extract only the lazygit binary to the target directory
+  tar -xvzf "$TMP_DIR/$lazygit_archive" -C "$install_dir" lazygit
+
+  echo "Making lazygit executable..."
+  chmod +x "$install_dir/lazygit"
 }
 
 # Setup Flatpak and Flathub
@@ -146,6 +165,7 @@ TMP_DIR=$(mktemp -d)
 trap 'rm -rf -- "$TMP_DIR"' EXIT
 
 install_packages
+install_lazygit
 setup_flatpak
 install_fonts
 install_kwin_scripts
