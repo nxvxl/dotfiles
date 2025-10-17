@@ -40,12 +40,16 @@ install_packages() {
     fzf \
     git \
     google-chrome-stable \
+    gwenview \
     kitty \
     mise \
+    mpv \
     neovim \
+    okular \
     plasma-oxygen \
     ripgrep \
     stow \
+    unrar \
     unzip
 }
 
@@ -117,8 +121,8 @@ install_kwin_scripts() {
 # Install Plasma Splash Screen
 install_splash_screen() {
   heading "Installing Kuro splash screen"
-  local splash_url="https://github.com/bouteillerAlan/kuro/releases/download/v2.0.0/a2n.kuro.2.0.0.tar.gz"
-  local splash_archive="a2n.kuro.2.0.0.tar.gz"
+  local splash_url="https://github.com/bouteillerAlan/kuro/releases/download/v2.0.0/a2n.kuro.oled.2.0.0.tar.gz"
+  local splash_archive="a2n.kuro.oled.2.0.0.tar.gz"
   local install_dir="$HOME/.local/share/plasma/look-and-feel/"
 
   echo "Downloading Kuro splash screen..."
