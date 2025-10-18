@@ -187,8 +187,8 @@ install_packages
 install_lazygit
 setup_flatpak
 install_fonts
-install_kwin_scripts
-install_splash_screen
+# install_kwin_scripts
+# install_splash_screen
 setup_environment
 
 heading "Setup Complete!"
