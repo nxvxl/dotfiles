@@ -164,6 +164,9 @@ View Style=DetailTree
 EnableRemoteFolderThumbnail=false
 MaximumRemoteSize=0
 
+[Sounds]
+Theme=freedesktop
+
 [WM]
 activeBackground=227,229,231
 activeBlend=227,229,231
