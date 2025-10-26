@@ -72,7 +72,7 @@ setup_dotfiles() {
   # Change to dotfiles directory to run stow
   cd "$HOME/.dotfiles"
 
-  stow --adopt -t "$HOME" kde kitty nvim fish
+  stow --adopt -t "$HOME" kde kitty nvim fish keepassxc
   git restore .
 }
 

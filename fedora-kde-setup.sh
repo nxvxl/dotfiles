@@ -41,6 +41,7 @@ install_packages() {
     git \
     google-chrome-stable \
     gwenview \
+    keepassxc \
     kitty \
     mise \
     mpv \
@@ -165,7 +166,7 @@ setup_environment() {
   echo "Replacing any existing configs with symlinks from the repository..."
   cd "$HOME/.dotfiles"
   # Use --adopt to handle pre-existing configs, then restore the repo to its original state.
-  stow --adopt -t "$HOME" kde kitty nvim fish
+  stow --adopt -t "$HOME" kde kitty nvim fish keepassxc
   git restore .
 
   heading "Configuring user environment"
