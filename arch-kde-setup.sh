@@ -23,19 +23,23 @@ install_packages() {
     fzf \
     git \
     gwenview \
+    keepassxc \
     kitty \
+    lazygit \
     less \
+    man-db \
     mise \
     neovim \
     okular \
+    otf-font-awesome \
     oxygen \
     ripgrep \
     stow \
+    ttf-jetbrains-mono-nerd \
     unrar \
     unzip \
     vlc \
-    ttf-jetbrains-mono-nerd \
-    otf-font-awesome
+    xsel
 }
 
 # Step 2: Install yay AUR helper
