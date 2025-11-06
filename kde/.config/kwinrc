@@ -34,6 +34,12 @@ TextOnly=true
 
 [Script-krohnkite]
 cascadeLayoutOrder=0
+floatingClass=org.freedesktop.impl.portal.desktop.kde,org.kde.kdesu,[steam_app_]
+floatingTitle=is sharing your screen,Shutdown,Sign in to Steam,is sharing a window
+logFilteredWindows=true
+logNewWindows=true
+logUnmanagedWindows=true
+logging=true
 screenGapBetween=12
 screenGapBottom=12
 screenGapLeft=12
