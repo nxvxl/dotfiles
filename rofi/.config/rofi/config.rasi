@@ -1,61 +1,65 @@
 * {
-  font: "JetBrains Mono 16";
-
-  green: rgb(95, 251, 0);
-  black: rgba(0, 0, 0);
-  darkgreen: rgb(60, 179, 113);
-
-  fg: @green;
-  bg: @black;
-
-  foreground: @fg;
-  normal-foreground: @fg;
-  background: @bg;
-  normal-background: @bg;
-  alternate-normal-background: @bg;
-
-  selected-normal-foreground: @black;
-  selected-normal-background: @green;
-
-
+  font: "JetBrainsMono Nerd Font 16";
 }
 
-configuration {
-  modes: "drun,run,window";
-  drun {
-    display-name: "🚀";
-  }
-}
+//   green: rgb(95, 251, 0);
+//   black: rgba(0, 0, 0);
+//   darkgreen: rgb(60, 179, 113);
+//   blue: rgb(30, 144, 255);
+//
+//   primary: @blue;
+//   bg: rgba(255, 255, 255, 0.9);
+//   fg: @blue;
+//
+//   foreground: @fg;
+//   normal-foreground: @fg;
+//   background: @bg;
+//   normal-background: @bg;
+//   alternate-normal-background: @bg;
+//
+//   selected-normal-foreground: @black;
+//   selected-normal-background: @primary;
+//
+//
+// }
+//
+// configuration {
+//   modes: "drun,run,window";
+//   drun {
+//     display-name: "🚀";
+//   }
+// }
+//
+// window {
+//   border: 4;
+//   padding: 4;
+//   border-color: @fg;
+//   background-color: @bg;
+// }
+//
+// inputbar {
+//   padding:    8px 12px;
+//   spacing:    12px;
+//   children: [ prompt, entry ];
+// }
+//
+// entry {
+//   placeholder: "Search";
+//   text-color: @primary;
+// }
+//
+// listview {
+//   lines: 7;
+// }
+//
+// element {
+//   padding: 4px 6px;
+//   margin: 4px 8px;
+//   background-color: @bg;
+// }
+//
+// element selected {
+//   text-color: white;
+// }
 
-window {
-  border: 4;
-  padding: 4;
-  border-color: @fg;
-  background-color: @bg;
-}
-
-inputbar {
-  padding:    8px 12px;
-  spacing:    12px;
-  children: [ prompt, entry ];
-}
-
-entry {
-  placeholder: "Search";
-  text-color: @green;
-}
-
-listview {
-  lines: 7;
-}
-
-element {
-  padding: 4px 6px;
-  margin: 4px 8px;
-  background-color: @green;
-}
-
-element selected {
-  background-color: @green;
-  text-color: @black;
-}
+@theme "/home/noval/.config/rofi/spotlight.rasi"
