@@ -58,6 +58,12 @@ install_yay() {
   fi
 }
 
+install_mise() {
+  print_header "Installing mise packages"
+  mise use -g usage
+  mise use -g node@20
+}
+
 # Step 3: Set up Flatpak
 setup_flatpak() {
   print_header "Setting up Flatpak"
@@ -89,6 +95,7 @@ configure_user() {
 main() {
   install_packages
   install_yay
+  install_mise
   setup_flatpak
   setup_dotfiles
   configure_user
