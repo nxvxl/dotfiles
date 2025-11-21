@@ -14,7 +14,11 @@ vim.diagnostic.config({
   }
 })
 
-vim.keymap.set('n', '[d', vim.diagnostic.get_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.get_next)
+vim.keymap.set('n', '[d', function()
+  vim.diagnostic.jump({ count = -1})
+end)
+vim.keymap.set('n', ']d', function()
+  vim.diagnostic.jump({ count = 1 })
+end)
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
