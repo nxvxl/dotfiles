@@ -1,8 +1,3 @@
-[Activities][LastVirtualDesktop]
-355596e8-ed68-4158-a52a-acf22ef4a026=97a52827-57a6-4c37-92a9-6ffe6b70d06d
-46edec9c-99b4-4968-9874-d37eb4d26ddb=f8fb2385-4151-4cff-a598-7ffed5a61198
-8afc4d50-e840-4b14-b1be-97fe032499f4=b548c89d-28db-45cc-8de0-dd79cf851a34
-
 [Desktops]
 Id_1=b548c89d-28db-45cc-8de0-dd79cf851a34
 Id_2=1ab9bcbe-ad66-45b1-850d-eed6ba4ab351
@@ -34,7 +29,7 @@ TextOnly=true
 
 [Script-krohnkite]
 cascadeLayoutOrder=0
-floatingClass=org.freedesktop.impl.portal.desktop.kde,org.kde.kdesu,[steam_app_]
+floatingClass=org.freedesktop.impl.portal.desktop.kde,org.kde.kdesu,[steam_app_],org.kde.plasma.emojier
 floatingTitle=is sharing your screen,Shutdown,Sign in to Steam,is sharing a window
 logFilteredWindows=true
 logNewWindows=true

@@ -250,7 +250,7 @@ DialogHeight=540
 DialogWidth=720
 
 [Containments][28][Applets][92][Configuration][General]
-graphs=[{"_v":2,"type":"cpuText","colors":["textColor","#0078b8"],"sensorsType":["usage"]},{"_v":2,"type":"memoryText","colors":["textColor","#0078b8"],"sensorsType":["physical-percent"]},{"_v":2,"type":"gpuText","colors":["textColor","#0078b8"],"device":"gpu0"}]
+graphs=[{"_v":2,"type":"cpuText","colors":["#ffffff","#ffffff"],"sensorsType":["usage"],"sizes":[20,20]},{"_v":2,"type":"memoryText","colors":["#ffffff","#ffffff"],"sensorsType":["physical-percent"],"sizes":[-1,-1]},{"_v":2,"type":"gpuText","colors":["#ffffff","#ffffff"],"device":"gpu0","sizes":[-1,-1]}]
 
 [Containments][28][Applets][93]
 immutability=1
@@ -284,6 +284,10 @@ wallpaperplugin=org.kde.image
 
 [Containments][90][General]
 positions={"1920x1080":[]}
+
+[Containments][90][Wallpaper][org.kde.image][General]
+Image=file:///usr/share/wallpapers/F43/
+SlidePaths=/usr/share/wallpapers/
 
 [Containments][91]
 activityId=355596e8-ed68-4158-a52a-acf22ef4a026

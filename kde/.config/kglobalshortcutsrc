@@ -40,7 +40,7 @@ mute=Volume Mute,Volume Mute,Mute
 
 [ksmserver]
 Halt Without Confirmation=none,,Shut Down Without Confirmation
-Lock Session=Screensaver,Meta+L\tScreensaver,Lock Session
+Lock Session=Meta+Ctrl+Shift+L\tScreensaver,Meta+L\tScreensaver,Lock Session
 Log Out=Meta+Esc\tCtrl+Alt+Del,Ctrl+Alt+Del,Show Logout Screen
 Log Out Without Confirmation=none,,Log Out Without Confirmation
 LogOut=none,,Log Out
@@ -136,9 +136,9 @@ Switch to Desktop 6=Meta+6,,Switch to Desktop 6
 Switch to Desktop 7=Meta+7,,Switch to Desktop 7
 Switch to Desktop 8=Meta+8,,Switch to Desktop 8
 Switch to Desktop 9=Meta+9,,Switch to Desktop 9
-Switch to Next Desktop=Meta+Tab,,Switch to Next Desktop
+Switch to Next Desktop=none,,Switch to Next Desktop
 Switch to Next Screen=none,,Switch to Next Screen
-Switch to Previous Desktop=Meta+Shift+Tab,,Switch to Previous Desktop
+Switch to Previous Desktop=none,,Switch to Previous Desktop
 Switch to Previous Screen=none,,Switch to Previous Screen
 Switch to Screen 0=none,,Switch to Screen 0
 Switch to Screen 1=none,,Switch to Screen 1
@@ -305,6 +305,15 @@ toggle do not disturb=none,,Toggle do not disturb
 
 [services][kitty.desktop]
 _launch=Meta+Return
+
+[services][net.local.action-control.py.desktop]
+_launch=Meta+Q
+
+[services][net.local.cycle-desktop.sh-2.desktop]
+_launch=Meta+Shift+Tab
+
+[services][net.local.cycle-desktop.sh.desktop]
+_launch=Meta+Tab
 
 [services][org.kde.krunner.desktop]
 _launch=Meta+A\tSearch\tAlt+Space\tAlt+F2
