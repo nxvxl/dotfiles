@@ -29,6 +29,7 @@ install_packages() {
   sudo dnf config-manager addrepo --from-repofile=https://download.docker.com/linux/fedora/docker-ce.repo
 
   heading "Installing packages"
+  sudo dnf group remove -y kde-apps kde-pim kde-media
   sudo dnf install -y --skip-unavailable \
     containerd.io \
     docker-buildx-plugin \
@@ -44,14 +45,14 @@ install_packages() {
     keepassxc \
     kitty \
     mise \
-    mpv \
     neovim \
     okular \
     plasma-oxygen \
     ripgrep \
     stow \
     unrar \
-    unzip
+    unzip \
+    vlc
 }
 
 # Install lazygit from pre-compiled binary
