@@ -62,4 +62,4 @@
 //   text-color: white;
 // }
 
-@theme "/home/noval/.config/rofi/spotlight.rasi"
+@theme "/home/noval/.config/rofi/spotlight-dark.rasi"

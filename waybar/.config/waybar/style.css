@@ -1,10 +1,10 @@
 * {
-    font-family: 'JetBrains Mono', 'Font Awesome 6 Free', 'Font Awesome 6 Brands', monospace;
-    font-size: 15px;
+    font-family: 'JetBrainsMono Nerd Font Propo', monospace;
+    font-size: 18px;
 }
 
 window#waybar {
-    background-color: black;
+    background: rgba(0, 0, 0, 0);
     /* border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
     color: #ffffff;
     transition-property: background-color;
@@ -90,7 +90,7 @@ button:hover {
 #custom-dunst,
 #mpd {
     padding: 0 6px;
-    background-color: #000000;
+    background: rgba(0, 0, 0, 0);
     color: #ffffff;
 }
 

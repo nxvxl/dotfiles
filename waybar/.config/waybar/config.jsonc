@@ -8,9 +8,13 @@
     // Choose the order of the modules
     "modules-left": [
         "hyprland/workspaces",
-        "hyprland/submap"
+        "hyprland/submap",
+	"mango/workspaces",
+	"mango/layout",
+	"mango/window"
     ],
     "modules-center": [
+        "clock",
     ],
     "modules-right": [
         "custom/vpn",
@@ -18,11 +22,17 @@
         "memory",
         "pulseaudio",
         "temperature",
-        "clock",
+	"battery",
+        "tray",
         "custom/dunst",
         "idle_inhibitor",
-        "tray"
     ],
+    "mango/workspaces": {
+	"format": "{icon}",
+	"on-click": "activate",
+	"on-click-right": "toggle",
+	"overview-label": ""
+    },
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
@@ -36,7 +46,7 @@
     },
     "clock": {
         // "timezone": "America/New_York",
-        "format": " {:%Y %B %d, %H:%M}",
+        "format": " {:%b %d, %H:%M}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     },
     "cpu": {
@@ -81,5 +91,23 @@
         "exec": "~/.config/waybar/scripts/dunst.sh",
         "on-click": "dunstctl set-paused toggle",
         "restart-interval": 1
+    },
+    "battery": {
+	"interval": 60,
+	"states": {
+		"warning": 30,
+		"critical": 15
+	},
+	"events": {
+		"on-discharging-warning": "notify-send -u normal 'Low Battery'",
+		"on-discharging-critical": "notify-send -u critical 'Very Low Battery'",
+		"on-charging-100": "notify-send -u normal 'Battery Full!'",
+		"on-discharging": "notify-send -u normal 'Power Switch' Discharging",
+		"on-charging": "notify-send -u normal 'Power Switch' Charging'"
+	},
+	"format": "{icon} {capacity}%",
+	"format-icons": ["", "", "", "", ""],
+	"max-length": 25,
+	"weighted-average": true,
     }
 }
