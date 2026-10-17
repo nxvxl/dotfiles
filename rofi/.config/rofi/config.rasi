@@ -5,9 +5,10 @@
 
     bg0:    #0d0221E6;
     bg1:    #1a0b2eE6;
-    bg2:    #ff2a6dE6;
+    bg2:    #b026ffe6;
 
     pink:    #ff2a6d;
+    purple:  #b026ff;
     cyan:    #05d9e8;
     magenta: #d300c5;
     yellow:  #fee440;
@@ -86,17 +87,35 @@ element {
     background-color: transparent;
 }
 
+element normal.normal {
+    background-color: transparent;
+    text-color:       @ice;
+}
+
+element alternate.normal {
+    background-color: @bg1;
+    text-color:       @ice;
+}
+
 element normal active {
-    text-color: @cyan;
+    background-color: transparent;
+    text-color:       @cyan;
 }
 
 element alternate active {
-    text-color: @cyan;
+    background-color: @bg1;
+    text-color:       @cyan;
 }
 
-element selected normal, element selected active {
+element normal urgent,
+element alternate urgent {
+    text-color: @pink;
+}
+
+element selected.normal,
+element selected.active {
     background-color: @bg2;
-    text-color:       @ice;
+    text-color:       #0d0221;
 }
 
 element-icon {

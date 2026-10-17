@@ -40,8 +40,8 @@ button {
 }
 
 button:hover {
-    background: rgba(255, 42, 109, 0.15);
-    box-shadow: inset 0 -3px @pink;
+    background: rgba(176, 38, 255, 0.15);
+    box-shadow: inset 0 -3px @purple;
 }
 
 #workspaces button {

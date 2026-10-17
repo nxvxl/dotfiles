@@ -90,7 +90,7 @@
     frame_width = 3
 
     # Defines color of the frame around the notification window.
-    frame_color = "#ff2a6d"
+    frame_color = "#b026ff"
 
     background = "#0d0221"
     foreground = "#d1f7ff"
@@ -317,7 +317,7 @@
     #default_icon = /path/to/icon
 
 [urgency_normal]
-    frame_color = "#05d9e8"
+    frame_color = "#b026ff"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
     default_icon = /usr/share/icons/Papirus-Dark/16x16/actions
