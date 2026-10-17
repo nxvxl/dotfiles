@@ -103,7 +103,8 @@ hl.config({
         col = {
             -- 80s neon: purple -> electric cyan gradient
             active_border   = { colors = {"rgba(b026ffee)", "rgba(05d9e8ee)" }, angle = 45 },
-            inactive_border = "rgba(2a2140aa)",
+            -- greyish/white for inactive windows
+            inactive_border = "rgba(c8ccd4aa)",
         },
 
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
@@ -125,10 +126,10 @@ hl.config({
 
         shadow = {
             enabled      = true,
-            range        = 8,
+            range        = 5,
             render_power = 3,
-            -- neon magenta glow
-            color        = 0x99d300c5,
+            -- subtle neon magenta glow
+            color        = 0x55d300c5,
         },
 
         blur = {
