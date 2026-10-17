@@ -4,13 +4,13 @@
 * {
     font:   "Cantarell 12";
 
-    bg0:    #242424E6;
-    bg1:    #7E7E7E80;
-    bg2:    #0860f2E6;
+    bg0:    #0d0221E6;
+    bg1:    #6c5b8a80;
+    bg2:    #ff2a6dE6;
 
-    fg0:    #DEDEDE;
-    fg1:    #FFFFFF;
-    fg2:    #DEDEDE80;
+    fg0:    #d1f7ff;
+    fg1:    #0d0221;
+    fg2:    #6c5b8a80;
 
     background-color:   transparent;
     text-color:         @fg0;

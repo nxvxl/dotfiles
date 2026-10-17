@@ -1,65 +1,108 @@
+/* 80s NEON / SYNTHWAVE THEME FOR ROFI */
+
 * {
-  font: "JetBrainsMono Nerd Font 16";
+    font: "JetBrainsMono Nerd Font 16";
+
+    bg0:    #0d0221E6;
+    bg1:    #1a0b2eE6;
+    bg2:    #ff2a6dE6;
+
+    pink:    #ff2a6d;
+    cyan:    #05d9e8;
+    magenta: #d300c5;
+    yellow:  #fee440;
+    ice:     #d1f7ff;
+    dim:     #6c5b8a;
+
+    fg0:    @ice;
+    fg1:    @bg0;
+    fg2:    @dim;
+
+    background-color: transparent;
+    text-color:       @fg0;
+
+    margin:  0;
+    padding: 0;
+    spacing: 0;
 }
 
-//   green: rgb(95, 251, 0);
-//   black: rgba(0, 0, 0);
-//   darkgreen: rgb(60, 179, 113);
-//   blue: rgb(30, 144, 255);
-//
-//   primary: @blue;
-//   bg: rgba(255, 255, 255, 0.9);
-//   fg: @blue;
-//
-//   foreground: @fg;
-//   normal-foreground: @fg;
-//   background: @bg;
-//   normal-background: @bg;
-//   alternate-normal-background: @bg;
-//
-//   selected-normal-foreground: @black;
-//   selected-normal-background: @primary;
-//
-//
-// }
-//
-// configuration {
-//   modes: "drun,run,window";
-//   drun {
-//     display-name: "🚀";
-//   }
-// }
-//
-// window {
-//   border: 4;
-//   padding: 4;
-//   border-color: @fg;
-//   background-color: @bg;
-// }
-//
-// inputbar {
-//   padding:    8px 12px;
-//   spacing:    12px;
-//   children: [ prompt, entry ];
-// }
-//
-// entry {
-//   placeholder: "Search";
-//   text-color: @primary;
-// }
-//
-// listview {
-//   lines: 7;
-// }
-//
-// element {
-//   padding: 4px 6px;
-//   margin: 4px 8px;
-//   background-color: @bg;
-// }
-//
-// element selected {
-//   text-color: white;
-// }
+window {
+    background-color: @bg0;
 
-@theme "/home/noval/.config/rofi/spotlight-dark.rasi"
+    border:        3;
+    border-color:  @pink;
+    border-radius: 10;
+
+    location: center;
+    width:    640;
+}
+
+inputbar {
+    padding:  12px;
+    spacing:  12px;
+    children: [ icon-search, entry ];
+}
+
+icon-search {
+    expand:   false;
+    filename: "search";
+    size:     28px;
+}
+
+icon-search, entry, element-icon, element-text {
+    vertical-align: 0.5;
+}
+
+entry {
+    font: inherit;
+
+    placeholder:       "Search";
+    placeholder-color: @fg2;
+    text-color:        @cyan;
+}
+
+message {
+    border:           2px 0 0;
+    border-color:     @magenta;
+    background-color: @bg1;
+}
+
+textbox {
+    padding: 8px 24px;
+}
+
+listview {
+    lines:   10;
+    columns: 1;
+
+    fixed-height: false;
+    border:       1px 0 0;
+    border-color: @magenta;
+}
+
+element {
+    padding:          8px 16px;
+    spacing:          16px;
+    background-color: transparent;
+}
+
+element normal active {
+    text-color: @cyan;
+}
+
+element alternate active {
+    text-color: @cyan;
+}
+
+element selected normal, element selected active {
+    background-color: @bg2;
+    text-color:       @ice;
+}
+
+element-icon {
+    size: 1em;
+}
+
+element-text {
+    text-color: inherit;
+}

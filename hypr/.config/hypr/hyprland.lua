@@ -101,8 +101,9 @@ hl.config({
         border_size = 4,
 
         col = {
-            active_border   = { colors = {"rgba(0099ffee)", "rgba(00ff99ee)" }, angle = 45 },
-            inactive_border = "rgba(595959aa)",
+            -- 80s neon: hot pink -> electric cyan gradient
+            active_border   = { colors = {"rgba(ff2a6dee)", "rgba(05d9e8ee)" }, angle = 45 },
+            inactive_border = "rgba(2a2140aa)",
         },
 
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
@@ -124,15 +125,16 @@ hl.config({
 
         shadow = {
             enabled      = true,
-            range        = 4,
+            range        = 8,
             render_power = 3,
-            color        = 0xee1a1a1a,
+            -- neon magenta glow
+            color        = 0x99d300c5,
         },
 
         blur = {
-            enabled   = false,
-            size      = 3,
-            passes    = 1,
+            enabled   = true,
+            size      = 6,
+            passes    = 2,
             vibrancy  = 0.1696,
         },
     },
