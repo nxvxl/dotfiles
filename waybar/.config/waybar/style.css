@@ -3,6 +3,7 @@
 @define-color bg      #0d0221;
 @define-color bg2     #1a0b2e;
 @define-color pink    #ff2a6d;
+@define-color purple  #b026ff;
 @define-color cyan    #05d9e8;
 @define-color magenta #d300c5;
 @define-color yellow  #fee440;
@@ -58,9 +59,9 @@ button:hover {
 
 #workspaces button.focused,
 #workspaces button.active {
-    background-color: @pink;
+    background-color: @purple;
     color: @bg;
-    box-shadow: 0 0 10px @pink, inset 0 -3px @yellow;
+    box-shadow: 0 0 10px @purple, inset 0 -3px @yellow;
     text-shadow: none;
 }
 

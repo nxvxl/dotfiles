@@ -101,8 +101,8 @@ hl.config({
         border_size = 4,
 
         col = {
-            -- 80s neon: hot pink -> electric cyan gradient
-            active_border   = { colors = {"rgba(ff2a6dee)", "rgba(05d9e8ee)" }, angle = 45 },
+            -- 80s neon: purple -> electric cyan gradient
+            active_border   = { colors = {"rgba(b026ffee)", "rgba(05d9e8ee)" }, angle = 45 },
             inactive_border = "rgba(2a2140aa)",
         },
 
