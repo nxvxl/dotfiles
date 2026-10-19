@@ -103,8 +103,8 @@ hl.config({
         col = {
             -- 80s neon: purple -> electric cyan gradient
             active_border   = { colors = {"rgba(b026ffee)", "rgba(05d9e8ee)" }, angle = 45 },
-            -- greyish/white for inactive windows
-            inactive_border = "rgba(c8ccd4aa)",
+            -- darker grey for inactive windows
+            inactive_border = "rgba(45454fcc)",
         },
 
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
