@@ -93,18 +93,18 @@ hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 -----------------------
 
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
+local theme = require("themes/current")
+
 hl.config({
     general = {
-        gaps_in  = 5,
-        gaps_out = 10,
+        gaps_in  = theme.gaps_in,
+        gaps_out = theme.gaps_out,
 
-        border_size = 4,
+        border_size = theme.border_size,
 
         col = {
-            -- 80s neon: purple -> electric cyan gradient
-            active_border   = { colors = {"rgba(b026ffee)", "rgba(05d9e8ee)" }, angle = 45 },
-            -- darker grey for inactive windows
-            inactive_border = "rgba(45454fcc)",
+            active_border   = theme.active_border,
+            inactive_border = theme.inactive_border,
         },
 
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
@@ -117,27 +117,16 @@ hl.config({
     },
 
     decoration = {
-        rounding       = 6,
-        rounding_power = 2,
+        rounding       = theme.rounding,
+        rounding_power = theme.rounding_power,
 
         -- Change transparency of focused and unfocused windows
         active_opacity   = 1.0,
         inactive_opacity = 1.0,
 
-        shadow = {
-            enabled      = true,
-            range        = 5,
-            render_power = 3,
-            -- subtle neon magenta glow
-            color        = 0x55d300c5,
-        },
+        shadow = theme.shadow,
 
-        blur = {
-            enabled   = true,
-            size      = 6,
-            passes    = 2,
-            vibrancy  = 0.1696,
-        },
+        blur = theme.blur,
     },
 
     animations = {

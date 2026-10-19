@@ -1,0 +1,89 @@
+#!/usr/bin/env bash
+# Switch the active theme across all themed apps.
+#
+# Usage:
+#   wm-theme              list available themes
+#   wm-theme <name>       activate a theme
+#   wm-theme current      show the active theme
+#
+# Themes live in each app's themes/ directory and are selected through the
+# themes/current.<ext> symlinks. Add a new theme by creating a file with the
+# same name in every themes/ directory.
+
+set -euo pipefail
+
+DOTFILES="${DOTFILES:-$HOME/.dotfiles}"
+
+# app : directory : extension
+THEMED=(
+    "hypr:$DOTFILES/hypr/.config/hypr/themes:lua"
+    "waybar:$DOTFILES/waybar/.config/waybar/themes:css"
+    "dunst:$DOTFILES/dunst/.config/dunst/themes:conf"
+    "rofi:$DOTFILES/rofi/.config/rofi/themes:rasi"
+    "mango:$DOTFILES/mango/.config/mango/themes:conf"
+    "sway:$DOTFILES/sway/.config/sway/themes:conf"
+)
+
+usage() {
+    sed -n '2,12p' "$0" | sed 's/^# \{0,1\}//'
+}
+
+list_themes() {
+    local dir ext
+    for entry in "${THEMED[@]}"; do
+        IFS=: read -r _ dir ext <<< "$entry"
+        find "$dir" -maxdepth 1 -name "*.$ext" ! -name "current.$ext" \
+            -printf '%f\n' 2>/dev/null | sed "s/\.$ext$//"
+    done | sort -u
+}
+
+current_theme() {
+    local dir ext name
+    for entry in "${THEMED[@]}"; do
+        IFS=: read -r name dir ext <<< "$entry"
+        local link="$dir/current.$ext"
+        if [ -L "$link" ]; then
+            basename "$(readlink "$link")" ".$ext"
+            return 0
+        fi
+    done
+    echo "none"
+}
+
+switch_theme() {
+    local theme="$1" missing=0
+    for entry in "${THEMED[@]}"; do
+        IFS=: read -r app dir ext <<< "$entry"
+        if [ ! -f "$dir/$theme.$ext" ]; then
+            echo "missing: $app ($dir/$theme.$ext)" >&2
+            missing=1
+        fi
+    done
+    if [ "$missing" -ne 0 ]; then
+        echo "theme '$theme' is incomplete; nothing changed" >&2
+        return 1
+    fi
+
+    for entry in "${THEMED[@]}"; do
+        IFS=: read -r _ dir ext <<< "$entry"
+        ln -sfn "$theme.$ext" "$dir/current.$ext"
+    done
+
+    echo "active theme: $theme"
+    reload_apps
+}
+
+reload_apps() {
+    command -v hyprctl >/dev/null 2>&1 && hyprctl reload >/dev/null 2>&1 || true
+    command -v swaymsg >/dev/null 2>&1 && swaymsg reload >/dev/null 2>&1 || true
+    command -v mmsg    >/dev/null 2>&1 && mmsg -s reload_config >/dev/null 2>&1 || true
+    command -v dunstctl >/dev/null 2>&1 && dunstctl reload >/dev/null 2>&1 || true
+    command -v pkill   >/dev/null 2>&1 && pkill -SIGUSR2 -x waybar >/dev/null 2>&1 || true
+}
+
+case "${1:-}" in
+    ""|-h|--help|help) usage ;;
+    current)           current_theme ;;
+    list)              list_themes ;;
+    *)                 switch_theme "$1" ;;
+esac

@@ -1,0 +1,121 @@
+/* WARM PAPER THEME - clean, modern, minimalist */
+
+* {
+    font: "JetBrainsMono Nerd Font 16";
+
+    bg0:     #f7f7f5F2;
+    bg1:     #efefec;
+    bg2:     #e3e4e8;
+
+    text:    #1c1d21;
+    muted:   #7a7f8a;
+    border:  #d8dade;
+    accent:  #3b6ef5;
+    danger:  #c4554d;
+
+    background-color: transparent;
+    text-color:       @text;
+
+    margin:  0;
+    padding: 0;
+    spacing: 0;
+}
+
+window {
+    background-color: @bg0;
+
+    border:        1;
+    border-color:  @border;
+    border-radius: 10;
+
+    location: center;
+    width:    640;
+}
+
+inputbar {
+    padding:  12px;
+    spacing:  12px;
+    children: [ icon-search, entry ];
+}
+
+icon-search {
+    expand:   false;
+    filename: "search";
+    size:     28px;
+}
+
+icon-search, entry, element-icon, element-text {
+    vertical-align: 0.5;
+}
+
+entry {
+    font: inherit;
+
+    placeholder:       "Search";
+    placeholder-color: @muted;
+    text-color:        @text;
+}
+
+message {
+    border:           1px 0 0;
+    border-color:     @border;
+    background-color: @bg1;
+}
+
+textbox {
+    padding: 8px 24px;
+}
+
+listview {
+    lines:   10;
+    columns: 1;
+
+    fixed-height: false;
+    border:       1px 0 0;
+    border-color: @border;
+}
+
+element {
+    padding:          8px 16px;
+    spacing:          16px;
+    background-color: transparent;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color:       @text;
+}
+
+element alternate.normal {
+    background-color: @bg1;
+    text-color:       @text;
+}
+
+element normal active {
+    background-color: transparent;
+    text-color:       @accent;
+}
+
+element alternate active {
+    background-color: @bg1;
+    text-color:       @accent;
+}
+
+element normal urgent,
+element alternate urgent {
+    text-color: @danger;
+}
+
+element selected.normal,
+element selected.active {
+    background-color: @bg2;
+    text-color:       @text;
+}
+
+element-icon {
+    size: 1em;
+}
+
+element-text {
+    text-color: inherit;
+}

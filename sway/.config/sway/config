@@ -18,30 +18,10 @@ set $term kitty
 # Your preferred application launcher
 set $menu rofi -show drun --show-icons
 
-### Appearance (80s neon theme)
+### Appearance
 #
-# Color palette
-set $bg       #0d0221
-set $panel    #1a0b2e
-set $text     #d1f7ff
-set $purple   #b026ff
-set $cyan     #05d9e8
-set $pink     #ff2a6d
-set $inactive #45454f
-
-# Client colors:  border  background  text  indicator  child_border
-client.focused          $purple   $panel $text $purple   $purple
-client.focused_inactive $inactive $panel $text $inactive $inactive
-client.unfocused        $inactive $panel $text $inactive $inactive
-client.urgent           $pink     $panel $text $pink     $pink
-client.placeholder      $inactive $bg    $text $inactive $inactive
-client.background       $bg
-
-# Borders and gaps (match hypr/mango)
-default_border pixel 2
-gaps inner 5
-gaps outer 10
-smart_gaps on
+# Colors, borders and gaps come from the active theme.
+include ~/.config/sway/themes/current.conf
 font pango:JetBrainsMono Nerd Font 10
 
 ### Output configuration
