@@ -30,7 +30,7 @@ set $pink     #ff2a6d
 set $inactive #45454f
 
 # Client colors:  border  background  text  indicator  child_border
-client.focused          $purple   $panel $text $cyan     $purple
+client.focused          $purple   $panel $text $purple   $purple
 client.focused_inactive $inactive $panel $text $inactive $inactive
 client.unfocused        $inactive $panel $text $inactive $inactive
 client.urgent           $pink     $panel $text $pink     $pink
