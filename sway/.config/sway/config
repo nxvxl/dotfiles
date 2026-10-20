@@ -18,27 +18,27 @@ set $term kitty
 # Your preferred application launcher
 set $menu rofi -show drun -show-icons
 
-### Appearance (80s neon theme)
+### Appearance (Windows XP Luna theme)
 #
 # Color palette
-#set $bg       #0d0221
-#set $panel    #1a0b2e
-#set $text     #d1f7ff
-#set $purple   #b026ff
-#set $cyan     #05d9e8
-#set $pink     #ff2a6d
-#set $inactive #45454f
+set $xp_title          #0058ee
+set $xp_title_light    #3a93ff
+set $xp_title_inactive #7ba2e7
+set $xp_face           #ece9d8
+set $xp_text           #000000
+set $xp_shadow         #aca899
+set $xp_urgent         #cc0000
 #
-## Client colors:        border    background text    indicator child_border
-#client.focused          $purple   $purple    #000000 $purple   $purple
-#client.focused_inactive $inactive $panel     $text   $inactive $inactive
-#client.unfocused        $inactive $panel     $text   $inactive $inactive
-#client.urgent           $pink     $panel     $text   $pink     $pink
-#client.placeholder      $inactive $bg        $text   $inactive $inactive
-#client.background       $bg
+# Client colors:          border              background text      indicator           child_border
+client.focused            $xp_title           $xp_face   $xp_text  $xp_title_light     $xp_title
+client.focused_inactive   $xp_title_inactive  $xp_face   $xp_text  $xp_title_inactive  $xp_title_inactive
+client.unfocused          $xp_shadow          $xp_face   $xp_text  $xp_shadow          $xp_shadow
+client.urgent             $xp_urgent          $xp_face   $xp_text  $xp_urgent          $xp_urgent
+client.placeholder        $xp_shadow          $xp_face   $xp_text  $xp_shadow          $xp_shadow
+client.background         $xp_face
 
 # Borders and gaps (match hypr/mango)
-default_border pixel 4
+default_border pixel 3
 gaps inner 0
 gaps outer 0
 smart_gaps on

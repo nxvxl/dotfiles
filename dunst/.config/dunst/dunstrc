@@ -60,6 +60,11 @@
     # Set the maximum width for the progress bar
     progress_bar_max_width = 300
 
+    # Windows XP style progress bar
+    progress_bar_corner_radius = 0
+    progress_bar_frame_color = "#7f9db9"
+    progress_bar_color = "#316ac5"
+
 
     # Show how many messages are currently hidden (because of
     # notification_limit).
@@ -87,13 +92,13 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 3
+    frame_width = 1
 
     # Defines color of the frame around the notification window.
-    frame_color = "#b026ff"
+    frame_color = "#0054e3"
 
-    background = "#0d0221"
-    foreground = "#d1f7ff"
+    background = "#ffffe1"
+    foreground = "#000000"
 
     # Size of gap to display between notifications - requires a compositor.
     # If value is greater than 0, separator_height will be ignored and a border
@@ -248,7 +253,7 @@
     # corners.
     # The radius will be automatically lowered if it exceeds half of the
     # notification height to avoid clipping text and/or icons.
-    corner_radius = 8
+    corner_radius = 0
 
     # Ignore the dbus closeNotification message.
     # Useful to enforce the timeout set by dunst configuration. Without this
@@ -311,19 +316,19 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    frame_color = "#6c5b8a"
+    frame_color = "#aca899"
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable
     #default_icon = /path/to/icon
 
 [urgency_normal]
-    frame_color = "#b026ff"
+    frame_color = "#0054e3"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
     default_icon = /usr/share/icons/Papirus-Dark/16x16/actions
 
 [urgency_critical]
-    frame_color = "#ff2a6d"
+    frame_color = "#cc0000"
     timeout = 0
     # Icon for notifications with critical urgency, uncomment to enable
     #default_icon = /path/to/icon

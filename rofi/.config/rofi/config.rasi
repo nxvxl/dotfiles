@@ -1,26 +1,24 @@
-/* 80s NEON / SYNTHWAVE THEME FOR ROFI */
+/* WINDOWS XP (LUNA) THEME FOR ROFI */
 
 * {
     font: "JetBrainsMono Nerd Font 16";
 
-    bg0:    #0d0221E6;
-    bg1:    #1a0b2eE6;
-    bg2:    #b026ffe6;
-
-    pink:    #ff2a6d;
-    purple:  #b026ff;
-    cyan:    #05d9e8;
-    magenta: #d300c5;
-    yellow:  #fee440;
-    ice:     #d1f7ff;
-    dim:     #6c5b8a;
-
-    fg0:    @ice;
-    fg1:    @bg0;
-    fg2:    @dim;
+    xp-title:       #0058ee;
+    xp-title-light: #3a93ff;
+    xp-face:        #ece9d8;
+    xp-white:       #ffffff;
+    xp-text:        #000000;
+    xp-shadow:      #aca899;
+    xp-dark-shadow: #716f64;
+    xp-border:      #7f9db9;
+    xp-select:      #316ac5;
+    xp-select-alt:  #4a8ef5;
+    xp-light:       #f5f4ea;
+    xp-disabled:    #808080;
+    xp-alert:       #cc0000;
 
     background-color: transparent;
-    text-color:       @fg0;
+    text-color:       @xp-text;
 
     margin:  0;
     padding: 0;
@@ -28,26 +26,27 @@
 }
 
 window {
-    background-color: @bg0;
+    background-color: @xp-face;
 
-    border:        3;
-    border-color:  @purple;
-    border-radius: 10;
+    border:        2px;
+    border-color:  @xp-title;
+    border-radius: 0;
 
     location: center;
     width:    640;
 }
 
 inputbar {
-    padding:  12px;
-    spacing:  12px;
+    background-color: @xp-title;
+    padding:  6px;
+    spacing:  8px;
     children: [ icon-search, entry ];
 }
 
 icon-search {
     expand:   false;
     filename: "search";
-    size:     28px;
+    size:     24px;
 }
 
 icon-search, entry, element-icon, element-text {
@@ -55,67 +54,80 @@ icon-search, entry, element-icon, element-text {
 }
 
 entry {
-    font: inherit;
+    font: "JetBrainsMono Nerd Font 16";
 
-    placeholder:       "Search";
-    placeholder-color: @fg2;
-    text-color:        @cyan;
+    padding: 4px 6px;
+
+    background-color: @xp-white;
+    text-color:       @xp-text;
+
+    placeholder:       "Type to search...";
+    placeholder-color: @xp-disabled;
+
+    border:        1px;
+    border-color:  @xp-border;
+    border-radius: 0;
 }
 
 message {
-    border:           2px 0 0;
-    border-color:     @magenta;
-    background-color: @bg1;
+    background-color: @xp-face;
+    border:           1px 0 0;
+    border-color:     @xp-shadow;
 }
 
 textbox {
-    padding: 8px 24px;
+    text-color: @xp-text;
+    padding:    8px 16px;
 }
 
 listview {
+    background-color: @xp-white;
+
     lines:   10;
     columns: 1;
 
     fixed-height: false;
     border:       1px 0 0;
-    border-color: @magenta;
+    border-color: @xp-border;
+    padding:      2px;
 }
 
 element {
-    padding:          8px 16px;
-    spacing:          16px;
+    padding:          5px 8px;
+    spacing:          8px;
     background-color: transparent;
+    text-color:       @xp-text;
 }
 
 element normal.normal {
-    background-color: transparent;
-    text-color:       @ice;
+    background-color: @xp-white;
+    text-color:       @xp-text;
 }
 
 element alternate.normal {
-    background-color: @bg1;
-    text-color:       @ice;
+    background-color: @xp-light;
+    text-color:       @xp-text;
 }
 
 element normal active {
-    background-color: transparent;
-    text-color:       @cyan;
+    background-color: @xp-light;
+    text-color:       @xp-text;
 }
 
 element alternate active {
-    background-color: @bg1;
-    text-color:       @cyan;
+    background-color: @xp-white;
+    text-color:       @xp-text;
 }
 
 element normal urgent,
 element alternate urgent {
-    text-color: @pink;
+    text-color: @xp-alert;
 }
 
 element selected.normal,
 element selected.active {
-    background-color: @bg2;
-    text-color:       #0d0221;
+    background-color: @xp-select;
+    text-color:       @xp-white;
 }
 
 element-icon {
@@ -124,4 +136,18 @@ element-icon {
 
 element-text {
     text-color: inherit;
+}
+
+scrollbar {
+    width:            12px;
+    background-color: @xp-face;
+    border-left:      1px;
+    border-color:     @xp-shadow;
+}
+
+handle {
+    background-color: @xp-select;
+    border:           1px;
+    border-color:     @xp-title;
+    border-radius:    0;
 }
