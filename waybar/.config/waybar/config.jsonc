@@ -16,7 +16,6 @@
 		"sway/mode"
 	],
 	"modules-center": [
-		"clock",
 	],
 	"modules-right": [
 		"custom/vpn",
@@ -25,9 +24,10 @@
 		"pulseaudio",
 		"temperature",
 		"battery",
-		"tray",
+		"clock",
 		"custom/dunst",
 		"idle_inhibitor",
+		"tray",
 	],
 	"ext/workspaces": {
 		"format": "{id}",
@@ -115,9 +115,10 @@
 			"on-discharging-critical": "notify-send -u critical 'Very Low Battery'",
 			"on-charging-100": "notify-send -u normal 'Battery Full!'",
 			"on-discharging": "notify-send -u normal 'Power Switch' Discharging",
-			"on-charging": "notify-send -u normal 'Power Switch' Charging'"
+			"on-charging": "notify-send -u normal 'Power Switch' Charging"
 		},
 		"format": "{icon} {capacity}%",
+		"format-charging": " {capacity}%",
 		"format-icons": ["", "", "", "", ""],
 		"max-length": 25,
 		"weighted-average": true,
