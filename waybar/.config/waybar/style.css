@@ -118,6 +118,10 @@ label:focus {
     background-color: @bg;
 }
 
+menuitem label {
+    font-family: "Cantarell";
+}
+
 /* #clock { */
 /*     color: @ice; */
 /*     text-shadow: 0 0 8px @magenta; */
