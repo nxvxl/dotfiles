@@ -18,11 +18,7 @@ install_packages() {
     base-devel \
     sddm \
     sway \
-    swaybg \
-    swayidle \
-    swaylock \
-    swayosd \
-    waybar \
+    noctalia \
     xdg-desktop-portal \
     xdg-desktop-wlr \
     qt5-wayland \

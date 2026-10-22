@@ -125,3 +125,5 @@ element-icon {
 element-text {
     text-color: inherit;
 }
+
+@theme "./noctalia.rasi"

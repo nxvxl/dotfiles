@@ -17,6 +17,7 @@ set $right l
 set $term kitty
 # Your preferred application launcher
 set $menu rofi -show drun -show-icons
+set $ipc noctalia msg
 
 ### Appearance (80s neon theme)
 #
@@ -39,6 +40,7 @@ set $menu rofi -show drun -show-icons
 
 # Borders and gaps (match hypr/mango)
 default_border pixel 4
+default_floating_border normal 4
 gaps inner 0
 gaps outer 0
 smart_gaps on
@@ -50,7 +52,7 @@ title_align center
 floating_maximum_size 1280 x 720
 for_window [floating] move absolute position center
 for_window [app_id="com.github.hluk.copyq"] floating enable, resize set width 600px height 600px
-for_window [app_id="flameshot"] floating enable, resize set width 600px height 180px
+for_window [app_id="flameshot" title="Capture Launcher"] floating enable, resize set width 600px height 180px
 
 
 ### Output configuration
@@ -105,12 +107,15 @@ input type:touchpad {
     # Kill focused window
     bindsym $mod+Shift+q kill
 
-    # Start your launcher
-    bindsym $mod+a exec $menu
-    bindsym $mod+Shift+a exec rofi -show run
+	# noctalia keybind
+    bindsym $mod+a exec noctalia msg panel-toggle launcher
+    bindsym $mod+period exec noctalia msg panel-toggle control-center
+    bindsym $mod+comma exec noctalia msg settings-toggle
+    bindsym $mod+Shift+v exec noctalia msg panel-toggle clipboard
+    bindsym $mod+Escape exec noctalia msg panel-toggle session
 
-    # Open clipboard history with Mod + V
-    bindsym $mod+Shift+v exec copyq toggle
+    # Start your launcher
+    bindsym $mod+Shift+a exec rofi -show run
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -175,6 +180,15 @@ input type:touchpad {
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+
+
+    bindsym $mod+Tab workspace next
+    bindsym $mod+Shift+Tab workspace prev
+
+    bindgesture swipe:left workspace next
+    bindgesture swipe:right workspace prev
+
+
 #
 # Layout stuff:
 #
@@ -237,32 +251,16 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-set $session_menu "[P]ower off | [R]estart | [S]uspend | [L]ock | [E]xit"
-mode $session_menu {
-	bindsym p exec systemctl poweroff ; mode "default"
-	bindsym r exec systemctl reboot ; mode "default"
-	bindsym e exit ; mode "default"
-	bindsym l exec loginctl lock-session ; mode "default"
-	bindsym s exec systemctl suspend ; mode "default"
-
-	bindsym Return mode "default"
-	bindsym Escape mode "default"
-}
-bindsym $mod+Escape exec ~/.dotfiles/bin/power-menu.sh
-
 #
 # Utilities:
 #
-    # Special keys to adjust volume via PulseAudio
-    # bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
-    # bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
-    # bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
-    # bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
-
-    bindsym --locked XF86AudioMute exec swayosd-client --output-volume mute-toggle
-    bindsym --locked XF86AudioLowerVolume exec swayosd-client --output-volume lower
-    bindsym --locked XF86AudioRaiseVolume exec swayosd-client --output-volume raise
-    bindsym --locked XF86AudioMicMute exec swayosd-client --input-volume mute-toggle
+    # Media keys
+    bindsym --locked XF86AudioRaiseVolume exec $ipc volume-up
+    bindsym --locked XF86AudioLowerVolume exec $ipc volume-down
+    bindsym --locked XF86AudioMute exec $ipc volume-mute
+    bindsym --locked XF86AudioMicMute exec $ipc mic-mute
+    bindsym --locked XF86MonBrightnessUp exec $ipc brightness-up
+    bindsym --locked XF86MonBrightnessDown exec $ipc brightness-down
 
     # Special keys to control media via playerctl
     bindsym --locked XF86AudioPlay exec playerctl play-pause
@@ -271,37 +269,15 @@ bindsym $mod+Escape exec ~/.dotfiles/bin/power-menu.sh
     bindsym --locked XF86AudioNext exec playerctl next
     bindsym --locked XF86AudioStop exec playerctl stop
 
-    # Special keys to adjust brightness via brightnessctl
-    bindsym --locked XF86MonBrightnessDown exec swayosd-client --brightness lower
-    bindsym --locked XF86MonBrightnessUp exec swayosd-client --brightness raise
-
     bindsym Print exec flameshot gui
     bindsym $mod+Print exec flameshot launcher
 
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
-# bar {
-#     position top
-# 
-#     # When the status_command prints a new line to stdout, swaybar updates.
-#     # The default just shows the current date and time.
-#     status_command i3blocks
-# 
-#     colors {
-#         statusline #ffffff
-#         background #323232
-#         inactive_workspace #32323200 #32323200 #5c5c5c
-#     }
-# }
-
 # Autostart
-exec nm-applet
-exec waybar
-exec swayidle -w 
-exec swayosd-server
-exec copyq
 exec flameshot
+exec noctalia
+
 
 include /etc/sway/config.d/*
+
+
+include ~/.config/sway/noctalia
