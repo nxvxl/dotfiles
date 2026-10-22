@@ -58,7 +58,7 @@ for_window [app_id="flameshot" title="Capture Launcher"] floating enable, resize
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/Pictures/wallpaper.jpg fill
+# output * bg ~/Pictures/wallpaper.jpg fill
 #
 # Example configuration:
 #

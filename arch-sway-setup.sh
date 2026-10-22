@@ -20,7 +20,7 @@ install_packages() {
     sway \
     noctalia \
     xdg-desktop-portal \
-    xdg-desktop-wlr \
+    xdg-desktop-portal-wlr \
     qt5-wayland \
     qt6-wayland \
     rofi \
@@ -28,6 +28,7 @@ install_packages() {
     flatpak \
     firefox \
     fish \
+    flameshot \
     fzf \
     git \
     keepassxc \
@@ -85,7 +86,7 @@ setup_dotfiles() {
   # Change to dotfiles directory to run stow
   cd "$HOME/.dotfiles"
 
-  stow --adopt -t "$HOME" sway waybar rofi dunst kitty nvim fish keepassxc
+  stow --adopt -t "$HOME" sway noctalia kitty nvim fish keepassxc _profile
   git restore .
 }
 
@@ -96,6 +97,9 @@ configure_user() {
   sudo usermod -s /bin/fish "$(whoami)"
   echo "Adding user to docker group..."
   sudo usermod -aG docker "$(whoami)"
+
+  echo "Enabling SDDM..."
+  sudo systemctl enable --now sddm
 }
 
 # Main execution flow
