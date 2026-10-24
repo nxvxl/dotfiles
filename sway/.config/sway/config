@@ -39,13 +39,13 @@ set $ipc noctalia msg
 #client.background       $bg
 
 # Borders and gaps (match hypr/mango)
-default_border pixel 4
-default_floating_border normal 4
+default_border pixel 2
+default_floating_border normal 2
 gaps inner 0
 gaps outer 0
 smart_gaps on
 hide_edge_borders smart
-font pango:JetBrainsMono Nerd Font 12
+font pango:JetBrainsMono Nerd Font 10
 
 title_align center
 
@@ -106,6 +106,7 @@ input type:touchpad {
 
     # Kill focused window
     bindsym $mod+Shift+q kill
+    bindsym Mod1+F4 kill
 
 	# noctalia keybind
     bindsym $mod+a exec noctalia msg panel-toggle launcher
@@ -273,11 +274,11 @@ bindsym $mod+r mode "resize"
     bindsym $mod+Print exec flameshot launcher
 
 # Autostart
+exec --no-startup-id sh -lc '[ -x /usr/libexec/pam_kwallet_init ] && /usr/libexec/pam_kwallet_init'
+exec --no-startup-id kded6
 exec flameshot
+exec keepassxc
 exec noctalia
 
-
 include /etc/sway/config.d/*
-
-
 include ~/.config/sway/noctalia

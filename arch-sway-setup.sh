@@ -23,6 +23,11 @@ install_packages() {
     xdg-desktop-portal-wlr \
     qt5-wayland \
     qt6-wayland \
+    nwg-look \
+    qt6ct \
+    breeze-gtk \
+    breeze-icons \
+    breeze-cursors \
     rofi \
     docker \
     flatpak \
