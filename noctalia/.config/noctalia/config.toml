@@ -3,19 +3,9 @@ config_version = 15
 [bar.default]
 capsule = true
 center = []
-end = [
-    "tray",
-    "notifications",
-    "clipboard",
-    "network",
-    "bluetooth",
-    "volume",
-    "brightness",
-    "battery",
-    "clock",
-    "control-center",
-    "session"
-]
+end = [ "group:g1", "tray", "notifications", "volume", "brightness", "caffeine", "network", "battery", "clock", "session" ]
+start = [ "launcher", "workspaces" ]
+
 margin_ends = 0
 position = "bottom"
 radius = 0
@@ -23,33 +13,47 @@ radius_top_left = 0
 radius_top_right = 0
 shadow = false
 
+    [[bar.default.capsule_group]]
+    accordion = true
+    accordion_direction = "end"
+    border = "surface"
+    border_width = 1.0
+    enabled = true
+    fill = "surface"
+    id = "g1"
+    members = [ "cpu", "ram", "sysmon", "temp" ]
+    opacity = 1.0
+    padding = 6.0
+    widget_spacing = 8
+
 [notification]
 position = "bottom_right"
+border_color = "primary"
+offset_x = 16
+scale = 0.9
+show_actions = false
+
+[osd]
+position = "bottom_center"
+position_vertical = "bottom_center"
+
+[shell]
+font_family = "Noto Sans"
+
+  [shell.screenshot]
+  annotate = true
+  confirm_region = true
 
 [theme]
 builtin = "Catppuccin"
 community_palette = "Breeze"
+mode = "dark"
 source = "community"
 wallpaper_scheme = "m3-fruit-salad"
 
-[theme.templates]
-builtin_ids = [ "gtk3", "gtk4", "kcolorscheme", "kitty", "qt", "sway" ]
-community_ids = [ "neovim", "rofi" ]
-
-[wallpaper.default]
-path = "/home/noval/Pictures/wallpaper.jpg"
-
-[wallpaper.last]
-path = "/home/noval/Pictures/wallpaper.jpg"
-
-[wallpaper.monitors.eDP-1]
-path = "/home/noval/Pictures/wallpaper.jpg"
-
-[widget.clock]
-format = "{:%b %d, %H:%M}"
-
-[widget.taskbar]
-capsule = false
+    [theme.templates]
+    builtin_ids = [ "gtk3", "gtk4", "kcolorscheme", "kitty", "mango", "qt", "sway" ]
+    community_ids = [ "neovim", "rofi", "konsole", "tmux" ]
 
 [idle]
 behavior_order = ["lock", "screen-off", "suspend"]
@@ -66,3 +70,35 @@ action = "screen_off"       # turns monitors off, and back on when you return
 [idle.behavior.suspend]
 timeout = 900
 action = "lock_and_suspend" # or action = "suspend" with lock_before_suspend = false
+
+[widget.clock]
+format = "{:%b %d, %H:%M}"
+
+[widget.cpu]
+visualization = "none"
+
+[widget.media]
+capsule = false
+
+[widget.network]
+show_vpn_label = true
+
+[widget.ram]
+stat = "ram_pct"
+visualization = "none"
+
+[widget.sysmon]
+stat = "gpu_usage"
+visualization = "none"
+
+[widget.taskbar]
+capsule = true
+capsule_padding = 8
+only_active_workspace = true
+
+[widget.temp]
+visualization = "none"
+
+[widget.workspaces]
+empty_color = "surface_variant"
+occupied_color = "surface_variant"

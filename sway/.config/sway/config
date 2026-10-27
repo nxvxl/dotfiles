@@ -19,6 +19,8 @@ set $term kitty
 set $menu rofi -show drun -show-icons
 set $ipc noctalia msg
 
+set $border 2
+
 ### Appearance (80s neon theme)
 #
 # Color palette
@@ -39,15 +41,16 @@ set $ipc noctalia msg
 #client.background       $bg
 
 # Borders and gaps (match hypr/mango)
-default_border pixel 2
-default_floating_border normal 2
+default_border pixel $border
+default_floating_border normal $border
 gaps inner 0
 gaps outer 0
 smart_gaps on
-hide_edge_borders smart
+hide_edge_borders --i3 smart
 font pango:JetBrainsMono Nerd Font 10
 
 title_align center
+titlebar_border_thickness $border
 
 floating_maximum_size 1280 x 720
 for_window [floating] move absolute position center
@@ -208,7 +211,7 @@ input type:touchpad {
     bindsym $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
+    bindsym $mod+Shift+space floating toggle; [floating] border normal $border; [tiling] border pixel $border
 
     # Swap focus between the tiling area and the floating area
     bindsym $mod+space focus mode_toggle
