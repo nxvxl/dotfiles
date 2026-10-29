@@ -37,7 +37,8 @@ hl.monitor({
 -- Set programs that you use
 local terminal    = "kitty"
 local fileManager = "thunar"
-local menu = "rofi -show drun -show-icons"
+local menu = "noctalia msg panel-toggle launcher"
+local ipc = "noctalia msg "
 
 
 -------------------
@@ -51,10 +52,8 @@ local menu = "rofi -show drun -show-icons"
 --
 hl.on("hyprland.start", function () 
   hl.exec_cmd("/usr/lib/hyprpolkitagent/hyprpolkitagent")
-  hl.exec_cmd("hypridle")
-  hl.exec_cmd("swaybg -i ~/Pictures/wallpaper.jpg")
   hl.exec_cmd("nm-applet")
-  hl.exec_cmd("waybar")
+  hl.exec_cmd("noctalia")
 end)
 
 
@@ -95,8 +94,8 @@ hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
     general = {
-        gaps_in  = 5,
-        gaps_out = 10,
+        gaps_in  = 0,
+        gaps_out = 0,
 
         border_size = 4,
 
@@ -113,11 +112,11 @@ hl.config({
         -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
         allow_tearing = false,
 
-        layout = "dwindle",
+        layout = "scrolling",
     },
 
     decoration = {
-        rounding       = 6,
+        rounding       = 0,
         rounding_power = 2,
 
         -- Change transparency of focused and unfocused windows
@@ -125,7 +124,7 @@ hl.config({
         inactive_opacity = 1.0,
 
         shadow = {
-            enabled      = true,
+            enabled      = false,
             range        = 5,
             render_power = 3,
             -- subtle neon magenta glow
@@ -209,6 +208,8 @@ hl.config({
 hl.config({
     scrolling = {
         fullscreen_on_one_column = true,
+	column_width = 1.0,
+	explicit_column_widths = "0.5,1.0",
     },
 })
 
@@ -289,15 +290,20 @@ end
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
-local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
--- closeWindowBind:set_enabled(false)
-hl.bind(mainMod .. " + ESCAPE", hl.dsp.exec_cmd("rofi -show power-menu -modi power-menu:rofi-power-menu"))
+hl.bind(secondMod .. " + Q", hl.dsp.window.close())
+hl.bind(mainMod .. " + ESCAPE", hl.dsp.exec_cmd(ipc .. "panel-toggle session"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
-hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mainMod .. " + V", hl.dsp.exec_cmd(ipc .. "panel-toggle clipboard"))
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + SHIFT + A", hl.dsp.exec_cmd("rofi -show run"))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
+
+hl.bind(mainMod .. " + W", hl.dsp.layout("colresize +conf"))    -- scrolling only
+hl.bind(mainMod .. " + COMMA", hl.dsp.exec_cmd(ipc .. "settings-toggle"))
+
+
+
 
 -- Move focus with mainMod + arrow keys
 -- hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
@@ -336,7 +342,7 @@ hl.bind(secondMod .. " + F",  hl.dsp.window.float({}))
 
 hl.bind(mainMod .. " + G",  hl.dsp.group.toggle({}))
 
-hl.bind("SUPER + tab", function ()
+hl.bind("SUPER + N", function ()
     local layouts     = { "scrolling", "dwindle", "master", "monocle" }
     local workspace   = hl.get_active_workspace()
 	if hl.get_active_special_workspace() then
@@ -458,3 +464,6 @@ hl.window_rule({
     move  = "20 monitor_h-120",
     float = true,
 })
+
+-- For Noctalia Color templates
+require("noctalia").apply_theme()
