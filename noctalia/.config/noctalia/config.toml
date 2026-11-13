@@ -3,7 +3,7 @@ config_version = 15
 [bar.default]
 capsule = true
 center = []
-end = [ "group:g1", "tray", "notifications", "volume", "brightness", "caffeine", "network", "battery", "clock", "session" ]
+end = [ "group:g1", "network", "tray", "notifications", "caffeine", "volume", "brightness", "battery", "clock", "session" ]
 start = [ "launcher", "workspaces" ]
 
 margin_ends = 0
@@ -32,6 +32,7 @@ border_color = "primary"
 offset_x = 16
 scale = 0.9
 show_actions = false
+keep_dismissed_in_history = false
 
 [osd]
 position = "bottom_center"
@@ -70,6 +71,7 @@ action = "screen_off"       # turns monitors off, and back on when you return
 [idle.behavior.suspend]
 timeout = 900
 action = "lock_and_suspend" # or action = "suspend" with lock_before_suspend = false
+enabled = false
 
 [widget.clock]
 format = "{:%b %d, %H:%M}"

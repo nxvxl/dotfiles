@@ -52,6 +52,8 @@ font pango:JetBrainsMono Nerd Font 10
 title_align center
 titlebar_border_thickness $border
 
+workspace_layout tabbed
+
 floating_maximum_size 1280 x 720
 for_window [floating] move absolute position center
 for_window [app_id="com.github.hluk.copyq"] floating enable, resize set width 600px height 600px
@@ -115,7 +117,7 @@ input type:touchpad {
     bindsym $mod+a exec noctalia msg panel-toggle launcher
     bindsym $mod+period exec noctalia msg panel-toggle control-center
     bindsym $mod+comma exec noctalia msg settings-toggle
-    bindsym $mod+Shift+v exec noctalia msg panel-toggle clipboard
+    bindsym $mod+v exec noctalia msg panel-toggle clipboard
     bindsym $mod+Escape exec noctalia msg panel-toggle session
 
     # Start your launcher
@@ -199,8 +201,8 @@ input type:touchpad {
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
+    bindsym $mod+backslash splith
+    bindsym $mod+bar splitv
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
@@ -273,13 +275,12 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86AudioNext exec playerctl next
     bindsym --locked XF86AudioStop exec playerctl stop
 
-    bindsym Print exec flameshot gui
-    bindsym $mod+Print exec flameshot launcher
+    bindsym Print exec $ipc screenshot-region
 
 # Autostart
 exec --no-startup-id sh -lc '[ -x /usr/libexec/pam_kwallet_init ] && /usr/libexec/pam_kwallet_init'
+exec lxpolkit
 exec --no-startup-id kded6
-exec flameshot
 exec keepassxc
 exec noctalia
 
