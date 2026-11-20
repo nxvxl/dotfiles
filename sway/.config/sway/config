@@ -113,6 +113,7 @@ input type:touchpad {
     bindsym $mod+Shift+q kill
     bindsym Mod1+F4 kill
 
+    bindsym Mod1+Space exec ~/.dotfiles/bin/action-control.py
 	# noctalia keybind
     bindsym $mod+a exec noctalia msg panel-toggle launcher
     bindsym $mod+period exec noctalia msg panel-toggle control-center

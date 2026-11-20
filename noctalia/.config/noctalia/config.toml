@@ -83,7 +83,9 @@ visualization = "none"
 capsule = false
 
 [widget.network]
-show_vpn_label = true
+show_vpn_label = false
+show_label = false
+peek = true
 
 [widget.ram]
 stat = "ram_pct"
@@ -104,3 +106,6 @@ visualization = "none"
 [widget.workspaces]
 empty_color = "surface_variant"
 occupied_color = "surface_variant"
+
+[brightness]
+enable_ddcutil = true
